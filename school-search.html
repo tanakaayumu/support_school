@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スクマ！ - 学校検索サイト</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="school-search-page">
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                  </div>
+        
+              <div class="header-actions">
+                <div class="user-nav">
+                    <a href="#" class="user-nav-item">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>お気に入り</span>
+                    </a>
+                    <a href="#" class="user-nav-item">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>メニュー</span>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </header>
+
+    </header>
+
+    <main>
+        <div class="search-container">
+            <div class="search-form-section">
+                <h2 class="search-subtitle">通学時間で検索</h2>
+                
+                <form id="schoolSearchForm" action="#" method="GET">
+                    <div class="search-group">
+                        <h3 class="search-group-title">別学／共学</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="gender" value="boys"> 男子校</label>
+                            <label><input type="checkbox" name="gender" value="girls"> 女子校</label>
+                            <label><input type="checkbox" name="gender" value="coed"> 共学校</label>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">私立／国公立</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="type" value="private"> 私立</label>
+                            <label><input type="checkbox" name="type" value="public"> 公立</label>
+                            <label><input type="checkbox" name="type" value="national"> 国立</label>
+                        </div>
+                    </div>
+
+                    <div class="search-group commute-section">
+                        <h3 class="search-group-title">通学</h3>
+
+                        <div class="input-row">
+                            <input type="text" class="station-input" placeholder="自宅の最寄駅">
+                            <span class="input-label">駅から</span>
+                            <select class="time-select">
+                                <option selected>校門まで</option>
+                            </select>
+                        </div>
+                        
+                        <div class="commute-options">
+                            <div class="option-row">
+                                <span class="option-label">所要時間</span>
+                                <select class="option-select">
+                                    <option>上限なし</option>
+                                </select>
+                            </div>
+                            <div class="option-row">
+                                <span class="option-label">乗換回数</span>
+                                <select class="option-select">
+                                    <option>こだわらない</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="home-time-option">
+                            <span class="option-label">自宅最寄り駅の出発時刻</span>
+                            <select class="option-select">
+                                <option>指定しない</option>
+                            </select>
+                        </div>
+                        <p class="option-note">指定すると、その出発時刻で登校に間に合う学校を検索します</p>
+                    </div>
+
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">学校名</h3>
+                        <input type="text" class="school-name-input" placeholder="学校名の一部でも可">
+                    </div>
+
+
+
+                    <div class="search-button-container">
+                        <a href="school-list.html" class="search-button">この条件で学校を検索</a>
+                    </div>
+                </form>
+
+
+                <div class="search-area-list">
+                    <p>東京・神奈川・埼玉・千葉・栃木・茨城の学校に対応</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310キャンパス</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

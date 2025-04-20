@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西荻窪から３０分以内の学校一覧 | サービス名</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .search-condition {
+            background-color: #fff;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .condition-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .condition-row:last-child {
+            border-bottom: none;
+        }
+        .condition-label {
+            width: 80px;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .condition-value {
+            flex: 1;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+        .change-button {
+            color: #1976d2;
+            font-size: 12px;
+            padding: 5px 15px;
+        }
+        .result-count {
+            padding: 10px 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-count {
+            color: #ff6600;
+            font-weight: bold;
+        }
+        .filter-button {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .filter-button i {
+            margin-right: 5px;
+        }
+        .school-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .recommend-badge {
+            background-color: #ff6600;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0 0 5px 0;
+        }
+        .school-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .school-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .rating-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .stars {
+            color: #ff9800;
+            margin-right: 5px;
+        }
+        .rating-score {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .review-count {
+            color: #666;
+            font-size: 12px;
+        }
+        .favorite-button {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #ddd;
+            font-size: 24px;
+        }
+        .school-access {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .map-link {
+            margin-left: 10px;
+            color: #1976d2;
+            font-size: 12px;
+        }
+        .school-info {
+            padding: 15px;
+            font-size: 12px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tag {
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            padding: 2px 5px;
+            white-space: nowrap;
+        }
+        .school-description {
+            padding: 0 15px 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .photo-gallery {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        .gallery-image {
+            width: 200px;
+            height: 150px;
+            flex-shrink: 0;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .review-box {
+            background-color: #fff9e3;
+            padding: 15px;
+            position: relative;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #f5f5f5;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        .review-rating {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .review-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .read-more {
+            text-align: right;
+            font-size: 12px;
+            color: #1976d2;
+        }
+        .action-buttons {
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        .action-button {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            color: white;
+        }
+        .details-button {
+            background-color: #1976d2;
+        }
+        .price-button {
+            background-color: #ff6600;
+        }
+        .page-heading {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        .breadcrumb a {
+            color: #1976d2;
+        }
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        .info-table {
+            margin-bottom: 15px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                  </div>
+        
+              <div class="header-actions">
+                <div class="user-nav">
+                    <a href="#" class="user-nav-item">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>お気に入り</span>
+                    </a>
+                    <a href="#" class="user-nav-item">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>メニュー</span>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </header>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="#">サービス名</a>
+            <span class="separator">＞</span>
+            <span>検索</span>
+        </div>
+
+        <h1 class="page-heading">西荻窪から３０分以内の学校一覧</h1>
+
+        <div class="search-condition">
+            <div class="condition-row">
+                <div class="condition-label">駅</div>
+                <div class="condition-value">西荻窪駅</div>
+                <a href="#" class="change-button">変更 ＞</a>
+            </div>
+            <div class="condition-row">
+                <div class="condition-label">学年</div>
+                <div class="condition-value">高2</div>
+                <a href="#" class="change-button">変更 ＞</a>
+            </div>
+            <div class="condition-row">
+                <div class="condition-label">詳細条件</div>
+                <div class="condition-value">選択してください</div>
+                <a href="#" class="change-button">変更 ＞</a>
+            </div>
+        </div>
+
+        <div class="result-count">
+            <div>1～30件/全<span class="total-count">178</span>件</div>
+            <a href="#" class="filter-button">
+                <i class="fas fa-filter"></i>
+                一覧を絞り込む
+            </a>
+        </div>
+
+        <div class="school-card">
+            <div class="recommend-badge">サービス名オススメ</div>
+            <div class="school-header" style="position: relative;">
+                <h2 class="school-title">トライ式高等学院 大崎校</h2>
+                <div class="rating-area">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <span class="rating-score">3.8</span>
+                    <span class="review-count">(1412)</span>
+                </div>
+                <a href="#" class="favorite-button">
+                    <i class="far fa-heart"></i>
+                </a>
+                <div class="school-access">
+                    <span>西荻窪から校門まで所要30分、乗換0回</span>
+                    <a href="#" class="map-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        地図を見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="school-info">
+                <div class="info-table">
+                    <div class="info-row">
+                        <span class="info-label">学習スタイル</span>
+                        <span class="info-value">登校回数選択可能 / ネットコースあり / 個別指導対応</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">サポート体制</span>
+                        <span class="info-value">メンタルサポート / 不登校サポート / 発達障害サポート / 資格取得サポート / 就職サポート</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学校のシステム</span>
+                        <span class="info-value">転入・編入可能 / 大学の指定校推薦あり / 行事・イベントあり / 部活動・同好会活動あり</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-description">
+                完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
+            </div>
+
+            <div class="photo-gallery">
+                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            </div>
+
+            <div class="review-box">
+                <div class="review-header">
+                    <div class="review-icon">
+                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            総合評価：
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="review-text">
+                    うちの場合は個別指導がとても合っていました。ただ、他と比べられることがないので競争心がなくなるので少しのんびりしていたなと思います。クラス分けなどある塾だともう少し危機感がはたと思いますが、そういうのはなかったです。ただ個別なので質問などしやすかったようです
+                </div>
+                <div class="read-more">
+                    <a href="#">続きを読む ＞</a>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
+
+            </div>
+        </div>
+
+        <!-- 通信制高校カード 1 -->
+        <div class="school-card">
+            <div class="recommend-badge">サービス名オススメ</div>
+            <div class="school-header" style="position: relative;">
+                <h2 class="school-title">東京通信制高校</h2>
+                <div class="rating-area">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <span class="rating-score">4.2</span>
+                    <span class="review-count">(345)</span>
+                </div>
+                <a href="#" class="favorite-button">
+                    <i class="far fa-heart"></i>
+                </a>
+                <div class="school-access">
+                    <span>東京駅から校門まで所要30分、乗換1回</span>
+                    <a href="#" class="map-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        地図を見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="school-info">
+                <div class="info-table">
+                    <div class="info-row">
+                        <span class="info-label">学習スタイル</span>
+                        <span class="info-value">登校回数選択可能 / ネットコースあり / 個別指導対応</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">サポート体制</span>
+                        <span class="info-value">メンタルサポート / 不登校サポート / 発達障害サポート / 資格取得サポート / 就職サポート</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学校のシステム</span>
+                        <span class="info-value">転入・編入可能 / 大学の指定校推薦あり / 行事・イベントあり / 部活動・同好会活動あり</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-description">
+                完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
+            </div>
+
+            <div class="photo-gallery">
+                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            </div>
+
+            <div class="review-box">
+                <div class="review-header">
+                    <div class="review-icon">
+                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            総合評価：
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="review-text">
+                    充実したオンライン授業と個別サポートで学習効率を高めます。
+                </div>
+                <div class="read-more">
+                    <a href="#">続きを読む ＞</a>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
+               
+            </div>
+        </div>
+        <!-- 通信制高校カード 2 -->
+        <div class="school-card">
+            <div class="recommend-badge">サービス名オススメ</div>
+            <div class="school-header" style="position: relative;">
+                <h2 class="school-title">日本通信制高校</h2>
+                <div class="rating-area">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <span class="rating-score">3.9</span>
+                    <span class="review-count">(289)</span>
+                </div>
+                <a href="#" class="favorite-button">
+                    <i class="far fa-heart"></i>
+                </a>
+                <div class="school-access">
+                    <span>日本橋から校門まで所要45分、乗換2回</span>
+                    <a href="#" class="map-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        地図を見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="school-info">
+                <div class="info-table">
+                    <div class="info-row">
+                        <span class="info-label">学習スタイル</span>
+                        <span class="info-value">登校回数選択可能 / ネットコースあり / 個別指導対応</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">サポート体制</span>
+                        <span class="info-value">メンタルサポート / 不登校サポート / 発達障害サポート / 資格取得サポート / 就職サポート</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学校のシステム</span>
+                        <span class="info-value">転入・編入可能 / 大学の指定校推薦あり / 行事・イベントあり / 部活動・同好会活動あり</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-description">
+                完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
+            </div>
+
+            <div class="photo-gallery">
+                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            </div>
+
+            <div class="review-box">
+                <div class="review-header">
+                    <div class="review-icon">
+                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            総合評価：
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="review-text">
+                    充実したオンライン授業と個別サポートで学習効率を高めます。
+                </div>
+                <div class="read-more">
+                    <a href="#">続きを読む ＞</a>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
+               
+            </div>
+        </div>
+        <!-- 通信制高校カード 3 -->
+        <div class="school-card">
+            <div class="recommend-badge">サービス名オススメ</div>
+            <div class="school-header" style="position: relative;">
+                <h2 class="school-title">未来通信制高校</h2>
+                <div class="rating-area">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <span class="rating-score">4.5</span>
+                    <span class="review-count">(412)</span>
+                </div>
+                <a href="#" class="favorite-button">
+                    <i class="far fa-heart"></i>
+                </a>
+                <div class="school-access">
+                    <span>秋葉原から校門まで所要25分、乗換0回</span>
+                    <a href="#" class="map-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        地図を見る
+                    </a>
+                </div>
+            </div>
+
+            <div class="school-info">
+                <div class="info-table">
+                    <div class="info-row">
+                        <span class="info-label">学習スタイル</span>
+                        <span class="info-value">登校回数選択可能 / ネットコースあり / 個別指導対応</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">サポート体制</span>
+                        <span class="info-value">メンタルサポート / 不登校サポート / 発達障害サポート / 資格取得サポート / 就職サポート</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学校のシステム</span>
+                        <span class="info-value">転入・編入可能 / 大学の指定校推薦あり / 行事・イベントあり / 部活動・同好会活動あり</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="school-description">
+                完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
+            </div>
+
+            <div class="photo-gallery">
+                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
+                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            </div>
+
+            <div class="review-box">
+                <div class="review-header">
+                    <div class="review-icon">
+                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            総合評価：
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </span>
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="review-text">
+                    充実したオンライン授業と個別サポートで学習効率を高めます。
+                </div>
+                <div class="read-more">
+                    <a href="#">続きを読む ＞</a>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" class="action-button details-button">詳細を見る</a>
+              
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310キャンパス</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

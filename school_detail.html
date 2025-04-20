@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個別教室のトライ 大倉山駅前校 | 学校詳細</title>
+  <!-- 既存CSSの読み込み -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome（アイコン用） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* 生徒の声スライダー初期表示調整 */
+    .voice-item {display:none;}
+    .voice-item:first-child {display:flex;}
+    
+    /* 写真スライダー用スタイル */
+    .photo-slider {
+      position: relative;
+      width: 100%;
+      height: 250px; /* 固定高さを設定 */
+      overflow: hidden;
+    }
+    
+    .photo-slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    .slider-prev {
+      left: 10px;
+    }
+    
+    .slider-next {
+      right: 10px;
+    }
+    
+    /* パンくずリスト */
+    .breadcrumb {
+      padding: 10px 15px;
+      background-color: #fff;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .breadcrumb a {
+      color: #1976d2;
+    }
+    
+    /* キャンペーンバナー調整 */
+    .campaign-top-banner {
+      background-color: #fff;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    
+    .campaign-top-banner img {
+      height: 24px;
+      vertical-align: middle;
+    }
+    
+    /* 塾評価スタイル */
+    .school-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 5px 15px 15px;
+    }
+    
+    .rating-stars {
+      color: #2980b9;
+      font-size: 18px;
+    }
+    
+    .rating-score {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2980b9;
+    }
+    
+    .rating-count {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    /* 塾情報リスト */
+    .school-info-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 15px 15px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.8;
+    }
+    
+    .info-item {
+      flex: 0 0 100%;
+    }
+    
+    /* ヘッダーアイコン調整 */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .header-icon {
+      color: #999;
+      font-size: 20px;
+    }
+    
+    /* メニュー調整 */
+    .menu-button {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* 補足情報エリア */
+    .info-box {
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .info-title {
+      border-left: 4px solid #2980b9;
+      padding-left: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .info-list-item {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .info-list-item::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      color: #2980b9;
+    }
+
+    /* イベント情報 */
+    .event-section {
+      margin-bottom: 20px;
+    }
+
+    .event-title {
+      border-left: 4px solid #2980b9;
+      padding-left: 10px;
+      margin: 10px 0;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    /* カテゴリ表示 */
+    .category-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 15px;
+      background-color: #2980b9;
+      color: white;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body class="school-detail-page">
+
+
+  <!-- ================= ヘッダー ================= -->
+  <header class="detail-header">
+    <header class="site-header">
+        <div class="header-inner">
+          <div class="site-logo">
+            <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+          </div>
+    
+          <div class="header-actions">
+            <div class="user-nav">
+                <a href="#" class="user-nav-item">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>お気に入り</span>
+                </a>
+                <a href="#" class="user-nav-item">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>メニュー</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </header>
+        </div>
+    </div>
+    <nav class="global-nav" id="globalNav">
+      <ul>
+        <li><a href="#">塾トップ</a></li>
+        <li><a href="#intro">詳細レポ</a></li>
+        <li><a href="#courses">コース</a></li>
+        <li><a href="#campus">教室一覧</a></li>
+        <li><a href="#voices">口コミ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= パンくずリスト ================= -->
+  <div class="breadcrumb">
+    <a href="#">サービス名</a> &gt; <a href="#">個別教室のトライ</a>
+  </div>
+
+  <!-- ================= 写真スライダー ================= -->
+  <section class="photo-slider">
+    <img src="https://placehold.jp/800x300.png?text=画像" alt="画像" id="sliderImage">
+    <div class="slider-nav slider-prev"><i class="fas fa-chevron-left"></i></div>
+    <div class="slider-nav slider-next"><i class="fas fa-chevron-right"></i></div>
+  </section>
+
+  <!-- ================= 学校サマリー ================= -->
+  <section class="school-info">
+    <div class="summary-header">
+      <div>
+        <span class="school-label">サポート校</span>
+        <span class="summary-title">トライ高等学院</span>
+      </div>
+      <div class="favorite-btn">
+        <i class="fas fa-heart"></i>
+        <span class="fav-label">登録済み</span>
+      </div>
+    </div>
+
+    <div class="school-rating">
+      <div class="rating-stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <span class="rating-score">3.5</span>
+      <span class="rating-count">(178)</span>
+    </div>
+
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">学習スタイル</span>
+        <span class="info-value">登校回数選択可能 / ネットコースあり / 個別指導対応</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">サポート体制</span>
+        <span class="info-value">メンタルサポート / 不登校サポート / 発達障害サポート / 資格取得サポート / 就職サポート</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">学校のシステム</span>
+        <span class="info-value">転入・編入可能 / 大学の指定校推薦あり / 行事・イベントあり / 部活動・同好会活動あり</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 近くのキャンパスCTA ================= -->
+  <a href="#campus" class="primary-cta">近くのキャンパスを探す</a>
+
+  <!-- ================= タブナビ ================= -->
+  <section class="school-tab-section">
+    <div class="tab-container">
+      <ul class="tab-nav" id="detailTabs">
+        <li class="active"><a href="#">学校トップ</a></li>
+        <li><a href="#intro">詳細レポ</a></li>
+        <li><a href="#courses">コース</a></li>
+        <li><a href="#campus">所在地一覧</a></li>
+        <li><a href="#voices">口コミ</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= おすすめポイント ================= -->
+  <section class="recommend-points">
+    <div class="points-header">
+      <h2 class="section-title">トライ高等学院 大倉山駅前校のおすすめポイント</h2>
+    </div>
+    <ul class="points-list">
+      <li><i class="fas fa-check-circle"></i> 完全マンツーマンだから、勉強が好きになる。</li>
+      <li><i class="fas fa-check-circle"></i> 通学も在宅も自由自在。不登校から大学進学へ。</li>
+      <li><i class="fas fa-check-circle"></i> 卒業率99%超。君の行きたい大学に届く。</li>
+    </ul>
+  </section>
+
+  <!-- ================= おすすめ対象者 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院はこんな人におすすめ</h2>
+
+    <div class="target-card">
+      <h4 class="target-subtitle">勉強への苦手意識を克服したい人</h4>
+      <p class="target-text">トライ式高等学院の授業は完全マンツーマン指導。一人ひとりの理解度に合わせて丁寧に教えるため、基礎から無理なく学び直せます。「授業についていけない」という不安や苦手意識が自信に変わり、勉強が楽しく感じられるようになります。</p>
+      <img src="https://placehold.jp/400x150.png?text=授業風景" alt="授業風景" class="target-image">
+    </div>
+
+    <div class="target-card">
+      <h4 class="target-subtitle">不登校から無理なく復帰したい人</h4>
+      <p class="target-text">「学校に行きたいけど踏み出せない」という方にも、通学・在宅・オンラインの様々な学習スタイルを提供。専門カウンセラーや担任がメンタルケアもサポートし、自分のペースから始めて徐々に通学に慣れることができます。</p>
+    </div>
+
+    <div class="target-card">
+      <h4 class="target-subtitle">高校卒業後の進路に悩んでいる人</h4>
+      <p class="target-text">SP: この文章はダミーです。文字の大きさ、量、行間等を確認するために入れています。</p>
+      <p class="target-text">「将来何をしたいかわからない」「通学できるか不安」といった生徒を徹底支援。卒業率99%を誇る本校では、大学進学率69.2%と進路実績もトップクラスの実績で、生徒一人ひとりの可能性を最大限に引き出します。その先の進路までしっかりと支えます。</p>
+    </div>
+  </section>
+
+  <!-- ================= 口コミセクション ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院の口コミ</h2>
+    
+    <div class="review-card">
+      <div class="reviewer-info">
+        <img src="https://placehold.jp/40x40.png?text=匿名" alt="匿名ユーザー" class="reviewer-icon">
+        <div class="review-meta">
+          <span class="review-badge pickup">評価ピックアップ</span>
+          <div class="review-user-data">
+            <span>高校生 / 東京 / 高校受験</span>
+            <span class="review-date">投稿日: 2022年1月11日</span>
+          </div>
+          <div class="review-rating">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="rating-score">4.0</span>
+          </div>
+        </div>
+      </div>
+      <p class="review-text">うちの場合は完成間近の方式。志望、適切な方法までにおいて利用が良かったかな。結果も、もちろん、十二分だから。また本人が割と気に入りうまくいったと思うし、何より丁寧。うちの子が明らかに感謝しもうそこでも充実した。充実させていただいた特別満足して言います。</p>
+    </div>
+    
+    <div class="review-card">
+      <div class="reviewer-info">
+        <img src="https://placehold.jp/40x40.png?text=匿名" alt="匿名ユーザー" class="reviewer-icon">
+        <div class="review-meta">
+          <span class="review-badge normal">口コミ</span>
+          <div class="review-user-data">
+            <span>高校生 / 東京 / 高校受験</span>
+            <span class="review-date">投稿日: 2022年1月11日</span>
+          </div>
+          <div class="review-rating">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="rating-score">3.5</span>
+          </div>
+        </div>
+      </div>
+      <p class="review-text">うちの場合は完成間近の方式。志望、適切な方法までにおいて利用が良かったかな。結果も、もちろん、十二分だから。また本人が割と気に入りうまくいったと思うし、何より丁寧。うちの子が明らかに感謝しもうそこでも充実した。充実させていただいた特別満足して言います。</p>
+    </div>
+    
+    <a href="#" class="view-more-reviews">トライ高等学院の口コミをもっと見る</a>
+  </section>
+
+  <!-- ================= 高校情報セクション ================= -->
+  <section class="school-info-blocks">
+    <!-- 都道府県情報 -->
+    <div class="info-block">
+        <h2 class="section-title"> トライ式高等学院の都道府県</h2>
+      <p class="info-block-subtitle">全国47都道府県123キャンパスで利用可能！</p>
+    </div>
+    
+    <!-- 学習拠点 -->
+    <div class="info-block">
+        <h2 class="section-title"> トライ式高等学院の学習拠点</h2>
+      <div class="location-info">
+        <p>東京（渋谷校舎）・名古屋東校（千種駅前校）・大阪</p>
+        <p>高松（瓦町駅前校）・札幌、仙台、広島、福岡</p>
+        <p>全国124ヶ所のキャンパス</p>
+      </div>
+    </div>
+    
+    <!-- コース紹介 -->
+    <div class="info-block">
+        <h2 class="section-title"> トライ高等学院のコース</h2>
+      
+      <div class="course-item">
+        <div class="course-icon"><img src="https://placehold.jp/50x50.png?text=特進" alt="特進科"></div>
+        <div class="course-content">
+          <h4 class="course-name">特進科コース <span class="course-sub">（大学進学を目指すコース）</span></h4>
+          <p class="course-description">大学受験を目指す人におすすめしたコース</p>
+        </div>
+        <div class="course-more"><i class="fas fa-chevron-circle-right"></i></div>
+      </div>
+      
+      <div class="course-item">
+        <div class="course-icon"><img src="https://placehold.jp/50x50.png?text=普通" alt="普通科"></div>
+        <div class="course-content">
+          <h4 class="course-name">普通科コース <span class="course-sub">（自分のペースで大学を目指すコース）</span></h4>
+          <p class="course-description"> 学習につまずきがある方や不登校からの復学、高認試験合格を目指すコース</p>
+        </div>
+        <div class="course-more"><i class="fas fa-chevron-circle-right"></i></div>
+      </div>
+      
+      <div class="course-item">
+        <div class="course-icon"><img src="https://placehold.jp/50x50.png?text=ネット" alt="ネット"></div>
+        <div class="course-content">
+          <h4 class="course-name">ネットコース <span class="course-sub">（オンライン型）</span></h4>
+          <p class="course-description">リアとコースは、自宅からオンラインでマンツーマン個別指導を受けられるコース</p>
+        </div>
+        <div class="course-more"><i class="fas fa-chevron-circle-right"></i></div>
+      </div>
+      
+      <div class="course-item">
+        <div class="course-icon"><img src="https://placehold.jp/50x50.png?text=卒業" alt="卒業"></div>
+        <div class="course-content">
+          <h4 class="course-name">高校卒業資格習得コース</h4>
+          <p class="course-description">高校卒業の資格取得を目指すサポートする通信制コース</p>
+        </div>
+        <div class="course-more"><i class="fas fa-chevron-circle-right"></i></div>
+      </div>
+      
+      <div class="view-more-link">
+        <a href="#">トライ高等学院のコースをすべて見る <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+    
+    <!-- 学校生活 -->
+    <div class="info-block">
+        <h2 class="section-title"> トライ式高等学院の学校生活</h2>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">服装・規定</h4>
+        <p class="life-description">なし（自由な格好で登校できます）</p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">クラブ活動</h4>
+        <p class="life-description">バスケットボール、バレーボール、テニス、ダンス、吹奏、軽音部、映画部、ボランティア、英語ラボ、ボードゲーム、イラスト、料理部等</p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">設備</h4>
+        <p class="life-description">Xxxxxxxxxxxx</p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">イベント・学校行事</h4>
+        <p class="life-description">修学旅行・校外学習・修学旅行など。音楽会やイベントや学校祭も実施。選択の幅が多く生徒の関係を深める行動イベントも含まれています。スポーツ関係なども！イベントはオンラインイベントが多いです。参加は任意です。修学旅行は行き先を選べます。</p>
+      </div>
+      
+  <!-- ================= トライ高等学院のイベント情報 ================= -->
+  <div class="info-block">
+    <h2 class="section-title">トライ高等学院のイベント情報</h2>
+    
+    <div class="school-life-item">
+        <h4 class="life-category">春のイベント</h4>
+        <p class="life-description">５月：林間学校</p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">夏のイベント</h4>
+        <p class="life-description">７月・８月：夏休み</p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">秋のイベント</h4>
+        <p class="life-description">１２月・１月：冬休み/p>
+      </div>
+      
+      <div class="school-life-item">
+        <h4 class="life-category">その他のイベント</h4>
+        <p class="life-description">全国に友達をつくれるオンラインイベントも充実しています。
+            参加は完全自由です。
+            ※キャンパスによって内容は異なります。</p>
+      </div>
+  </div>
+      
+      <!-- スクーリング情報 -->
+      <div class="info-block">
+        <h2 class="section-title">トライ式高等学院のスクーリング</h4>
+            <div class="school-life-item">
+                <h4 class="life-category">曜日・日数</h4>
+                <p class="life-description">連携高校の指定の場所で年20日程度のスクーリングを実施。</p>
+              </div>
+              
+              <div class="school-life-item">
+                <h4 class="life-category">場所</h4>
+                <p class="life-description">全国すべての都道府県でスクーリングを実施しています（ただし、秋田県、奈良県、鳥取県の3県を除く）</p>
+              </div>
+              
+              <div class="school-life-item">
+                <h4 class="life-category">その他スクーリング情報</h4>
+                <p class="life-description">①スクーリングは自宅からの日帰り（宿泊はありません）
+                    ②集団が苦手な生徒は、個別での対応も可能です。お気軽にご相談ください。</p>
+              </div>
+              
+              <div class="school-life-item">
+                <h4 class="life-category">その他のイベント</h4>
+                <p class="life-description">全国に友達をつくれるオンラインイベントも充実しています。
+                    参加は完全自由です。
+                    ※キャンパスによって内容は異なります。</p>
+              </div>
+      </div>
+      
+      <!-- 提携学校情報 -->
+      <div class="info-block">
+        <h2 class="section-title"> トライ式高等学院と提携している通信制学校</h2>
+        <div class="partner-schools">
+          <div class="partner-school-card">
+            <div class="school-logo">鹿島学園<br>のトライ</div>
+            <div class="school-info">
+              <a href="#" class="school-name">鹿島学園高等学校</a>
+              <p class="school-desc">都道府県の情報を見せたい・高校生 / 完全個別指導</p>
+              <a href="#" class="school-review"><i class="far fa-comment"></i> 口コミ（2325）</a>
+            </div>
+          </div>
+
+          <div class="partner-school-card">
+            <div class="school-logo">鹿島朝日<br>のトライ</div>
+            <div class="school-info">
+              <a href="#" class="school-name">鹿島朝日高等学校</a>
+              <p class="school-desc">高校生・高卒生 / 完全個別指導</p>
+              <a href="#" class="school-review"><i class="far fa-comment"></i> 口コミ（2325）</a>
+            </div>
+          </div>
+
+          <div class="partner-school-card">
+            <div class="school-logo">日本航空<br>のトライ</div>
+            <div class="school-info">
+              <a href="#" class="school-name">日本航空学園</a>
+              <p class="school-desc">高校生・高卒生 / 完全個別指導</p>
+              <a href="#" class="school-review"><i class="far fa-comment"></i> 口コミ（2325）</a>
+            </div>
+          </div>
+
+          <div class="partner-school-card">
+            <div class="school-logo">ルネサンス<br>のトライ</div>
+            <div class="school-info">
+              <a href="#" class="school-name">ルネサンス大阪高等学校</a>
+              <p class="school-desc">高校生・高卒生 / 完全個別指導</p>
+              <a href="#" class="school-review"><i class="far fa-comment"></i> 口コミ（2325）</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 募集要項 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の募集要項</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">募集人員</span>
+        <span class="info-value">キャンパスごとに定員がございます。詳しくはお問い合わせください。</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">出願資格</span>
+        <span class="info-value">Xxxxx</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">出願期間</span>
+        <span class="info-value">新入学：<br>編入学：<br>転入学：</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">出願方法</span>
+        <span class="info-value">Xxxxxx</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">選考方法</span>
+        <span class="info-value">面接／作文</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 学費 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の学費</h2>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-label">入学金</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">授業料</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">行事運営費</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">施設・設備費</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">システム費</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">その他</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">合計</span>
+        <span class="info-value">-</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">備考</span>
+        <span class="info-value">授業料やその他の費用はコース・単位数などによって異なります。各種支援制度あり。詳しくはお問い合わせください。</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 就学支援金 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の就学支援金の適用</h2>
+    <div class="support-info">
+      <p>あり</p>
+      <p class="note">※就学支援金制度は、提携する通信制高校の費用に適用できます。</p>
+    </div>
+  </section>
+
+  <!-- ================= 卒業資格 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の高校卒業資格の取得</h2>
+    <div class="support-info">
+      <p>提携先の通信制高校で取得できます。</p>
+    </div>
+  </section>
+
+  <!-- ================= 取得可能な資格・スキル ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の取得可能な資格やスキル</h2>
+    <div class="support-info qualification-list">
+      <div class="qualification-badge">
+      </div>
+      <ul class="skill-list">
+        <li>ITパスポート</li>
+        <li>簿記</li>
+        <li>秘書検定</li>
+        <li>色彩検定</li>
+        <li>危険物取扱者</li>
+        <li>など</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 卒業率と進路 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ式高等学院の卒業率と卒業後の進路</h2>
+    <div class="support-info">
+      <div class="progress-info">
+        <h3 class="progress-title"><i class="fas fa-graduation-cap"></i> 卒業率</h3>
+        <p class="progress-value">99.2%</p>
+      </div>
+      
+      <div class="progress-info">
+        <h3 class="progress-title"><i class="fas fa-route"></i> 進路実績</h3>
+        <ul class="progress-list">
+          <li>・大学進学：68.7%</li>
+          <li>・就職、専門学校：31.3%</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 合格実績 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院の合格実績</h2>
+    <div class="support-info">
+      <ul class="university-list">
+        <li class="university-item">
+          <span class="university-badge"><i class="fas fa-star"></i></span>
+          <span class="university-name">横浜国立大学 医学部</span>
+          <span class="university-count">(11名)</span>
+        </li>
+        <li class="university-item">
+          <span class="university-badge"><i class="fas fa-star"></i></span>
+          <span class="university-name">横浜国立大学</span>
+        </li>
+        <li class="university-item">
+          <span class="university-badge"><i class="fas fa-star"></i></span>
+          <span class="university-name">横浜国立大学</span>
+          <span class="university-count">(11名)</span>
+        </li>
+        <li class="university-item">
+          <span class="university-badge"><i class="fas fa-star"></i></span>
+          <span class="university-name">横浜国立大学</span>
+          <span class="university-count">(11名)</span>
+        </li>
+        <li class="university-item">
+          <span class="university-badge"><i class="fas fa-star"></i></span>
+          <span class="university-name">横浜国立大学</span>
+          <span class="university-count">(11名)</span>
+        </li>
+      </ul>
+      <div class="more-results">
+        <a href="#">トライ高等学院の合格実績をすべて見る <i class="fas fa-angle-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 入学までの流れ ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院の入学までの流れ</h2>
+    <div class="support-info">
+      <ol class="enrollment-steps">
+        <li class="enrollment-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">資料請求・オープンキャンパスへの申し込み</h3>
+            <p class="step-description">ホームページまたはお電話でお申込ください。直接校舎での相談もお受けしております。</p>
+          </div>
+        </li>
+        
+        <li class="enrollment-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">オープンキャンパス参加（任意）</h3>
+            <p class="step-description">入塾をお考えになりましたら、校舎へご来校ください。ご不明な点や指導方法がありましたら、必要書類をご記入頂き、無料特典をお配けください。</p>
+          </div>
+        </li>
+        
+        <li class="enrollment-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">体験入学（1日～数日間、任意）</h3>
+            <p class="step-description">コース決定後、有料個別形式で初回授業が始まります。初回授業時間は約1時間のオリエンテーションとなっており、当日の説明との詳細な説明やカリキュラムの説明があります。ご希望に合わせた内容が出せます。<br>これでやる気と達成ルートを確立していくのです。</p>
+          </div>
+        </li>
+        
+        <li class="enrollment-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="step-title">編集選抜・入学面談（編集は難しい内容ではなく、個室での実施も可能）</h3>
+            <p class="step-description">詳細な指導が少なく、苦手を立てて直すぐに克服してほしい方でも、トライ式高等学院のノウハウを熟知した講師が勉強法をご提案します。<br>これであなたも志望合格への階段を一気に駆け上ることが可能になります。<br>トライ式高等学院講師陣・スタッフ全員で皆さんの合格をサポートします。</p>
+          </div>
+        </li>
+        
+        <li class="enrollment-step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3 class="step-title">入学手続き（一人ひとりに合った先補助指導方法と特別プラン）</h3>
+            <p class="step-description">勉学の経験が少なく、苦手を立てて直すぐに克服してほしい方でも、トライ式高等学院のノウハウを熟知した講師が勉強法をご提案します。<br>これであなたも志望合格への階段を一気に駆け上ることが可能になります。<br>トライ式高等学院講師陣・スタッフ全員で皆さんの合格をサポートします。</p>
+          </div>
+        </li>
+        
+        <li class="enrollment-step">
+          <div class="step-number">6</div>
+          <div class="step-content">
+            <h3 class="step-title">学習開始</h3>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= よくある質問 ================= -->
+  <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院へのよくある質問</h2>
+    <div class="support-info">
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">中学に通っていなくてでも入学できますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">入学時に途中からコースを変更できますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">友だちができないのでは？と不安です。</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">「保健」と有料校に落とされました。転校してもいきなりできないのでしょうか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">「高等認定」の資格取得のためのコースはありますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">途中で登校日数を変更することは可能ですか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">サポート校では高校卒業にならないと聞きました。トライでは高校卒業の学歴を取得できますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">普通科に通いながら大学に行きたくなったらカリキュラムの変更はできますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">転編入学する場合に、前の学校の単位は引き継げますか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">週学に当たり、学習証明の購入は可能でしょうか？</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+
+        <div class="faq-item open">
+          <div class="faq-question">
+            <span class="question-icon">Q</span>
+            <span class="question-text">質問時テキスト</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <span class="answer-icon">A.</span>
+            <p class="answer-text">できる、平日16：00～22：00・土曜13：00～22：00（日曜祝日は休み）時間内であれば可能。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- ================= トライ高等学院の補足情報 ================= -->
+ <section class="recommend-target">
+    <h2 class="section-title">トライ高等学院の補足情報</h2>
+    
+    <div class="info-block">
+        <h4 class="life-category">新入学について</h4>
+      <p>当校では新入学を随時受け付けております。まずは無料の体験授業や学校説明会にご参加ください。</p>
+      <ul class="info-list">
+        <li class="info-list-item">入学時期は4月・10月の年2回</li>
+        <li class="info-list-item">個別面談で学習計画を立案</li>
+        <li class="info-list-item">入学前の学習サポートも充実</li>
+      </ul>
+    </div>
+    
+    <div class="info-block">
+        <h4 class="life-category">転入学について</h4>
+      <p>前籍校での単位を最大限に活かして転入することが可能です。お気軽にご相談ください。</p>
+      <ul class="info-list">
+        <li class="info-list-item">随時転入受付中</li>
+        <li class="info-list-item">前籍校の単位を引き継ぎ可能</li>
+        <li class="info-list-item">転入時の学習サポート体制あり</li>
+      </ul>
+    </div>
+    
+    <div class="info-block">
+        <h4 class="life-category">入学資格</h4>
+      <p>中学校卒業以上の方が対象です。年齢制限はありません。</p>
+      <ul class="info-list">
+        <li class="info-list-item">中学校卒業（見込み含む）</li>
+        <li class="info-list-item">高校中退者も受入可能</li>
+        <li class="info-list-item">年齢制限なし</li>
+      </ul>
+    </div>
+  </section>
+
+ <!-- ================= トライ高等学院に関する記事 ================= -->
+ <section class="recommend-target">
+    <div class="container">
+      <h2 class="section-title">関連記事</h2>
+      
+      <div class="article-list">
+        <div class="article-item">
+          <div class="article-category-icon university">
+            <span>大学<br>進学</span>
+          </div>
+          <div class="article-content">
+            <h3 class="article-title">トライ高等学院から難関大学へ進学した先輩たちの体験談と学習法</h3>
+            <a href="#" class="article-link">記事を読む &gt;</a>
+          </div>
+        </div>
+
+        <div class="article-item">
+          <div class="article-category-icon study-method">
+            <span>学習<br>方法</span>
+          </div>
+          <div class="article-content">
+            <h3 class="article-title">自分のペースで学べる！トライ高等学院の個別指導カリキュラムの特徴</h3>
+            <a href="#" class="article-link">記事を読む &gt;</a>
+          </div>
+        </div>
+
+        <div class="article-item">
+          <div class="article-category-icon experience">
+            <span>体験<br>談</span>
+          </div>
+          <div class="article-content">
+            <h3 class="article-title">不登校から大学合格まで！トライ高等学院での3年間の学び</h3>
+            <a href="#" class="article-link">記事を読む &gt;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 学習拠点一覧 ================= -->
+  <section class="recommend-target">
+    <div class="learning-centers-container">
+      <h2 class="section-title">トライ式高等学院の学習拠点一覧</h2>
+      
+      <!-- 東京都 -->
+      <div class="region-container">
+        <h4 class="life-category">東京都</h4>
+        <div class="learning-centers-grid">
+          <div class="center-item">
+            <a href="#" class="center-link">新宿キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">渋谷キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">池袋キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">立川キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">吉祥寺キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">町田キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">錦糸町キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">自由が丘キャンパス</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 神奈川県 -->
+      <div class="region-container">
+        <h4 class="life-category">神奈川県</h4>
+        <div class="learning-centers-grid">
+          <div class="center-item">
+            <a href="#" class="center-link">横浜キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">川崎キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">藤沢キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">小田原キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">大和キャンパス</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 埼玉県 -->
+      <div class="region-container">
+        <h4 class="life-category">埼玉県</h4>
+        <div class="learning-centers-grid">
+          <div class="center-item">
+            <a href="#" class="center-link">大宮キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">川口キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">所沢キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">川越キャンパス</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 千葉県 -->
+      <div class="region-container">
+        <h4 class="life-category">千葉県</h4>
+        <div class="learning-centers-grid">
+          <div class="center-item">
+            <a href="#" class="center-link">船橋キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">柏キャンパス</a>
+          </div>
+          <div class="center-item">
+            <a href="#" class="center-link">千葉キャンパス</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="learning-centers-ranking">
+        関東エリア 通信制高校サポート満足度 No.1 | 東京都 サポート校数 No.1
+      </div>
+    </div>
+  </section>
+
+  
+
+  
+
+  
+
+ 
+
+  
+
+
+
+  <!-- ================= モバイルCTA & 浮動CTA ================= -->
+  <div class="mobile-cta">
+    <a href="#" class="mobile-cta-button primary"><i class="fas fa-chalkboard-teacher"></i><span>体験授業</span></a>
+    <a href="#" class="mobile-cta-button"><i class="fas fa-file-alt"></i><span>資料請求</span></a>
+    <a href="#" class="mobile-cta-button"><i class="fas fa-comment"></i><span>チャット相談</span></a>
+  </div>
+
+  <div class="floating-cta">
+    <a href="#" class="floating-cta-button"><i class="fas fa-arrow-up"></i>Top</a>
+  </div>
+
+  <!-- ================= フッター ================= -->
+  <footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+        </div>
+        <div class="footer-info">
+            <h3>サービス名が選ばれる3つの理由</h3>
+            <ul>
+                <li>
+                    <span class="footer-number">掲載キャンパス数</span>
+                    <span class="footer-value">39,310</span>
+                </li>
+                <li>
+                    <span class="footer-number">生徒・ご家族口コミ</span>
+                    <span class="footer-value">10,000件以上</span>
+                </li>
+                <li>
+                    <span class="footer-number">掲載情報</span>
+                    <span class="footer-value">健全な教材</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2025 サービス名 All Rights Reserved.</p>
+    </div>
+</footer>
+
+  <!-- ================= JS ================= -->
+  <script>
+    // モバイルメニューのトグル
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('globalNav').classList.toggle('active');
+    });
+
+    // 生徒の声 簡易スライダー
+    const voiceItems = document.querySelectorAll('.voice-item');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    setInterval(() => {
+      voiceItems[current].style.display = 'none';
+      dots[current].classList.remove('active');
+      current = (current + 1) % voiceItems.length;
+      voiceItems[current].style.display = 'flex';
+      dots[current].classList.add('active');
+    }, 5000);
+    
+    // 写真スライダー機能
+    const sliderImages = [
+      'https://placehold.jp/800x300.png?text=授業風景1',
+      'https://placehold.jp/800x300.png?text=授業風景2',
+      'https://placehold.jp/800x300.png?text=校舎外観'
+    ];
+    let currentImage = 0;
+    const sliderImg = document.getElementById('sliderImage');
+    
+    document.querySelector('.slider-next').addEventListener('click', () => {
+      currentImage = (currentImage + 1) % sliderImages.length;
+      sliderImg.src = sliderImages[currentImage];
+    });
+    
+    document.querySelector('.slider-prev').addEventListener('click', () => {
+      currentImage = (currentImage - 1 + sliderImages.length) % sliderImages.length;
+      sliderImg.src = sliderImages[currentImage];
+    });
+    
+    // 自動スライド
+    setInterval(() => {
+      currentImage = (currentImage + 1) % sliderImages.length;
+      sliderImg.src = sliderImages[currentImage];
+    }, 8000);
+
+    // 写真スライダーのタッチスワイプ対応
+    const photoSlider = document.querySelector('.photo-slider');
+    let startX, moveX;
+    if (photoSlider) {
+        photoSlider.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; });
+        photoSlider.addEventListener('touchmove', e => { moveX = e.changedTouches[0].screenX; });
+        photoSlider.addEventListener('touchend', () => {
+            if (startX - moveX > 50) document.querySelector('.slider-next').click();
+            else if (moveX - startX > 50) document.querySelector('.slider-prev').click();
+        });
+    }
+
+    // FAQのトグル機能
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isOpen = faqItem.classList.contains('open');
+        
+        // すべての項目を閉じる
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('open');
+          item.querySelector('.toggle-icon i').className = 'fas fa-chevron-up';
+        });
+        
+        // クリックされた項目を開く（閉じてた場合）
+        if (!isOpen) {
+          faqItem.classList.add('open');
+          faqItem.querySelector('.toggle-icon i').className = 'fas fa-chevron-down';
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
