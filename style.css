@@ -930,191 +930,180 @@ footer {
 
 /* 検索フォームセクション */
 .search-form-section {
-    margin-top: 30px;
+    padding: 20px 0 40px;
+    width: 100%;
 }
 
-.search-subtitle {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: normal;
-    color: #1976D2;
+.search-form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    width: 96%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 .search-group {
+    margin-bottom: 30px;
     background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
-    overflow: hidden;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .search-group-title {
-    background-color: #E3F2FD;
-    padding: 8px 15px;
-    margin: 0;
-    font-size: 14px;
-    font-weight: normal;
-    color: #1976D2;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 1.4;
 }
 
 .checkbox-group {
-    padding: 15px;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
+    margin-right: 20px;
     font-size: 14px;
 }
 
-.checkbox-group input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-/* 通学セクション */
-.commute-section {
-    padding-bottom: 15px;
-}
-
 .input-row {
-    padding: 10px 15px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .station-input {
     flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    min-width: 120px;
+}
+
+.station-input.full-width {
+    width: 100%;
+    flex-basis: 100%;
+}
+
+.station-input.zip-code {
+    max-width: 200px;
+}
+
+.station-input input,
+.station-input select,
+.station-input textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 14px;
+    box-sizing: border-box;
+}
+
+.station-input input:focus,
+.station-input select:focus,
+.station-input textarea:focus {
+    outline: none;
+    border-color: #4285f4;
 }
 
 .input-label {
+    display: block;
     font-size: 14px;
-    white-space: nowrap;
-}
-
-.time-select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    min-width: 100px;
-}
-
-.commute-options {
-    padding: 0 15px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
-.option-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.option-label {
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-.option-select {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-.home-time-option {
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: 500;
     margin-bottom: 5px;
+    color: #555;
 }
 
 .option-note {
-    padding: 0 15px;
     font-size: 12px;
     color: #666;
-    margin: 5px 0 0;
+    margin-top: 5px;
+    line-height: 1.4;
 }
 
-/* 偏差値セクション */
-.deviation-options {
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.grade-select, .gender-select, .deviation-min, .deviation-max {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.search-button {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
     font-size: 14px;
-}
-
-.range-separator {
-    font-size: 14px;
-}
-
-/* 学校名セクション */
-.school-name-input {
-    width: calc(100% - 30px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
-    margin: 15px;
-}
-
-/* その他の検索項目 */
-.more-options-text {
-    padding: 15px 15px 10px;
-    font-size: 13px;
-    margin: 0;
-}
-
-.more-options-buttons {
-    padding: 0 15px 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.option-button {
-    background-color: #E3F2FD;
-    border: 1px solid #BBDEFB;
-    border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    color: #1976D2;
+    transition: background-color 0.3s;
 }
 
-.option-button:hover {
-    background-color: #BBDEFB;
+.search-button:hover {
+    background-color: #3367d6;
 }
 
-.option-label {
-    font-size: 14px;
-    white-space: nowrap;
-    color: #1976D2;
+.search-button.small-button {
+    padding: 10px 15px;
+    font-size: 13px;
 }
 
-input:focus, select:focus {
-    border-color: #1976D2;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+.search-button-container {
+    text-align: center;
+    margin-top: 30px;
 }
+
+.terms-link {
+    color: #4285f4;
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .input-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .station-input {
+        width: 100%;
+    }
+    
+    .search-group {
+        padding: 15px;
+    }
+    
+    .checkbox-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .checkbox-group label {
+        margin-right: 0;
+    }
+    
+    .station-input.zip-code {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .input-row {
+        flex-wrap: wrap;
+    }
+    
+    .station-input {
+        min-width: 200px;
+        flex-basis: calc(50% - 10px);
+    }
+}
+
+/* 既存のスタイルを上書きしないように注意すること */
 
 /* 検索ボタン */
 .search-button-container {

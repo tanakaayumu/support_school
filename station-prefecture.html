@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>駅・路線から探す | サポートスクール</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="school-search-page">
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="global-nav">
+            <div class="nav-row">
+                <a href="city-prefecture.html" class="nav-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>市区町村</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="station-prefecture.html" class="nav-item">
+                    <i class="fa-solid fa-train"></i>
+                    <span>路線・駅</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-map"></i>
+                    <span>地図</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="school-search.html" class="nav-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>通学時間</span>
+                    <span class="from-search">から探す</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">トップ</a> &gt; 
+            <a href="school-search.html">塾を探す</a> &gt; 
+            <span>駅・路線から探す</span>
+        </div>
+
+        <section class="search-form-section">
+            <div class="container">
+                <h2 class="search-title">駅・路線から探す</h2>
+                <p class="search-subtitle">通いやすい駅や路線から、最適な学習塾を見つけることができます。</p>
+
+                <div class="area-container">
+                    <div class="area-block">
+                        <h3 class="area-title">北海道・東北</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=hokkaido">北海道</a></li>
+                            <li><a href="line-station.html?prefecture=aomori">青森県</a></li>
+                            <li><a href="line-station.html?prefecture=iwate">岩手県</a></li>
+                            <li><a href="line-station.html?prefecture=miyagi">宮城県</a></li>
+                            <li><a href="line-station.html?prefecture=akita">秋田県</a></li>
+                            <li><a href="line-station.html?prefecture=yamagata">山形県</a></li>
+                            <li><a href="line-station.html?prefecture=fukushima">福島県</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="area-block">
+                        <h3 class="area-title">関東</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=ibaraki">茨城県</a></li>
+                            <li><a href="line-station.html?prefecture=tochigi">栃木県</a></li>
+                            <li><a href="line-station.html?prefecture=gunma">群馬県</a></li>
+                            <li><a href="line-station.html?prefecture=saitama">埼玉県</a></li>
+                            <li><a href="line-station.html?prefecture=chiba">千葉県</a></li>
+                            <li><a href="line-station.html?prefecture=tokyo">東京都</a></li>
+                            <li><a href="line-station.html?prefecture=kanagawa">神奈川県</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="area-block">
+                        <h3 class="area-title">中部</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=niigata">新潟県</a></li>
+                            <li><a href="line-station.html?prefecture=toyama">富山県</a></li>
+                            <li><a href="line-station.html?prefecture=ishikawa">石川県</a></li>
+                            <li><a href="line-station.html?prefecture=fukui">福井県</a></li>
+                            <li><a href="line-station.html?prefecture=yamanashi">山梨県</a></li>
+                            <li><a href="line-station.html?prefecture=nagano">長野県</a></li>
+                            <li><a href="line-station.html?prefecture=gifu">岐阜県</a></li>
+                            <li><a href="line-station.html?prefecture=shizuoka">静岡県</a></li>
+                            <li><a href="line-station.html?prefecture=aichi">愛知県</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="area-block">
+                        <h3 class="area-title">近畿</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=mie">三重県</a></li>
+                            <li><a href="line-station.html?prefecture=shiga">滋賀県</a></li>
+                            <li><a href="line-station.html?prefecture=kyoto">京都府</a></li>
+                            <li><a href="line-station.html?prefecture=osaka">大阪府</a></li>
+                            <li><a href="line-station.html?prefecture=hyogo">兵庫県</a></li>
+                            <li><a href="line-station.html?prefecture=nara">奈良県</a></li>
+                            <li><a href="line-station.html?prefecture=wakayama">和歌山県</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="area-block">
+                        <h3 class="area-title">中国・四国</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=tottori">鳥取県</a></li>
+                            <li><a href="line-station.html?prefecture=shimane">島根県</a></li>
+                            <li><a href="line-station.html?prefecture=okayama">岡山県</a></li>
+                            <li><a href="line-station.html?prefecture=hiroshima">広島県</a></li>
+                            <li><a href="line-station.html?prefecture=yamaguchi">山口県</a></li>
+                            <li><a href="line-station.html?prefecture=tokushima">徳島県</a></li>
+                            <li><a href="line-station.html?prefecture=kagawa">香川県</a></li>
+                            <li><a href="line-station.html?prefecture=ehime">愛媛県</a></li>
+                            <li><a href="line-station.html?prefecture=kochi">高知県</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="area-block">
+                        <h3 class="area-title">九州・沖縄</h3>
+                        <ul class="area-list">
+                            <li><a href="line-station.html?prefecture=fukuoka">福岡県</a></li>
+                            <li><a href="line-station.html?prefecture=saga">佐賀県</a></li>
+                            <li><a href="line-station.html?prefecture=nagasaki">長崎県</a></li>
+                            <li><a href="line-station.html?prefecture=kumamoto">熊本県</a></li>
+                            <li><a href="line-station.html?prefecture=oita">大分県</a></li>
+                            <li><a href="line-station.html?prefecture=miyazaki">宮崎県</a></li>
+                            <li><a href="line-station.html?prefecture=kagoshima">鹿児島県</a></li>
+                            <li><a href="line-station.html?prefecture=okinawa">沖縄県</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="station-search">
+                    <h3 class="search-subtitle">駅名から直接検索</h3>
+                    <div class="station-search-form">
+                        <input type="text" placeholder="駅名を入力（例：新宿、渋谷）" class="station-input-text">
+                        <button type="submit" class="search-button">検索</button>
+                    </div>
+                </div>
+
+                <div class="popular-areas">
+                    <h3 class="search-subtitle">人気の路線エリア</h3>
+                    <div class="popular-line-list">
+                        <a href="line-station.html?prefecture=tokyo&line=yamanote" class="popular-line-item">
+                            <span class="line-badge yamanote">JR</span>
+                            <span class="line-name">山手線</span>
+                            <span class="line-info">104校</span>
+                        </a>
+                        <a href="line-station.html?prefecture=tokyo&line=chuo" class="popular-line-item">
+                            <span class="line-badge chuo">JR</span>
+                            <span class="line-name">中央線</span>
+                            <span class="line-info">89校</span>
+                        </a>
+                        <a href="line-station.html?prefecture=tokyo&line=toyoko" class="popular-line-item">
+                            <span class="line-badge toyoko">東急</span>
+                            <span class="line-name">東横線</span>
+                            <span class="line-info">76校</span>
+                        </a>
+                        <a href="line-station.html?prefecture=tokyo&line=ginza" class="popular-line-item">
+                            <span class="line-badge ginza">東京メトロ</span>
+                            <span class="line-name">銀座線</span>
+                            <span class="line-info">62校</span>
+                        </a>
+                        <a href="line-station.html?prefecture=tokyo&line=keihin" class="popular-line-item">
+                            <span class="line-badge keihin">JR</span>
+                            <span class="line-name">京浜東北線</span>
+                            <span class="line-info">57校</span>
+                        </a>
+                        <a href="line-station.html?prefecture=tokyo&line=denentoshi" class="popular-line-item">
+                            <span class="line-badge denentoshi">東急</span>
+                            <span class="line-name">田園都市線</span>
+                            <span class="line-info">53校</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="search-link-section">
+                    <h3 class="search-subtitle">他の条件からも探せます</h3>
+                    <ul class="search-link-list">
+                        <li><a href="city-prefecture.html"><i class="fas fa-map-marker-alt"></i> 都道府県・市区町村から探す</a></li>
+                        <li><a href="school-search.html"><i class="fas fa-search"></i> 詳細条件から探す</a></li>
+                        <li><a href="school-list.html"><i class="fas fa-list"></i> すべての塾を見る</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+    /* 追加スタイル */
+    .station-search {
+        margin: 30px 0;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .station-search-form {
+        display: flex;
+        margin-top: 15px;
+    }
+    
+    .station-input-text {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        font-size: 16px;
+    }
+    
+    .station-input-text:focus {
+        outline: none;
+        border-color: #4285f4;
+    }
+    
+    .station-search-form .search-button {
+        border-radius: 0 4px 4px 0;
+        padding: 12px 20px;
+        margin: 0;
+    }
+    
+    .popular-line-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .popular-line-item {
+        display: flex;
+        align-items: center;
+        width: calc(50% - 5px);
+        padding: 12px 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .popular-line-item:hover {
+        background-color: #f0f8ff;
+        transform: translateY(-2px);
+    }
+    
+    .line-badge {
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    .line-badge.yamanote {
+        background-color: #9ACD32;
+    }
+    
+    .line-badge.chuo {
+        background-color: #FF4500;
+    }
+    
+    .line-badge.toyoko {
+        background-color: #DA0442;
+    }
+    
+    .line-badge.ginza {
+        background-color: #F7931D;
+    }
+    
+    .line-badge.keihin {
+        background-color: #00BFFF;
+    }
+    
+    .line-badge.denentoshi {
+        background-color: #00A650;
+    }
+    
+    .line-name {
+        font-weight: 600;
+        font-size: 15px;
+        flex: 1;
+    }
+    
+    .line-info {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 4px 8px;
+        font-size: 12px;
+        color: #666;
+    }
+    
+    @media (max-width: 600px) {
+        .station-search-form {
+            flex-direction: column;
+        }
+        
+        .station-input-text {
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .station-search-form .search-button {
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        .popular-line-item {
+            width: 100%;
+        }
+    }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html> 

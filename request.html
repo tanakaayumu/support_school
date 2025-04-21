@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料金の問い合わせ(学習相談) | サポートスクール</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* フォーム調整用の追加スタイル */
+        .search-form {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .search-group {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        
+        .input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .station-input {
+            flex: 1;
+            min-width: 120px;
+            box-sizing: border-box;
+        }
+        
+        .station-input.full-width {
+            width: 100%;
+            flex-basis: 100%;
+        }
+        
+        .station-input input,
+        .station-input select,
+        .station-input textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 767px) {
+            .input-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .station-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="school-search-page">
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+ 
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">トップ</a> &gt; 
+            <a href="school-list.html">学習塾一覧</a> &gt; 
+            <a href="school_detail.html">進学個別指導のTOMAS（トーマス） 青葉台校</a> &gt; 
+            <span>料金の問い合わせ(学習相談)</span>
+        </div>
+
+        <section class="search-form-section">
+            <div class="container">
+                <h2 class="search-title">料金の問い合わせ(学習相談)</h2>
+                <p class="search-subtitle">この度は、進学個別指導のTOMAS（トーマス） 青葉台校の料金の問い合わせ(学習相談)のページをご覧いただき、ありがとうございます！こちらのフォームにて受け付けております。</p>
+
+                <form id="requestForm" class="search-form">
+                    <div class="search-group">
+                        <h3 class="search-group-title">まずはじめに、生徒との続柄を教えていただけますか？</h3>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="radio" name="relation" value="self" required>
+                                本人
+                            </label>
+                            <label>
+                                <input type="radio" name="relation" value="father">
+                                父
+                            </label>
+                            <label>
+                                <input type="radio" name="relation" value="mother">
+                                母
+                            </label>
+                            <label>
+                                <input type="radio" name="relation" value="grandparent">
+                                祖父母
+                            </label>
+                            <label>
+                                <input type="radio" name="relation" value="other">
+                                その他
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">次に生徒の氏名を教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input">
+                                <label class="input-label">姓</label>
+                                <input type="text" name="lastname" required>
+                            </div>
+                            <div class="station-input">
+                                <label class="input-label">名</label>
+                                <input type="text" name="firstname" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="station-input">
+                                <label class="input-label">セイ</label>
+                                <input type="text" name="lastname_kana" required>
+                            </div>
+                            <div class="station-input">
+                                <label class="input-label">メイ</label>
+                                <input type="text" name="firstname_kana" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">次に学年を教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <select name="grade" class="time-select" required>
+                                    <option value="">選択してください</option>
+                                    <option value="preschool">小学校入学前</option>
+                                    <option value="elementary1">小学校１年生</option>
+                                    <option value="elementary2">小学校２年生</option>
+                                    <option value="elementary3">小学校３年生</option>
+                                    <option value="elementary4">小学校４年生</option>
+                                    <option value="elementary5">小学校５年生</option>
+                                    <option value="elementary6">小学校６年生</option>
+                                    <option value="junior1">中学校１年生</option>
+                                    <option value="junior2">中学校２年生</option>
+                                    <option value="junior3">中学校３年生</option>
+                                    <option value="high1">高校１年生</option>
+                                    <option value="high2">高校２年生</option>
+                                    <option value="high3">高校３年生</option>
+                                    <option value="graduated">高卒生</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">次に郵便番号を教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input zip-code">
+                                <input type="text" name="zipcode" placeholder="例：123-4567" required>
+                            </div>
+                            <button type="button" class="search-button small-button">住所検索</button>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">都道府県・市区町村にお間違いがなければ、丁目以降を教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input">
+                                <label class="input-label">都道府県</label>
+                                <select name="prefecture" class="time-select" required>
+                                    <option value="">選択してください</option>
+                                    <option value="hokkaido">北海道</option>
+                                    <option value="aomori">青森県</option>
+                                    <!-- 他の都道府県は省略 -->
+                                    <option value="tokyo">東京都</option>
+                                    <option value="kanagawa">神奈川県</option>
+                                    <!-- 省略 -->
+                                    <option value="okinawa">沖縄県</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <label class="input-label">市区町村</label>
+                                <input type="text" name="city" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <label class="input-label">丁目・番地・号</label>
+                                <input type="text" name="address" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <label class="input-label">建物名・部屋番号など</label>
+                                <input type="text" name="building">
+                                <p class="option-note">※住所に不備があると資料等が届かない可能性があります。<br>※入力漏れがないように建物名・部屋番号までご記入ください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">次にメールアドレスを教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <input type="email" name="email" required>
+                                <p class="option-note">※確認メールを送信するので、記入内容に誤りがないかご確認ください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">次に電話番号を教えていただけますか？</h3>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <input type="tel" name="tel" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <h3 class="search-group-title">追加でご質問がありましたら入力してください（任意）</h3>
+                        <div class="input-row">
+                            <div class="station-input full-width">
+                                <textarea name="questions" rows="5" placeholder="その他ご質問など"></textarea>
+                                <p class="option-note">※ご質問いただいた内容につきましては、各塾より対応いたします。内容により対応できない場合もございますので、あらかじめご了承ください。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-group">
+                        <p>入力していただいた内容をご確認ください。この内容を送信することで<a href="#terms" class="terms-link">利用規約</a>に同意したものとします。</p>
+                    </div>
+
+                    <div class="search-button-container">
+                        <button type="submit" class="search-button">無料料金を問い合わせる</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

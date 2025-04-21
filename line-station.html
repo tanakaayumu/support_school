@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京都の路線・駅から探す | サポートスクール</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="school-search-page">
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="global-nav">
+            <div class="nav-row">
+                <a href="city-prefecture.html" class="nav-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>市区町村</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="station-prefecture.html" class="nav-item">
+                    <i class="fa-solid fa-train"></i>
+                    <span>路線・駅</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-map"></i>
+                    <span>地図</span>
+                    <span class="from-search">から探す</span>
+                </a>
+                <a href="school-search.html" class="nav-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>通学時間</span>
+                    <span class="from-search">から探す</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="index.html">トップ</a> &gt; 
+            <a href="school-search.html">塾を探す</a> &gt; 
+            <a href="station-prefecture.html">駅・路線から探す</a> &gt; 
+            <span>東京都の路線・駅から探す</span>
+        </div>
+
+        <section class="search-form-section">
+            <div class="container">
+                <h2 class="search-title">東京都の路線・駅から探す</h2>
+                <p class="search-subtitle">東京都内の通いやすい駅や路線から、最適な学習塾を見つけることができます。</p>
+
+                <div class="station-search">
+                    <h3 class="search-subtitle">駅名から直接検索</h3>
+                    <div class="station-search-form">
+                        <input type="text" placeholder="駅名を入力（例：新宿、渋谷）" class="station-input-text">
+                        <button type="submit" class="search-button">検索</button>
+                    </div>
+                </div>
+
+                <div class="line-group-container">
+                    <div class="line-group">
+                        <h3 class="area-title">JR線</h3>
+                        <ul class="line-list">
+                            <li><a href="school-list.html?line=yamanote">
+                                <span class="line-badge yamanote">JR</span>山手線
+                                <span class="station-count">29駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=chuo">
+                                <span class="line-badge chuo">JR</span>中央線
+                                <span class="station-count">24駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=keihin">
+                                <span class="line-badge keihin">JR</span>京浜東北線
+                                <span class="station-count">30駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=sobu">
+                                <span class="line-badge sobu">JR</span>総武線
+                                <span class="station-count">39駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=saikyo">
+                                <span class="line-badge saikyo">JR</span>埼京線
+                                <span class="station-count">19駅</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="line-group">
+                        <h3 class="area-title">東京メトロ</h3>
+                        <ul class="line-list">
+                            <li><a href="school-list.html?line=ginza">
+                                <span class="line-badge ginza">東京メトロ</span>銀座線
+                                <span class="station-count">19駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=marunouchi">
+                                <span class="line-badge marunouchi">東京メトロ</span>丸ノ内線
+                                <span class="station-count">24駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=hibiya">
+                                <span class="line-badge hibiya">東京メトロ</span>日比谷線
+                                <span class="station-count">21駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=tozai">
+                                <span class="line-badge tozai">東京メトロ</span>東西線
+                                <span class="station-count">23駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=chiyoda">
+                                <span class="line-badge chiyoda">東京メトロ</span>千代田線
+                                <span class="station-count">20駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=yurakucho">
+                                <span class="line-badge yurakucho">東京メトロ</span>有楽町線
+                                <span class="station-count">24駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=hanzomon">
+                                <span class="line-badge hanzomon">東京メトロ</span>半蔵門線
+                                <span class="station-count">14駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=namboku">
+                                <span class="line-badge namboku">東京メトロ</span>南北線
+                                <span class="station-count">19駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=fukutoshin">
+                                <span class="line-badge fukutoshin">東京メトロ</span>副都心線
+                                <span class="station-count">16駅</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="line-group">
+                        <h3 class="area-title">都営地下鉄</h3>
+                        <ul class="line-list">
+                            <li><a href="school-list.html?line=asakusa">
+                                <span class="line-badge asakusa">都営</span>浅草線
+                                <span class="station-count">20駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=mita">
+                                <span class="line-badge mita">都営</span>三田線
+                                <span class="station-count">27駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=shinjuku">
+                                <span class="line-badge shinjuku">都営</span>新宿線
+                                <span class="station-count">21駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=oedo">
+                                <span class="line-badge oedo">都営</span>大江戸線
+                                <span class="station-count">38駅</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="line-group">
+                        <h3 class="area-title">私鉄各線</h3>
+                        <ul class="line-list">
+                            <li><a href="school-list.html?line=toyoko">
+                                <span class="line-badge toyoko">東急</span>東横線
+                                <span class="station-count">24駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=denentoshi">
+                                <span class="line-badge denentoshi">東急</span>田園都市線
+                                <span class="station-count">27駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=meguro">
+                                <span class="line-badge meguro">東急</span>目黒線
+                                <span class="station-count">13駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=odakyu">
+                                <span class="line-badge odakyu">小田急</span>小田原線
+                                <span class="station-count">47駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=keio">
+                                <span class="line-badge keio">京王</span>京王線
+                                <span class="station-count">31駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=inokashira">
+                                <span class="line-badge inokashira">京王</span>井の頭線
+                                <span class="station-count">17駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=seibu_shinjuku">
+                                <span class="line-badge seibu">西武</span>新宿線
+                                <span class="station-count">29駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=seibu_ikebukuro">
+                                <span class="line-badge seibu">西武</span>池袋線
+                                <span class="station-count">31駅</span>
+                            </a></li>
+                            <li><a href="school-list.html?line=tobu_tojo">
+                                <span class="line-badge tobu">東武</span>東上線
+                                <span class="station-count">37駅</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="popular-stations">
+                    <h3 class="search-subtitle">人気の駅周辺エリア</h3>
+                    <div class="popular-station-buttons">
+                        <a href="school-list.html?station=shinjuku" class="popular-station-button">
+                            <span class="station-name">新宿駅</span>
+                            <span class="line-count">JR・小田急・京王ほか</span>
+                            <span class="school-count">45校</span>
+                        </a>
+                        <a href="school-list.html?station=shibuya" class="popular-station-button">
+                            <span class="station-name">渋谷駅</span>
+                            <span class="line-count">JR・東急・東京メトロほか</span>
+                            <span class="school-count">38校</span>
+                        </a>
+                        <a href="school-list.html?station=ikebukuro" class="popular-station-button">
+                            <span class="station-name">池袋駅</span>
+                            <span class="line-count">JR・西武・東京メトロほか</span>
+                            <span class="school-count">35校</span>
+                        </a>
+                        <a href="school-list.html?station=akihabara" class="popular-station-button">
+                            <span class="station-name">秋葉原駅</span>
+                            <span class="line-count">JR・東京メトロ</span>
+                            <span class="school-count">25校</span>
+                        </a>
+                        <a href="school-list.html?station=meguro" class="popular-station-button">
+                            <span class="station-name">目黒駅</span>
+                            <span class="line-count">JR・東急・東京メトロ</span>
+                            <span class="school-count">22校</span>
+                        </a>
+                        <a href="school-list.html?station=nakano" class="popular-station-button">
+                            <span class="station-name">中野駅</span>
+                            <span class="line-count">JR・東京メトロ</span>
+                            <span class="school-count">20校</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="search-link-section">
+                    <h3 class="search-subtitle">他の条件からも探せます</h3>
+                    <ul class="search-link-list">
+                        <li><a href="city-prefecture.html"><i class="fas fa-map-marker-alt"></i> 都道府県・市区町村から探す</a></li>
+                        <li><a href="school-search.html"><i class="fas fa-search"></i> 詳細条件から探す</a></li>
+                        <li><a href="school-list.html"><i class="fas fa-list"></i> すべての塾を見る</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+    /* 追加スタイル */
+    .station-search {
+        margin: 30px 0;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .station-search-form {
+        display: flex;
+        margin-top: 15px;
+    }
+    
+    .station-input-text {
+        flex: 1;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        font-size: 16px;
+    }
+    
+    .station-input-text:focus {
+        outline: none;
+        border-color: #4285f4;
+    }
+    
+    .station-search-form .search-button {
+        border-radius: 0 4px 4px 0;
+        padding: 12px 20px;
+        margin: 0;
+    }
+    
+    .line-group-container {
+        margin-top: 30px;
+    }
+    
+    .line-group {
+        margin-bottom: 30px;
+    }
+    
+    .line-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0 0;
+    }
+    
+    .line-list li {
+        margin-bottom: 10px;
+    }
+    
+    .line-list a {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .line-list a:hover {
+        background-color: #f0f8ff;
+        transform: translateY(-2px);
+    }
+    
+    .line-badge {
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-right: 10px;
+        min-width: 50px;
+        text-align: center;
+    }
+    
+    .station-count {
+        margin-left: auto;
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 3px 8px;
+        font-size: 12px;
+        color: #666;
+    }
+    
+    /* 路線カラー */
+    .line-badge.yamanote { background-color: #9ACD32; }
+    .line-badge.chuo { background-color: #FF4500; }
+    .line-badge.keihin { background-color: #00BFFF; }
+    .line-badge.sobu { background-color: #FFD700; }
+    .line-badge.saikyo { background-color: #2E8B57; }
+    
+    .line-badge.ginza { background-color: #F7931D; }
+    .line-badge.marunouchi { background-color: #E60012; }
+    .line-badge.hibiya { background-color: #9CAEB7; }
+    .line-badge.tozai { background-color: #009BBF; }
+    .line-badge.chiyoda { background-color: #00BB85; }
+    .line-badge.yurakucho { background-color: #D7C447; }
+    .line-badge.hanzomon { background-color: #8F76D6; }
+    .line-badge.namboku { background-color: #00AC9B; }
+    .line-badge.fukutoshin { background-color: #9C5E31; }
+    
+    .line-badge.asakusa { background-color: #E85298; }
+    .line-badge.mita { background-color: #0079C2; }
+    .line-badge.shinjuku { background-color: #6CBB5A; }
+    .line-badge.oedo { background-color: #B6007A; }
+    
+    .line-badge.toyoko { background-color: #DA0442; }
+    .line-badge.denentoshi { background-color: #00A650; }
+    .line-badge.meguro { background-color: #009CD2; }
+    .line-badge.odakyu { background-color: #1E73BE; }
+    .line-badge.keio { background-color: #DC143C; }
+    .line-badge.inokashira { background-color: #FF8C00; }
+    .line-badge.seibu { background-color: #512888; }
+    .line-badge.tobu { background-color: #ED1C24; }
+    
+    .popular-stations {
+        margin-top: 30px;
+    }
+    
+    .popular-station-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .popular-station-button {
+        display: flex;
+        flex-direction: column;
+        width: calc(50% - 5px);
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-decoration: none;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    .popular-station-button:hover {
+        background-color: #f0f8ff;
+        transform: translateY(-2px);
+    }
+    
+    .station-name {
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .line-count {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+    
+    .school-count {
+        background-color: #f5f5f5;
+        border-radius: 20px;
+        padding: 3px 8px;
+        font-size: 12px;
+        color: #666;
+        align-self: flex-start;
+    }
+    
+    @media (max-width: 600px) {
+        .station-search-form {
+            flex-direction: column;
+        }
+        
+        .station-input-text {
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .station-search-form .search-button {
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        .popular-station-button {
+            width: 100%;
+        }
+        
+        .line-list a {
+            flex-wrap: wrap;
+        }
+        
+        .station-count {
+            margin-left: 0;
+            margin-top: 5px;
+            width: 100%;
+        }
+    }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html> 
