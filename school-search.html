@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スクマ！ - 学校検索サイト</title>
+    <title>詳細条件から探す | サポートスクール</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,29 +13,34 @@
             <div class="header-inner">
                 <div class="site-logo">
                     <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
-                  </div>
-        
-              <div class="header-actions">
-                <div class="user-nav">
-                    <a href="#" class="user-nav-item">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>お気に入り</span>
-                    </a>
-                    <a href="#" class="user-nav-item">
-                        <i class="fa-solid fa-bars"></i>
-                        <span>メニュー</span>
-                    </a>
                 </div>
-              </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </header>
-
+        </header>
     </header>
 
     <main>
-        <div class="search-container">
-            <div class="search-form-section">
-                <h2 class="search-subtitle">通学時間で検索</h2>
+        <div class="breadcrumb">
+            <a href="index.html">トップ</a> &gt; 
+            <span>通学時間で検索</span>
+        </div>
+
+        <section class="search-form-section">
+            <div class="container">
+                <h2 class="search-title">通学時間で検索</h2>
+                <p class="search-subtitle">通学時間や学校タイプなど、様々な条件から最適な学校を見つけることができます。</p>
                 
                 <form id="schoolSearchForm" action="#" method="GET">
                     <div class="search-group">
@@ -91,25 +96,23 @@
                         <p class="option-note">指定すると、その出発時刻で登校に間に合う学校を検索します</p>
                     </div>
 
-
                     <div class="search-group">
                         <h3 class="search-group-title">学校名</h3>
                         <input type="text" class="school-name-input" placeholder="学校名の一部でも可">
                     </div>
-
-
 
                     <div class="search-button-container">
                         <a href="school-list.html" class="search-button">この条件で学校を検索</a>
                     </div>
                 </form>
 
-
                 <div class="search-area-list">
                     <p>東京・神奈川・埼玉・千葉・栃木・茨城の学校に対応</p>
                 </div>
+                
+
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
