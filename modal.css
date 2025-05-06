@@ -1,0 +1,175 @@
+/* モーダル閉じるボタン */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2001;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+/* モーダルメニュー */
+.menu-modal {
+    position: fixed;
+    top: 51px; /* ヘッダーの高さ分下げる */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 51px); /* ヘッダーの高さ分引く */
+    background-color: white;
+    z-index: 2000;
+    overflow-y: auto;
+    display: none;
+}
+
+.menu-modal.active {
+    display: block;
+}
+
+.modal-content {
+    padding: 20px 15px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+
+.search-box i {
+    color: #777;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+}
+
+/* 2カラムレイアウト */
+.modal-menu-items {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.modal-menu-item,
+.special-menu-item,
+.footer-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+}
+
+.modal-menu-item {
+    border: none;
+}
+
+.modal-menu-item i:first-child,
+.special-icon {
+    margin-right: 10px;
+    width: 24px;
+    text-align: center;
+    color: #2980b9;
+    font-size: 18px;
+}
+
+.modal-menu-item span,
+.special-menu-item span,
+.footer-menu-item span {
+    flex: 1;
+    font-size: 14px;
+}
+
+.modal-menu-item i:last-child,
+.special-menu-item i:last-child,
+.footer-menu-item i {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.special-menu-items,
+.footer-menu-items {
+    margin-bottom: 20px;
+}
+
+.special-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+.special-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.campaign-icon {
+    background-color: #ff6b6b;
+}
+
+.quiz-icon {
+    background-color: #3498db;
+}
+
+.footer-menu-item {
+    padding: 10px;
+}
+
+.footer-menu-item span {
+    color: #555;
+    font-size: 14px;
+}
+
+/* ヘッダー部分 */
+.site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 2001;
+}
+
+/* メニューアイコン変更スタイル */
+.user-nav-item i.fa-xmark {
+    color: #333;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 767px) {
+    .modal-menu-items {
+        grid-template-columns: 1fr;
+    }
+} 

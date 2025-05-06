@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お気に入り - 学習塾検索サイト</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+  
+    </style>
+</head>
+<body>
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="favorites.html" class="user-nav-item active">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item menu-trigger">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <nav class="global-nav">
+                <div class="nav-row">
+                    <a href="city-prefecture.html" class="nav-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>市区町村</span>
+                        <span class="from-search">から探す</span>
+                    </a>
+                    <a href="station-prefecture.html" class="nav-item">
+                        <i class="fa-solid fa-train"></i>
+                        <span>路線・駅</span>
+                        <span class="from-search">から探す</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fa-solid fa-map"></i>
+                        <span>地図</span>
+                        <span class="from-search">から探す</span>
+                    </a>
+                    <a href="school-search.html" class="nav-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>通学時間</span>
+                        <span class="from-search">から探す</span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+    </header>
+
+    <!-- モーダルメニュー -->
+    <div id="menuModal" class="menu-modal">
+        <div class="modal-content">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="塾名、志望校名を入力">
+                </div>
+            </div>
+            
+            <div class="modal-menu-items">
+                <a href="favorites.html" class="modal-menu-item">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>お気に入りの塾・教室</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>最近見た塾・教室</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>合格者インタビュー</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>ランキング</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>記事・コラム</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-school"></i>
+                    <span>学校を探す</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-list"></i>
+                    <span>塾一覧</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-chalkboard-teacher"></i>
+                    <span>塾選ジャーナル</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="special-menu-items">
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon campaign-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <span>お得なキャンペーンを実施中の塾</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon quiz-icon">
+                        <i class="fa-solid fa-clipboard-question"></i>
+                    </div>
+                    <span>簡単10秒！ぴったり塾診断</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon interview-icon">
+                        <img src="https://placehold.jp/30x30.png" alt="面倒見の良い塾">
+                    </div>
+                    <span>面倒見の良い塾特集</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon teacher-icon">
+                        <img src="https://placehold.jp/30x30.png" alt="スゴ腕先生">
+                    </div>
+                    <span>スゴ腕！エース講師ファイル</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon success-icon">
+                        <img src="https://placehold.jp/30x30.png" alt="大逆転合格">
+                    </div>
+                    <span>大逆転合格ストーリー特集</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="footer-menu-items">
+                <a href="#" class="footer-menu-item">
+                    <span>執筆者一覧</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>よくある質問</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>ご意見・ご質問</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>口コミ投稿</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>受験体験記投稿</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>運営ポリシー</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="favorites-header">
+        <h1 class="favorites-title">お気に入り</h1>
+    </div>
+
+    <main>
+        <div class="favorites-container">
+            <div id="favoritesList" class="favorites-list">
+                <!-- お気に入りリストはJavaScriptで動的に生成されます -->
+            </div>
+            
+            <div id="emptyFavorites" class="empty-favorites">
+                <div class="empty-icon">
+                    <i class="fa-solid fa-heart-crack"></i>
+                </div>
+                <p>お気に入りに登録された学校がありません</p>
+                <a href="index.html" class="search-button">学校を探す</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

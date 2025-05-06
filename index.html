@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サービス名 - 学習塾検索サイト</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -21,7 +22,7 @@
                         <i class="fa-solid fa-heart"></i>
                         <span>お気に入り</span>
                     </a>
-                    <a href="#" class="user-nav-item">
+                    <a href="#" class="user-nav-item menu-trigger">
                         <i class="fa-solid fa-bars"></i>
                         <span>メニュー</span>
                     </a>
@@ -53,10 +54,201 @@
                 </div>
             </nav>
           </header>
+    </header>
+    
+    <!-- モーダルメニュー -->
+    <div id="menuModal" class="menu-modal">
+        <div class="modal-content">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="塾名、志望校名を入力">
+                </div>
+            </div>
+            
+            <div class="modal-menu-items">
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>お気に入りの学校</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>最近見た学校</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>合格者インタビュー</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>ランキング</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>記事・コラム</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-school"></i>
+                    <span>学校を探す</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-list"></i>
+                    <span>学校一覧</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-chalkboard-teacher"></i>
+                    <span>塾選ジャーナル</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="special-menu-items">
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon campaign-icon">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <span>指定校推薦のある通信制高校</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon quiz-icon">
+                        <i class="fa-solid fa-clipboard-question"></i>
+                    </div>
+                    <span>4月入学が間に合う通信制高校
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="special-menu-item">
+                    <div class="special-icon interview-icon">
+                        <img src="https://placehold.jp/30x30.png" alt="面倒見の良い塾">
+                    </div>
+                    <span>寮がある通信制高校</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+
+            </div>
+
+            <div class="footer-menu-items">
+                <a href="#" class="footer-menu-item">
+                    <span>執筆者一覧</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>よくある質問</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>ご意見・ご質問</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>口コミ投稿</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>受験体験記投稿</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="footer-menu-item">
+                    <span>運営ポリシー</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
             </div>
         </div>
- 
-    </header>
+    </div>
+    
+    <!-- 塾名・志望校名から探すセクション -->
+    <div class="search-by-name-section">
+        <div class="search-by-name-container">
+            <label class="search-by-name-label">
+                <input type="checkbox" class="search-checkbox" checked>
+                <span>志望校名から探す</span>
+            </label>
+            <div class="search-input-container">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="志望校名を入力">
+            </div>
+        </div>
+    </div>
+
+    <!-- 最近見た塾・教室セクション -->
+    <div class="recent-viewed-section">
+        <div class="recent-viewed-container">
+            <div class="recent-header">
+                <div class="recent-icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3 class="recent-title">最近見た学校</h3>
+                <a href="#" class="view-all-link">すべて見る</a>
+            </div>
+            
+            <div class="recent-items">
+                <div class="recent-item">
+                    <div class="recent-item-logo orange-bg">
+                        <img src="https://placehold.jp/30x30.png" alt="個別教室のトライ">
+                    </div>
+                    <div class="recent-item-info">
+                        <h4 class="recent-item-name">個別教室のトライ</h4>
+                        <p class="recent-item-desc">高校生/中学生/小学生</p>
+                    </div>
+                </div>
+                
+                <div class="recent-item">
+                    <div class="recent-item-logo orange-bg">
+                        <img src="https://placehold.jp/30x30.png" alt="りんご塾">
+                    </div>
+                    <div class="recent-item-info">
+                        <h4 class="recent-item-name">りんご塾</h4>
+                        <p class="recent-item-desc">小学生</p>
+                    </div>
+                </div>
+                
+                <div class="recent-item">
+                    <div class="recent-item-logo orange-bg">
+                        <img src="https://placehold.jp/30x30.png" alt="創学アカデミー">
+                    </div>
+                    <div class="recent-item-info">
+                        <h4 class="recent-item-name">創学アカデミー</h4>
+                        <p class="recent-item-desc">小学生</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 最近検索した条件セクション -->
+    <div class="recent-search-section">
+        <div class="recent-search-container">
+            <div class="recent-header">
+                <div class="recent-icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3 class="recent-title">最近検索した条件</h3>
+            </div>
+            
+            <ul class="recent-search-list">
+                <li class="recent-search-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="search-query">大崎/高2</span>
+                </li>
+                <li class="recent-search-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="search-query">古虎渓/高1</span>
+                </li>
+                <li class="recent-search-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="search-query">北海道札幌市/中学生</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <main>
         <section class="special-section">
@@ -65,22 +257,20 @@
                 <span>学校の魅力を紹介</span>
             </h2>
             <div class="school-intro-content">
-                <div class="school-item">
+                <a href="school-news.html" class="school-item">
                     <img src="https://placehold.jp/300x200.png" alt="トライ式高等学院">
                     <div class="school-item-text">
                         <h3>トライ式高等学院</h3>
                         <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
-                        <a href="school-news.html" class="school-link">詳細を見る</a>
                     </div>
-                </div>
-                <div class="dark-image-container">
+                </a>
+                <a href="school-news.html" class="school-item">
                     <img src="https://placehold.jp/300x200.png" alt="学生インタビュー">
                     <div class="school-item-text">
                         <h3>ベネッセ高等学院</h3>
                         <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
-                        <a href="school-news.html" class="school-link">詳細を見る</a>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -171,85 +361,151 @@
 
         <section class="area-search-section">
             <h2 class="section-title">
-                <span>都道府県から通信制高校・サポート校を探す</span>
+                <i class="fa-solid fa-crown"></i>
+                <span>学校人気ランキング</span>
             </h2>
-            <div class="area-container">
-                <div class="area-block">
-                    <h3 class="area-title">北海道・東北</h3>
-                    <ul class="area-list">
-                        <li><a href="#">北海道</a></li>
-                        <li><a href="#">青森県</a></li>
-                        <li><a href="#">岩手県</a></li>
-                        <li><a href="#">宮城県</a></li>
-                        <li><a href="#">秋田県</a></li>
-                        <li><a href="#">山形県</a></li>
-                        <li><a href="#">福島県</a></li>
-                    </ul>
+            
+            <!-- アコーディオンメニュー -->
+            <div class="ranking-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>都道府県の学校ランキングを見る</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- 人気都道府県 -->
+                        <div class="popular-prefectures">
+                            <a href="prefecture.html" class="prefecture-button">東京都</a>
+                            <a href="prefecture.html" class="prefecture-button">神奈川県</a>
+                            <a href="prefecture.html" class="prefecture-button">埼玉県</a>
+                            <a href="prefecture.html" class="prefecture-button">千葉県</a>
+                            <a href="prefecture.html" class="prefecture-button">愛知県</a>
+                            <a href="prefecture.html" class="prefecture-button">大阪府</a>
+                        </div>
+                        
+                        <!-- 地域別リスト -->
+                        <div class="region-list">
+                            <div class="region-item">
+                                <h4 class="region-title">北海道・東北</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">北海道</a> | 
+                                    <a href="prefecture.html">青森県</a> | 
+                                    <a href="prefecture.html">岩手県</a> | 
+                                    <a href="prefecture.html">宮城県</a> | 
+                                    <a href="prefecture.html">秋田県</a> | 
+                                    <a href="prefecture.html">山形県</a> | 
+                                    <a href="prefecture.html">福島県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">関東</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">茨城県</a> | 
+                                    <a href="prefecture.html">栃木県</a> | 
+                                    <a href="prefecture.html">群馬県</a> | 
+                                    <a href="prefecture.html">埼玉県</a> | 
+                                    <a href="prefecture.html">千葉県</a> | 
+                                    <a href="prefecture.html">東京都</a> | 
+                                    <a href="prefecture.html">神奈川県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">中部</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">新潟県</a> | 
+                                    <a href="prefecture.html">富山県</a> | 
+                                    <a href="prefecture.html">石川県</a> | 
+                                    <a href="prefecture.html">福井県</a> | 
+                                    <a href="prefecture.html">山梨県</a> | 
+                                    <a href="prefecture.html">長野県</a> | 
+                                    <a href="prefecture.html">岐阜県</a> | 
+                                    <a href="prefecture.html">静岡県</a> | 
+                                    <a href="prefecture.html">愛知県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">近畿</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">三重県</a> | 
+                                    <a href="prefecture.html">滋賀県</a> | 
+                                    <a href="prefecture.html">京都府</a> | 
+                                    <a href="prefecture.html">大阪府</a> | 
+                                    <a href="prefecture.html">兵庫県</a> | 
+                                    <a href="prefecture.html">奈良県</a> | 
+                                    <a href="prefecture.html">和歌山県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">中国</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">鳥取県</a> | 
+                                    <a href="prefecture.html">島根県</a> | 
+                                    <a href="prefecture.html">岡山県</a> | 
+                                    <a href="prefecture.html">広島県</a> | 
+                                    <a href="prefecture.html">山口県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">四国</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">徳島県</a> | 
+                                    <a href="prefecture.html">香川県</a> | 
+                                    <a href="prefecture.html">愛媛県</a> | 
+                                    <a href="prefecture.html">高知県</a>
+                                </div>
+                            </div>
+                            
+                            <div class="region-item">
+                                <h4 class="region-title">九州・沖縄</h4>
+                                <div class="prefecture-links">
+                                    <a href="prefecture.html">福岡県</a> | 
+                                    <a href="prefecture.html">佐賀県</a> | 
+                                    <a href="prefecture.html">長崎県</a> | 
+                                    <a href="prefecture.html">熊本県</a> | 
+                                    <a href="prefecture.html">大分県</a> | 
+                                    <a href="prefecture.html">宮崎県</a> | 
+                                    <a href="prefecture.html">鹿児島県</a> | 
+                                    <a href="prefecture.html">沖縄県</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="area-block">
-                    <h3 class="area-title">関東</h3>
-                    <ul class="area-list">
-                        <li><a href="#">茨城県</a></li>
-                        <li><a href="#">栃木県</a></li>
-                        <li><a href="#">群馬県</a></li>
-                        <li><a href="#">埼玉県</a></li>
-                        <li><a href="#">千葉県</a></li>
-                        <li><a href="#">東京都</a></li>
-                        <li><a href="#">神奈川県</a></li>
-                    </ul>
+                
+                <!-- 他のアコーディオン項目 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>学年別学校のランキングを見る</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- 内容は非表示状態 -->
+                    </div>
                 </div>
-                <div class="area-block">
-                    <h3 class="area-title">中部</h3>
-                    <ul class="area-list">
-                        <li><a href="#">新潟県</a></li>
-                        <li><a href="#">富山県</a></li>
-                        <li><a href="#">石川県</a></li>
-                        <li><a href="#">福井県</a></li>
-                        <li><a href="#">山梨県</a></li>
-                        <li><a href="#">長野県</a></li>
-                        <li><a href="#">岐阜県</a></li>
-                        <li><a href="#">静岡県</a></li>
-                        <li><a href="#">愛知県</a></li>
-                    </ul>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>授業形式別の学校ランキングを見る</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- 内容は非表示状態 -->
+                    </div>
                 </div>
-                <div class="area-block">
-                    <h3 class="area-title">近畿</h3>
-                    <ul class="area-list">
-                        <li><a href="#">三重県</a></li>
-                        <li><a href="#">滋賀県</a></li>
-                        <li><a href="#">京都府</a></li>
-                        <li><a href="#">大阪府</a></li>
-                        <li><a href="#">兵庫県</a></li>
-                        <li><a href="#">奈良県</a></li>
-                        <li><a href="#">和歌山県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">中国・四国</h3>
-                    <ul class="area-list">
-                        <li><a href="#">鳥取県</a></li>
-                        <li><a href="#">島根県</a></li>
-                        <li><a href="#">岡山県</a></li>
-                        <li><a href="#">広島県</a></li>
-                        <li><a href="#">山口県</a></li>
-                        <li><a href="#">徳島県</a></li>
-                        <li><a href="#">香川県</a></li>
-                        <li><a href="#">愛媛県</a></li>
-                        <li><a href="#">高知県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">九州・沖縄</h3>
-                    <ul class="area-list">
-                        <li><a href="#">福岡県</a></li>
-                        <li><a href="#">佐賀県</a></li>
-                        <li><a href="#">長崎県</a></li>
-                        <li><a href="#">熊本県</a></li>
-                        <li><a href="#">大分県</a></li>
-                        <li><a href="#">宮崎県</a></li>
-                        <li><a href="#">鹿児島県</a></li>
-                        <li><a href="#">沖縄県</a></li>
-                    </ul>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>目的別の学校ランキングを見る</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- 内容は非表示状態 -->
+                    </div>
                 </div>
             </div>
         </section>

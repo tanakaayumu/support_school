@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // エリア検索のアコーディオン（モバイル用）
     const areaTitles = document.querySelectorAll('.area-title');
     
-    areaTitles.forEach(title => {
+    areaTitles.forEach((title, index) => {
         title.addEventListener('click', function() {
             const list = this.nextElementSibling;
             this.classList.toggle('active');
@@ -157,12 +157,48 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // 初期状態では閉じておく
+        // 初期状態の設定
         const list = title.nextElementSibling;
-        list.style.maxHeight = null;
         list.style.overflow = 'hidden';
         list.style.transition = 'max-height 0.3s ease-out';
+        
+        // 初期状態では「北海道・東北」（最初の要素）だけを開いておく
+        if (index === 0) {
+            title.classList.add('active');
+            list.style.maxHeight = list.scrollHeight + 'px';
+        } else {
+            list.style.maxHeight = null;
+        }
     });
+
+    // ランキングアコーディオンの機能
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionItem = this.parentElement;
+            const accordionContent = this.nextElementSibling;
+            
+            // アクティブなクラスの切り替え
+            accordionItem.classList.toggle('active');
+            
+            // 他のアコーディオンを閉じる（一つだけ開く場合）
+            /*
+            const activeItems = document.querySelectorAll('.accordion-item.active');
+            activeItems.forEach(item => {
+                if (item !== accordionItem) {
+                    item.classList.remove('active');
+                }
+            });
+            */
+        });
+    });
+    
+    // 最初のアコーディオンアイテムを開いておく（オプション）
+    const firstAccordionItem = document.querySelector('.accordion-item');
+    if (firstAccordionItem) {
+        firstAccordionItem.classList.add('active');
+    }
 
     // 画像をタップしたときの処理（モバイル）
     const interviewItems = document.querySelectorAll('.interview-item');
@@ -707,4 +743,334 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.custom-select-wrapper.open').forEach(w => w.classList.remove('open'));
         });
     })();
-}); 
+
+    // メニューモーダル機能
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const menuModal = document.getElementById('menuModal');
+    
+    if (menuTrigger && menuModal) {
+        // メニューの開閉状態を記録する変数
+        let menuOpen = false;
+        
+        menuTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // メニューの状態を切り替える
+            if (!menuOpen) {
+                // メニューを開く
+                menuModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 背景スクロール防止
+                menuOpen = true;
+                
+                // メニューアイコンを×に変更（オプション）
+                const menuIcon = this.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                }
+            } else {
+                // メニューを閉じる
+                menuModal.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+                
+                // メニューアイコンを元に戻す
+                const menuIcon = this.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+        });
+        
+        // モーダル内のリンククリックでモーダルを閉じる
+        const modalLinks = menuModal.querySelectorAll('a');
+        modalLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuModal.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+                
+                // メニューアイコンを元に戻す
+                const menuIcon = menuTrigger.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // スワイプダウンでモーダルを閉じる機能
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        menuModal.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        }, false);
+        
+        menuModal.addEventListener('touchmove', function(e) {
+            touchEndY = e.touches[0].clientY;
+        }, false);
+        
+        menuModal.addEventListener('touchend', function() {
+            if (touchEndY > touchStartY + 100) {
+                menuModal.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+                
+                // メニューアイコンを元に戻す
+                const menuIcon = menuTrigger.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+        }, false);
+    }
+
+    // お気に入り機能
+    setupFavoritesSystem();
+});
+
+// お気に入り機能の設定
+function setupFavoritesSystem() {
+    // お気に入りデータの初期化
+    if (!localStorage.getItem('favorites')) {
+        localStorage.setItem('favorites', JSON.stringify([]));
+    }
+    
+    // お気に入りボタンの設定
+    const favoriteButtons = document.querySelectorAll('.favorite-button');
+    favoriteButtons.forEach(button => {
+        const schoolId = button.getAttribute('data-school-id');
+        const isFavorite = isSchoolFavorite(schoolId);
+        
+        // ボタンの初期状態を設定
+        updateFavoriteButtonState(button, isFavorite);
+        
+        // クリックイベントを設定
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const schoolId = this.getAttribute('data-school-id');
+            const schoolName = this.getAttribute('data-school-name');
+            const schoolCampus = this.getAttribute('data-school-campus') || '';
+            const schoolGrade = this.getAttribute('data-school-grade') || '';
+            const schoolRating = this.getAttribute('data-school-rating') || '0.0';
+            const schoolReviews = this.getAttribute('data-school-reviews') || '0';
+            const schoolImage = this.getAttribute('data-school-image') || '';
+            
+            // お気に入り状態を切り替え
+            toggleFavorite(schoolId, schoolName, schoolCampus, schoolGrade, schoolRating, schoolReviews, schoolImage);
+            
+            // ボタンの状態を更新
+            const isFavorite = isSchoolFavorite(schoolId);
+            updateFavoriteButtonState(this, isFavorite);
+        });
+    });
+    
+    // お気に入りページの場合、リストを表示
+    if (window.location.href.includes('favorites.html')) {
+        displayFavorites();
+    }
+}
+
+// お気に入りボタンの状態更新
+function updateFavoriteButtonState(button, isFavorite) {
+    if (isFavorite) {
+        button.classList.add('favorited');
+        button.querySelector('i').classList.remove('fa-regular');
+        button.querySelector('i').classList.add('fa-solid');
+        button.querySelector('i').style.color = '#ff6b6b';
+    } else {
+        button.classList.remove('favorited');
+        button.querySelector('i').classList.remove('fa-solid');
+        button.querySelector('i').classList.add('fa-regular');
+        button.querySelector('i').style.color = '';
+    }
+}
+
+// 学校がお気に入りかどうかを確認
+function isSchoolFavorite(schoolId) {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    return favorites.some(fav => fav.id === schoolId);
+}
+
+// お気に入りを切り替える
+function toggleFavorite(schoolId, schoolName, schoolCampus, schoolGrade, schoolRating, schoolReviews, schoolImage) {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const index = favorites.findIndex(fav => fav.id === schoolId);
+    
+    if (index >= 0) {
+        // お気に入りから削除
+        favorites.splice(index, 1);
+        showToast('お気に入りから削除しました');
+    } else {
+        // お気に入りに追加
+        favorites.push({
+            id: schoolId,
+            name: schoolName,
+            campus: schoolCampus,
+            grade: schoolGrade,
+            rating: schoolRating,
+            reviews: schoolReviews,
+            image: schoolImage,
+            addedAt: new Date().toISOString()
+        });
+        showToast('お気に入りに追加しました');
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// お気に入りリストを表示
+function displayFavorites() {
+    const favoritesList = document.getElementById('favoritesList');
+    const emptyFavorites = document.getElementById('emptyFavorites');
+    
+    if (!favoritesList || !emptyFavorites) {
+        return;
+    }
+    
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    
+    // お気に入りリストをクリア
+    favoritesList.innerHTML = '';
+    
+    if (favorites.length === 0) {
+        // お気に入りが空の場合
+        favoritesList.style.display = 'none';
+        emptyFavorites.style.display = 'block';
+    } else {
+        // お気に入りがある場合
+        favoritesList.style.display = 'flex';
+        emptyFavorites.style.display = 'none';
+        
+        // お気に入りリストを生成
+        favorites.forEach(fav => {
+            const favoriteItem = document.createElement('div');
+            favoriteItem.className = 'favorite-item';
+            favoriteItem.setAttribute('data-school-id', fav.id);
+            
+            favoriteItem.innerHTML = `
+                <div class="favorite-logo">
+                    <img src="${fav.image || 'https://placehold.jp/80x80.png'}" alt="${fav.name}">
+                </div>
+                <div class="favorite-info">
+                    <div class="favorite-header">
+                        <div>
+                            <h3 class="favorite-name">${fav.name}</h3>
+                            <p class="favorite-campus">${fav.campus || ''}</p>
+                        </div>
+                    </div>
+                    <div class="favorite-tags">
+                        ${fav.grade ? `<span class="favorite-tag">${fav.grade}</span>` : ''}
+                        ${fav.tags ? fav.tags.map(tag => `<span class="favorite-tag">${tag}</span>`).join('') : ''}
+                    </div>
+                </div>
+                <button class="favorite-remove-btn" data-school-id="${fav.id}">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            `;
+            
+            favoritesList.appendChild(favoriteItem);
+        });
+        
+        // 削除ボタンのイベントを設定
+        const removeButtons = favoritesList.querySelectorAll('.favorite-remove-btn');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const schoolId = this.getAttribute('data-school-id');
+                removeFavorite(schoolId);
+                // 要素を削除
+                const item = this.closest('.favorite-item');
+                item.style.opacity = '0';
+                setTimeout(() => {
+                    item.remove();
+                    // リストが空になったら表示を切り替え
+                    if (favoritesList.children.length === 0) {
+                        favoritesList.style.display = 'none';
+                        emptyFavorites.style.display = 'block';
+                    }
+                }, 300);
+            });
+        });
+    }
+}
+
+// お気に入りから削除
+function removeFavorite(schoolId) {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const newFavorites = favorites.filter(fav => fav.id !== schoolId);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    showToast('お気に入りから削除しました');
+}
+
+// 星評価を生成
+function generateStarRating(rating) {
+    let stars = '';
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+    
+    // 満星
+    for (let i = 0; i < fullStars; i++) {
+        stars += '<i class="fa-solid fa-star"></i>';
+    }
+    
+    // 半星
+    if (halfStar) {
+        stars += '<i class="fa-solid fa-star-half-stroke"></i>';
+    }
+    
+    // 空星
+    for (let i = 0; i < emptyStars; i++) {
+        stars += '<i class="fa-regular fa-star"></i>';
+    }
+    
+    return stars;
+}
+
+// トースト通知を表示
+function showToast(message) {
+    // 既存のトーストを削除
+    const existingToast = document.querySelector('.toast-notification');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // 新しいトーストを作成
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    
+    // CSSを設定
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `;
+    
+    // ドキュメントに追加
+    document.body.appendChild(toast);
+    
+    // アニメーション
+    setTimeout(() => {
+        toast.style.opacity = '1';
+    }, 10);
+    
+    // 自動的に消える
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+} 
