@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>西荻窪から３０分以内の学校一覧 | サービス名</title>
+    <title>エリア検索結果 | サービス名</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="modal.css">
@@ -291,23 +291,25 @@
 
     <main>
         <div class="breadcrumb">
-            <a href="#">サービス名</a>
+            <a href="index.html">サービス名</a>
             <span class="separator">＞</span>
-            <span>検索</span>
+            <a href="index.html">検索</a>
+            <span class="separator">＞</span>
+            <span>エリア検索結果</span>
         </div>
 
-        <h1 class="page-heading">西荻窪から３０分以内の学校一覧</h1>
+        <h1 class="page-heading">東京都の通信制高校・サポート校一覧</h1>
 
         <div class="search-condition">
-            <div class="condition-row">
-                <div class="condition-label">駅</div>
-                <div class="condition-value" data-type="station">西荻窪駅</div>
-                <a href="#" class="change-button" data-modal="station">変更 ＞</a>
-            </div>
             <div class="condition-row">
                 <div class="condition-label">エリア</div>
                 <div class="condition-value" data-type="area">選択してください</div>
                 <a href="#" class="change-button" data-modal="area">変更 ＞</a>
+            </div>
+            <div class="condition-row">
+                <div class="condition-label">学校タイプ</div>
+                <div class="condition-value" data-type="schoolTypes">選択してください</div>
+                <a href="#" class="change-button" data-modal="schoolTypes">変更 ＞</a>
             </div>
             <div class="condition-row">
                 <div class="condition-label">特徴を選ぶ</div>
@@ -315,7 +317,7 @@
                 <a href="#" class="change-button" data-modal="features">変更 ＞</a>
             </div>
             <div class="condition-row">
-                <div class="condition-label">学びたいことを選ぶ</div>
+                <div class="condition-label">学びたいこと</div>
                 <div class="condition-value" data-type="learning">選択してください</div>
                 <a href="#" class="change-button" data-modal="learning">変更 ＞</a>
             </div>
@@ -882,6 +884,75 @@
         </div>
     </div>
 
+    <!-- エリア選択モーダル -->
+    <div id="areaModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>エリアを選択</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <div class="condition-section">
+                    <h3 class="condition-section-title">都道府県</h3>
+                    <div class="area-selector">
+                        <select id="prefecture-select" class="area-select">
+                            <option value="">都道府県を選択</option>
+                            <option value="tokyo">東京都</option>
+                            <option value="kanagawa">神奈川県</option>
+                            <option value="saitama">埼玉県</option>
+                            <option value="chiba">千葉県</option>
+                            <!-- その他の都道府県 -->
+                        </select>
+                    </div>
+                    
+                    <h3 class="condition-section-title">市区町村</h3>
+                    <div class="city-selector">
+                        <select id="city-select" class="area-select">
+                            <option value="">市区町村を選択</option>
+                            <!-- 都道府県選択後に動的に追加 -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-clear">クリア</button>
+                <button class="btn-apply">決定</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 学校タイプ選択モーダル -->
+    <div id="schoolTypesModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>学校タイプを選択</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <div class="condition-section">
+                    <div class="condition-options">
+                        <label class="condition-option">
+                            <input type="checkbox" value="tsuushinsei"> <span>通信制高校</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox" value="sapport"> <span>サポート校</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox" value="flexible"> <span>フレックス高校</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox" value="regular"> <span>全日制高校</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-clear">クリア</button>
+                <button class="btn-apply">条件決定</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
         // モーダル関連の処理
@@ -889,51 +960,172 @@
             // URLパラメータの処理
             const params = new URLSearchParams(window.location.search);
             
-            // パラメータを取得
+            // パラメータを取得（エリア検索関連のみ）
             const area = params.get('area');
             const features = params.get('features') ? params.get('features').split(',') : [];
             const learnings = params.get('learnings') ? params.get('learnings').split(',') : [];
             const schoolTypes = params.get('schoolTypes') ? params.get('schoolTypes').split(',') : [];
-            const homeStation = params.get('homeStation');
-            const timeLimit = params.get('timeLimit');
-            const transfers = params.get('transfers');
-            const departureTime = params.get('departureTime');
-            const schoolGenders = params.get('schoolGenders') ? params.get('schoolGenders').split(',') : [];
             const prefecture = params.get('prefecture');
             const city = params.get('city');
+            
+            // デバッグ用：コンソールに値を出力
+            console.log('URLパラメータ:', window.location.search);
+            console.log('パース後のパラメータ:', {
+                area,
+                features,
+                learnings,
+                schoolTypes,
+                prefecture,
+                city
+            });
+            
+            // 都道府県コードと日本語名のマッピング
+            const prefectureLabels = {
+                'hokkaido': '北海道',
+                'aomori': '青森県',
+                'iwate': '岩手県',
+                'miyagi': '宮城県',
+                'akita': '秋田県',
+                'yamagata': '山形県',
+                'fukushima': '福島県',
+                'ibaraki': '茨城県',
+                'tochigi': '栃木県',
+                'gunma': '群馬県',
+                'saitama': '埼玉県',
+                'chiba': '千葉県',
+                'tokyo': '東京都',
+                'kanagawa': '神奈川県',
+                'niigata': '新潟県',
+                'toyama': '富山県',
+                'ishikawa': '石川県',
+                'fukui': '福井県',
+                'yamanashi': '山梨県',
+                'nagano': '長野県',
+                'gifu': '岐阜県',
+                'shizuoka': '静岡県',
+                'aichi': '愛知県',
+                'mie': '三重県',
+                'shiga': '滋賀県',
+                'kyoto': '京都府',
+                'osaka': '大阪府',
+                'hyogo': '兵庫県',
+                'nara': '奈良県',
+                'wakayama': '和歌山県',
+                'tottori': '鳥取県',
+                'shimane': '島根県',
+                'okayama': '岡山県',
+                'hiroshima': '広島県',
+                'yamaguchi': '山口県',
+                'tokushima': '徳島県',
+                'kagawa': '香川県',
+                'ehime': '愛媛県',
+                'kochi': '高知県',
+                'fukuoka': '福岡県',
+                'saga': '佐賀県',
+                'nagasaki': '長崎県',
+                'kumamoto': '熊本県',
+                'oita': '大分県',
+                'miyazaki': '宮崎県',
+                'kagoshima': '鹿児島県',
+                'okinawa': '沖縄県'
+            };
+            
+            // 選択項目のマッピング
+            const featureLabels = {
+                'online': 'オンライン授業あり',
+                'dormitory': '寮あり',
+                'recommendation': '指定校推薦あり',
+                'no-schooling': 'スクーリングなし',
+                'mental-support': 'メンタルサポートあり',
+                'club': '部活動あり'
+            };
+            
+            const learningLabels = {
+                'sports': 'スポーツ',
+                'programming': 'プログラミング',
+                'art': '美術・芸術',
+                'music': '音楽・ダンス',
+                'language': '英語・語学',
+                'university': '大学進学'
+            };
+            
+            const schoolTypeLabels = {
+                'tsuushin': '通信制高校',
+                'support': '通信制サポート校',
+                'tsuushinsei': '通信制高校',
+                'sapport': 'サポート校',
+                'flexible': 'フレックス高校',
+                'regular': '全日制高校'
+            };
             
             // 検索条件の表示を更新
             if (area) {
                 const areaValue = document.querySelector('.condition-value[data-type="area"]');
-                if (areaValue) areaValue.textContent = area;
+                const displayArea = prefectureLabels[area] || area;
+                
+                if (areaValue) areaValue.textContent = displayArea;
+                
+                // タイトルも更新
+                const pageHeading = document.querySelector('.page-heading');
+                if (pageHeading) pageHeading.textContent = `${displayArea}の通信制高校・サポート校一覧`;
+            } else if (prefecture) {
+                const areaValue = document.querySelector('.condition-value[data-type="area"]');
+                let locationText = prefectureLabels[prefecture] || prefecture;
+                if (city) locationText += ` ${city}`;
+                
+                if (areaValue) areaValue.textContent = locationText;
+                
+                // タイトルも更新
+                const pageHeading = document.querySelector('.page-heading');
+                if (pageHeading) pageHeading.textContent = `${locationText}の通信制高校・サポート校一覧`;
             }
             
-            if (homeStation) {
-                const stationValue = document.querySelector('.condition-value[data-type="station"]');
-                if (stationValue) stationValue.textContent = homeStation;
+            // 特徴の選択を表示
+            const featuresValue = document.querySelector('.condition-value[data-type="features"]');
+            if (featuresValue) {
+                if (features && features.length > 0) {
+                    const featureTexts = features.map(feature => featureLabels[feature] || feature);
+                    console.log('特徴のテキスト変換:', featureTexts);
+                    featuresValue.textContent = featureTexts.join('、');
+                } else {
+                    featuresValue.textContent = '選択してください';
+                }
             }
             
-            if (features.length > 0) {
-                const featuresValue = document.querySelector('.condition-value[data-type="features"]');
-                if (featuresValue) featuresValue.textContent = `${features.length}件選択中`;
+            // 学びたいことの選択を表示
+            const learningsValue = document.querySelector('.condition-value[data-type="learning"]');
+            if (learningsValue) {
+                if (learnings && learnings.length > 0) {
+                    const learningTexts = learnings.map(learning => learningLabels[learning] || learning);
+                    console.log('学びたいことのテキスト変換:', learningTexts);
+                    learningsValue.textContent = learningTexts.join('、');
+                } else {
+                    learningsValue.textContent = '選択してください';
+                }
             }
             
-            if (learnings.length > 0) {
-                const learningsValue = document.querySelector('.condition-value[data-type="learning"]');
-                if (learningsValue) learningsValue.textContent = `${learnings.length}件選択中`;
+            // 学校タイプの選択を表示
+            const schoolTypesValue = document.querySelector('.condition-value[data-type="schoolTypes"]');
+            if (schoolTypesValue) {
+                if (schoolTypes && schoolTypes.length > 0) {
+                    const schoolTypeTexts = schoolTypes.map(type => schoolTypeLabels[type] || type);
+                    console.log('学校タイプのテキスト変換:', schoolTypeTexts);
+                    schoolTypesValue.textContent = schoolTypeTexts.join('、');
+                } else {
+                    schoolTypesValue.textContent = '選択してください';
+                }
             }
             
             // 検索結果のカウントを更新
-            console.log('検索パラメータ:', { 
-                area, features, learnings, schoolTypes, 
-                homeStation, timeLimit, transfers, departureTime, 
-                schoolGenders, prefecture, city 
+            console.log('エリア検索パラメータ:', { 
+                area, features, learnings, schoolTypes, prefecture, city
             });
             
             // 各モーダル要素を取得
             const featuresModal = document.getElementById('featuresModal');
             const learningModal = document.getElementById('learningModal');
-            const stationModal = document.getElementById('stationModal');
+            const areaModal = document.getElementById('areaModal');
+            const schoolTypesModal = document.getElementById('schoolTypesModal');
             
             // 変更ボタン
             const changeButtons = document.querySelectorAll('.change-button');
@@ -959,7 +1151,9 @@
                     } else if (modalType === 'learning') {
                         learningModal.style.display = 'block';
                     } else if (modalType === 'station') {
-                        stationModal.style.display = 'block';
+                        areaModal.style.display = 'block';
+                    } else if (modalType === 'schoolTypes') {
+                        schoolTypesModal.style.display = 'block';
                     }
                     
                     // bodyのスクロールを無効化
@@ -973,7 +1167,8 @@
                     // すべてのモーダルを非表示
                     featuresModal.style.display = 'none';
                     learningModal.style.display = 'none';
-                    stationModal.style.display = 'none';
+                    areaModal.style.display = 'none';
+                    schoolTypesModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -998,7 +1193,8 @@
                     // すべてのモーダルを非表示
                     featuresModal.style.display = 'none';
                     learningModal.style.display = 'none';
-                    stationModal.style.display = 'none';
+                    areaModal.style.display = 'none';
+                    schoolTypesModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -1007,10 +1203,11 @@
             
             // モーダル外クリックで閉じる
             window.addEventListener('click', function(e) {
-                if (e.target === featuresModal || e.target === learningModal || e.target === stationModal) {
+                if (e.target === featuresModal || e.target === learningModal || e.target === areaModal || e.target === schoolTypesModal) {
                     featuresModal.style.display = 'none';
                     learningModal.style.display = 'none';
-                    stationModal.style.display = 'none';
+                    areaModal.style.display = 'none';
+                    schoolTypesModal.style.display = 'none';
                     document.body.style.overflow = '';
                 }
             });
@@ -1036,11 +1233,11 @@
             }
             
             // 駅アイテムクリックで選択処理
-                            stationItems.forEach(item => {
+            stationItems.forEach(item => {
                 item.addEventListener('click', function() {
                     const stationName = this.textContent.trim();
                     document.querySelector('.condition-value[data-type="station"]').textContent = stationName;
-                    stationModal.style.display = 'none';
+                    areaModal.style.display = 'none';
                     document.body.style.overflow = '';
                 });
             });

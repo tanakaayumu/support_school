@@ -1,0 +1,342 @@
+/* 検索タブコンテナのスタイル */
+.search-tabs-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* 検索タブのスタイル */
+.search-tabs {
+    display: flex;
+    width: 100%;
+    background-color: #1a6bb3;
+}
+
+.search-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 5px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.search-tab i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.search-tab.active {
+    background-color: #0f5799;
+    border-bottom-color: #c2e6ff;
+}
+
+.search-tab:hover {
+    background-color: #2179c9;
+}
+
+/* タブコンテンツのスタイル */
+.tab-content-container {
+    background-color: #f9f9f9;
+    border-top: none;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* カテゴリーセクションのスタイル */
+.category-section {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.category-section:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.category-header {
+    background-color: #e8e8e8;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #0075a9;
+}
+
+.category-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 20px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.checkbox-option:hover {
+    transform: translateX(3px);
+}
+
+.checkbox-option input {
+    margin-right: 5px;
+}
+
+.category-content {
+    padding: 15px;
+}
+
+/* 通学詳細設定のスタイル */
+.station-input-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.station-text-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.station-text-input:focus {
+    outline: none;
+    border-color: #0075a9;
+    box-shadow: 0 0 0 2px rgba(0,117,169,0.1);
+}
+
+.input-hint {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.commute-detail-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.commute-detail-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #444;
+}
+
+.detail-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.detail-select:focus {
+    outline: none;
+    border-color: #0075a9;
+}
+
+.departure-time-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.note-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* 検索フォームのスタイル */
+.search-form-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.search-row {
+    width: 100%;
+}
+
+.search-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.search-select:focus {
+    outline: none;
+    border-color: #0075a9;
+}
+
+.school-type-row {
+    margin: 10px 0;
+}
+
+.school-type-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.school-type-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.school-type-option:hover {
+    transform: translateX(3px);
+}
+
+.school-type-option input {
+    margin-right: 5px;
+}
+
+.search-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a6bb3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-button i {
+    margin-right: 8px;
+}
+
+.search-button:hover {
+    background-color: #0f5799;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.search-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+    .search-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .search-row {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .category-section,
+    .school-type-row, 
+    .search-row:last-child {
+        width: 100%;
+        flex: none;
+    }
+    
+    .commute-detail-row {
+        flex-direction: row;
+    }
+}
+
+/* 検索サジェスト */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.search-input-container {
+    position: relative;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f5f5;
+}
+
+.suggestion-item.active {
+    background-color: #f0f7ff;
+}
+
+.suggestion-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #ff6b00;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    margin-right: 10px;
+    flex-shrink: 0;
+} 

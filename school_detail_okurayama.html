@@ -762,6 +762,20 @@
         padding-right: 10px;
       }
     }
+    
+
+
+    /* コースタブ表示時に非表示にするセクション */
+    body.courses-active .hide-on-courses {
+      display: none !important;
+    }
+    
+    /* 詳細レポ表示時に非表示にするセクション */
+    body.intro-active .hide-on-intro {
+      display: none !important;
+    }
+    
+
   </style>
 </head>
 <body class="school-detail-page">
@@ -797,7 +811,6 @@
         <li><a href="#">塾トップ</a></li>
         <li><a href="#intro">詳細レポ</a></li>
         <li><a href="#courses">コース</a></li>
-        <li><a href="#campus">教室一覧</a></li>
         <li><a href="#voices">口コミ</a></li>
       </ul>
     </nav>
@@ -2246,19 +2259,17 @@
         targetContent.classList.add('active');
       }
       
-      // コースタブが選択されている場合、特定のセクションを非表示にするためのクラスを追加
+      // bodyからすべてのタブ関連クラスを削除
+      document.body.classList.remove('courses-active');
+      document.body.classList.remove('intro-active');
+      
+      // 選択されたタブに応じてbodyにクラスを追加
       if (tabId === 'tab-courses') {
         document.body.classList.add('courses-active');
-        document.body.classList.remove('intro-active');
       } 
       // 詳細レポタブが選択されている場合
       else if (tabId === 'tab-intro') {
-        document.body.classList.remove('courses-active');
         document.body.classList.add('intro-active');
-      }
-      else {
-        document.body.classList.remove('courses-active');
-        document.body.classList.remove('intro-active');
       }
       
       // コースタブの場合、コース一覧を表示してコース詳細は非表示にする
@@ -2368,6 +2379,8 @@
         window.location.hash = 'courses';
       });
     });
+    
+
     
     // ページロード時とハッシュ変更時にタブを切り替え
     window.addEventListener('hashchange', handleHashChange);

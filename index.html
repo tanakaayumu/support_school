@@ -3,10 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サービス名 - 学習塾検索サイト</title>
+    <title>通信制高校・サポート校 検索サイト</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search-styles.css">
     <link rel="stylesheet" href="modal.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* エリア検索タブのスタイル */
+        .area-search-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .area-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 5px 5px 0 0;
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+        
+        .area-tab i {
+            margin-right: 8px;
+        }
+        
+        .area-tab.active {
+            background-color: #0075a9;
+            color: white;
+        }
+        
+        .area-content {
+            display: none;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .area-content.active {
+            display: block;
+        }
+        
+        .area-subtitle {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+        
+        /* 検索タブコンテナのスタイル */
+        .search-tabs-container {
+            margin: 20px auto;
+            max-width: 1000px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 検索タブのスタイル */
+        .search-tabs {
+            display: flex;
+            width: 100%;
+            background-color: #1a6bb3;
+        }
+        
+        .search-tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .search-tab i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .search-tab.active {
+            background-color: #0f5799;
+            border-bottom-color: #c2e6ff;
+        }
+        
+        .search-tab:hover {
+            background-color: #2179c9;
+        }
+        
+        /* タブコンテンツのスタイル */
+        .tab-content-container {
+            background-color: #f9f9f9;
+            border-top: none;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* カテゴリーセクションのスタイル */
+        .category-section {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background-color: #e8e8e8;
+            padding: 10px 15px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .category-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 20px;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .checkbox-option input {
+            margin-right: 5px;
+        }
+        
+        .category-content {
+            padding: 15px;
+        }
+        
+        /* 通学詳細設定のスタイル */
+        .station-input-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .station-text-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .input-hint {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .commute-detail-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .commute-detail-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .detail-select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .departure-time-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        
+        .note-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* エリアグリッドのスタイル */
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .area-grid-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .area-grid-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* 特徴リストのスタイル */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .feature-item i {
+            margin-right: 10px;
+            color: #0075a9;
+        }
+        
+        .feature-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* 検索フォームのスタイル */
+        .search-form-section {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .search-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #0075a9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-title i {
+            margin-right: 10px;
+        }
+        
+        .search-form-container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .search-row {
+            width: 100%;
+        }
+        
+        .search-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .school-type-row {
+            margin: 10px 0;
+        }
+        
+        .school-type-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .school-type-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .school-type-option input {
+            margin-right: 5px;
+        }
+        
+        .search-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a6bb3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-button i {
+            margin-right: 8px;
+        }
+        
+        .search-button:hover {
+            background-color: #0f5799;
+        }
+        
+        @media (min-width: 768px) {
+            .search-form {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .search-row {
+                flex: 1;
+                min-width: 200px;
+            }
+            
+            .category-section,
+            .school-type-row, 
+            .search-row:last-child {
+                width: 100%;
+                flex: none;
+            }
+            
+            .commute-detail-row {
+                flex-direction: row;
+            }
+            
+            .area-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .feature-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,32 +398,290 @@
                 </div>
               </div>
             </div>
-            <nav class="global-nav">
-                <div class="nav-row">
-                    <a href="city-prefecture.html" class="nav-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>市区町村</span>
-                        <span class="from-search">から探す</span>
-                    </a>
-                    <a href="station-prefecture.html" class="nav-item">
-                        <i class="fa-solid fa-train"></i>
-                        <span>路線・駅</span>
-                        <span class="from-search">から探す</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <i class="fa-solid fa-map"></i>
-                        <span>地図</span>
-                        <span class="from-search">から探す</span>
-                    </a>
-                    <a href="school-search.html" class="nav-item">
-                        <i class="fa-solid fa-clock"></i>
-                        <span>通学時間</span>
-                        <span class="from-search">から探す</span>
-                    </a>
-                </div>
-            </nav>
+ 
           </header>
     </header>
+    
+    <!-- 検索タブコンテナ -->
+    <div class="search-tabs-container">
+        <!-- タブヘッダー -->
+        <div class="search-tabs">
+            <div class="search-tab active" data-tab="area-search-tab">
+                <i class="fas fa-map-marker-alt"></i> エリアから探す
+            </div>
+            <div class="search-tab" data-tab="feature-search-tab">
+                <i class="fas fa-clock"></i> 通学時間から探す
+            </div>
+        </div>
+        
+        <!-- タブコンテンツ -->
+        <div class="tab-content-container">
+            <!-- エリアから探すタブの内容 -->
+            <div id="area-search-tab" class="tab-content active">
+                <div class="search-form-container">
+                    <div class="search-form">
+                        <div class="search-row">
+                            <select class="search-select" id="area-select">
+                                <option value="">都道府県を選ぶ</option>
+                                <option value="hokkaido">北海道</option>
+                                <option value="aomori">青森県</option>
+                                <option value="iwate">岩手県</option>
+                                <option value="miyagi">宮城県</option>
+                                <option value="akita">秋田県</option>
+                                <option value="yamagata">山形県</option>
+                                <option value="fukushima">福島県</option>
+                                <option value="ibaraki">茨城県</option>
+                                <option value="tochigi">栃木県</option>
+                                <option value="gunma">群馬県</option>
+                                <option value="saitama">埼玉県</option>
+                                <option value="chiba">千葉県</option>
+                                <option value="tokyo">東京都</option>
+                                <option value="kanagawa">神奈川県</option>
+                                <option value="niigata">新潟県</option>
+                                <option value="toyama">富山県</option>
+                                <option value="ishikawa">石川県</option>
+                                <option value="fukui">福井県</option>
+                                <option value="yamanashi">山梨県</option>
+                                <option value="nagano">長野県</option>
+                                <option value="gifu">岐阜県</option>
+                                <option value="shizuoka">静岡県</option>
+                                <option value="aichi">愛知県</option>
+                                <option value="mie">三重県</option>
+                                <option value="shiga">滋賀県</option>
+                                <option value="kyoto">京都府</option>
+                                <option value="osaka">大阪府</option>
+                                <option value="hyogo">兵庫県</option>
+                                <option value="nara">奈良県</option>
+                                <option value="wakayama">和歌山県</option>
+                                <option value="tottori">鳥取県</option>
+                                <option value="shimane">島根県</option>
+                                <option value="okayama">岡山県</option>
+                                <option value="hiroshima">広島県</option>
+                                <option value="yamaguchi">山口県</option>
+                                <option value="tokushima">徳島県</option>
+                                <option value="kagawa">香川県</option>
+                                <option value="ehime">愛媛県</option>
+                                <option value="kochi">高知県</option>
+                                <option value="fukuoka">福岡県</option>
+                                <option value="saga">佐賀県</option>
+                                <option value="nagasaki">長崎県</option>
+                                <option value="kumamoto">熊本県</option>
+                                <option value="oita">大分県</option>
+                                <option value="miyazaki">宮崎県</option>
+                                <option value="kagoshima">鹿児島県</option>
+                                <option value="okinawa">沖縄県</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 特徴セクション -->
+                        <div class="category-section">
+                            <div class="category-header">特徴</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="online"> オンライン授業あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="dormitory"> 寮あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="recommendation"> 指定校推薦あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="no-schooling"> スクーリングなし
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="mental-support"> メンタルサポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="club"> 部活動あり
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 学びたいことセクション -->
+                        <div class="category-section">
+                            <div class="category-header">学びたいこと</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="sports"> スポーツ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="programming"> プログラミング
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="art"> 美術・芸術
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="music"> 音楽・ダンス
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="language"> 英語・語学
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="university"> 大学進学
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 通信制高校/通信制サポート校セクション -->
+                        <div class="category-section">
+                            <div class="category-header">通信制高校/通信制サポート校</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type" value="tsuushin"> 通信制高校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type" value="support"> 通信制サポート校
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="search-row">
+                            <button type="button" class="search-button" id="area-search-btn">
+                                <i class="fas fa-search"></i> 検索
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 通学時間から探すタブの内容 -->
+            <div id="feature-search-tab" class="tab-content">
+                <div class="search-form-container">
+                    <div class="search-form">
+                        <!-- 駅からの通学時間の選択 -->
+                        <div class="category-section">
+                            <div class="category-header">出発駅と通学時間</div>
+                            <div class="category-content">
+                                <div class="station-input-row">
+                                    <input type="text" id="home-station" class="station-text-input" placeholder="最寄り駅">
+                                    <span class="input-hint">例：東京、渋谷、新宿</span>
+                                </div>
+                                <div class="commute-detail-row">
+                                    <div class="commute-detail-item">
+                                        <label class="detail-label">通学時間</label>
+                                        <select id="time-limit" class="detail-select">
+                                            <option value="30">30分以内</option>
+                                            <option value="45">45分以内</option>
+                                            <option value="60" selected>1時間以内</option>
+                                            <option value="90">1時間30分以内</option>
+                                            <option value="120">2時間以内</option>
+                                        </select>
+                                    </div>
+                                    <div class="commute-detail-item">
+                                        <label class="detail-label">乗換回数</label>
+                                        <select id="transfers" class="detail-select">
+                                            <option value="0">0回</option>
+                                            <option value="1">1回まで</option>
+                                            <option value="2" selected>2回まで</option>
+                                            <option value="3">3回以上</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="departure-time-row">
+                                    <label class="detail-label">出発時間</label>
+                                    <select id="departure-time" class="detail-select">
+                                        <option value="0700">午前7:00</option>
+                                        <option value="0730">午前7:30</option>
+                                        <option value="0800" selected>午前8:00</option>
+                                        <option value="0830">午前8:30</option>
+                                        <option value="0900">午前9:00</option>
+                                        <option value="0930">午前9:30</option>
+                                    </select>
+                                    <p class="note-text">※午前8時発の場合、9時に授業開始の学校に通える範囲を表示します</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 別学/共学 セクション -->
+                        <div class="category-section">
+                            <div class="category-header">別学/共学</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-gender" value="boys"> 男子校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-gender" value="girls"> 女子校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-gender" value="coed"> 共学
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 私立/国公立 セクション -->
+                        <div class="category-section">
+                            <div class="category-header">通信制高校/通信制サポート校</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type-commute" value="tsuushin"> 通信制高校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type-commute" value="support"> 通信制サポート校
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 特徴セクション -->
+                        <div class="category-section">
+                            <div class="category-header">特徴</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="online"> オンライン授業あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="dormitory"> 寮あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="recommendation"> 指定校推薦あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="no-schooling"> スクーリングなし
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="mental-support"> メンタルサポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="club"> 部活動あり
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 学びたいことセクション -->
+                        <div class="category-section">
+                            <div class="category-header">学びたいこと</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="sports"> スポーツ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="programming"> プログラミング
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="art"> 美術・芸術
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="music"> 音楽・ダンス
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="language"> 英語・語学
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="university"> 大学進学
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="search-row">
+                            <button type="button" id="commute-search-btn" class="search-button">
+                                <i class="fas fa-search"></i> 検索
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- モーダルメニュー -->
     <div id="menuModal" class="menu-modal">
@@ -62,7 +689,7 @@
             <div class="search-container">
                 <div class="search-box">
                     <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="塾名、志望校名を入力">
+                    <input type="text" placeholder="学校名を入力">
                 </div>
             </div>
             
@@ -70,42 +697,34 @@
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-heart"></i>
                     <span>お気に入りの学校</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span>最近見た学校</span>
-                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <span>エリアから探す</span>
+                </a>
+                <a href="#" class="modal-menu-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>通学時間から探す</span>
                 </a>
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-user-graduate"></i>
-                    <span>合格者インタビュー</span>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>インタビュー・体験談</span>
                 </a>
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-trophy"></i>
-                    <span>ランキング</span>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>学校人気ランキング</span>
                 </a>
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>記事・コラム</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="modal-menu-item">
-                    <i class="fa-solid fa-school"></i>
-                    <span>学校を探す</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="modal-menu-item">
                     <i class="fa-solid fa-list"></i>
                     <span>学校一覧</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="modal-menu-item">
-                    <i class="fa-solid fa-chalkboard-teacher"></i>
-                    <span>塾選ジャーナル</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
             </div>
 
@@ -115,66 +734,56 @@
                         <i class="fa-solid fa-bullhorn"></i>
                     </div>
                     <span>指定校推薦のある通信制高校</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="special-menu-item">
                     <div class="special-icon quiz-icon">
                         <i class="fa-solid fa-clipboard-question"></i>
                     </div>
-                    <span>4月入学が間に合う通信制高校
-                    </span>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>4月入学が間に合う通信制高校</span>
                 </a>
                 <a href="#" class="special-menu-item">
                     <div class="special-icon interview-icon">
-                        <img src="https://placehold.jp/30x30.png" alt="面倒見の良い塾">
+                        <img src="https://placehold.jp/30x30.png" alt="寮がある通信制高校">
                     </div>
                     <span>寮がある通信制高校</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
-
             </div>
 
             <div class="footer-menu-items">
                 <a href="#" class="footer-menu-item">
                     <span>執筆者一覧</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="footer-menu-item">
                     <span>よくある質問</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="footer-menu-item">
                     <span>ご意見・ご質問</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="footer-menu-item">
                     <span>口コミ投稿</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="footer-menu-item">
                     <span>受験体験記投稿</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a href="#" class="footer-menu-item">
                     <span>運営ポリシー</span>
-                    <i class="fa-solid fa-chevron-right"></i>
                 </a>
             </div>
         </div>
     </div>
     
     <main>
-        <!-- 塾名・志望校名から探すセクション -->
+        <!-- 塾名・学校名から探すセクション -->
         <div class="search-by-name-section">
             <div class="search-by-name-container">
                 <label class="search-by-name-label">
                     <input type="checkbox" class="search-checkbox" checked>
-                    <span>志望校名から探す</span>
+                    <span>学校名から探す</span>
                 </label>
                 <div class="search-input-container">
                     <i class="fa-solid fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="志望校名を入力">
+                    <input type="text" class="search-input" id="school-search-input" placeholder="学校名を入力">
+                    <div id="search-suggestions" class="search-suggestions"></div>
                 </div>
             </div>
         </div>
@@ -193,31 +802,31 @@
                 <div class="recent-items">
                     <div class="recent-item">
                         <div class="recent-item-logo orange-bg">
-                            <img src="https://placehold.jp/30x30.png" alt="個別教室のトライ">
+                            <img src="https://placehold.jp/30x30.png" alt="トライ式高等学院">
                         </div>
                         <div class="recent-item-info">
-                            <h4 class="recent-item-name">個別教室のトライ</h4>
-                            <p class="recent-item-desc">高校生/中学生/小学生</p>
+                            <h4 class="recent-item-name">トライ式高等学院</h4>
+                            <p class="recent-item-desc">通信制高校/サポート校</p>
                         </div>
                     </div>
                     
                     <div class="recent-item">
                         <div class="recent-item-logo orange-bg">
-                            <img src="https://placehold.jp/30x30.png" alt="りんご塾">
+                            <img src="https://placehold.jp/30x30.png" alt="N高等学校">
                         </div>
                         <div class="recent-item-info">
-                            <h4 class="recent-item-name">りんご塾</h4>
-                            <p class="recent-item-desc">小学生</p>
+                            <h4 class="recent-item-name">N高等学校</h4>
+                            <p class="recent-item-desc">通信制高校</p>
                         </div>
                     </div>
                     
                     <div class="recent-item">
                         <div class="recent-item-logo orange-bg">
-                            <img src="https://placehold.jp/30x30.png" alt="創学アカデミー">
+                            <img src="https://placehold.jp/30x30.png" alt="第一学院高等学校">
                         </div>
                         <div class="recent-item-info">
-                            <h4 class="recent-item-name">創学アカデミー</h4>
-                            <p class="recent-item-desc">小学生</p>
+                            <h4 class="recent-item-name">第一学院高等学校</h4>
+                            <p class="recent-item-desc">通信制高校</p>
                         </div>
                     </div>
                 </div>
@@ -237,15 +846,15 @@
                 <ul class="recent-search-list">
                     <li class="recent-search-item">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <span class="search-query">大崎/高2</span>
+                        <span class="search-query">東京都/スクーリングなし</span>
                     </li>
                     <li class="recent-search-item">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <span class="search-query">古虎渓/高1</span>
+                        <span class="search-query">新宿駅から30分以内/オンライン授業あり</span>
                     </li>
                     <li class="recent-search-item">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <span class="search-query">北海道札幌市/中学生</span>
+                        <span class="search-query">神奈川県/寮あり</span>
                     </li>
                 </ul>
             </div>
@@ -283,16 +892,28 @@
                 <div class="interview-item">
                     <a href="interview.html">
                         <img src="https://placehold.jp/150x150.png" alt="インタビュー1">
+                        <div class="interview-item-text">
+                            <h3>不登校から大学合格を勝ち取った体験談</h3>
+                            <p>トライ式高等学院卒業生 山田さん</p>
+                        </div>
                     </a>
                 </div>
                 <div class="interview-item">
                     <a href="interview.html">
                         <img src="https://placehold.jp/150x150.png" alt="インタビュー2">
+                        <div class="interview-item-text">
+                            <h3>海外大学への進学を実現した方法</h3>
+                            <p>N高等学校卒業生 佐藤さん</p>
+                        </div>
                     </a>
                 </div>
                 <div class="interview-item">
                     <a href="interview.html">
                         <img src="https://placehold.jp/150x150.png" alt="インタビュー3">
+                        <div class="interview-item-text">
+                            <h3>プログラミングで未来を切り開く</h3>
+                            <p>ヒューマンキャンパス高校 鈴木さん</p>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -350,6 +971,10 @@
                     <span>不登校を知る</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
+                <a href="supports-school.html" class="tip-item">
+                    <span>助成金を知る</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
             </div>
         </section>
 
@@ -369,12 +994,12 @@
                     <div class="accordion-content">
                         <!-- 人気都道府県 -->
                         <div class="popular-prefectures">
-                            <a href="prefecture.html" class="prefecture-button">東京都</a>
-                            <a href="prefecture.html" class="prefecture-button">神奈川県</a>
-                            <a href="prefecture.html" class="prefecture-button">埼玉県</a>
-                            <a href="prefecture.html" class="prefecture-button">千葉県</a>
-                            <a href="prefecture.html" class="prefecture-button">愛知県</a>
-                            <a href="prefecture.html" class="prefecture-button">大阪府</a>
+                            <a href="area-results.html?area=tokyo" class="prefecture-button">東京都</a>
+                            <a href="area-results.html?area=kanagawa" class="prefecture-button">神奈川県</a>
+                            <a href="area-results.html?area=saitama" class="prefecture-button">埼玉県</a>
+                            <a href="area-results.html?area=chiba" class="prefecture-button">千葉県</a>
+                            <a href="area-results.html?area=aichi" class="prefecture-button">愛知県</a>
+                            <a href="area-results.html?area=osaka" class="prefecture-button">大阪府</a>
                         </div>
                         
                         <!-- 地域別リスト -->
@@ -382,89 +1007,89 @@
                             <div class="region-item">
                                 <h4 class="region-title">北海道・東北</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">北海道</a> | 
-                                    <a href="prefecture.html">青森県</a> | 
-                                    <a href="prefecture.html">岩手県</a> | 
-                                    <a href="prefecture.html">宮城県</a> | 
-                                    <a href="prefecture.html">秋田県</a> | 
-                                    <a href="prefecture.html">山形県</a> | 
-                                    <a href="prefecture.html">福島県</a>
+                                    <a href="area-results.html?area=hokkaido">北海道</a> | 
+                                    <a href="area-results.html?area=aomori">青森県</a> | 
+                                    <a href="area-results.html?area=iwate">岩手県</a> | 
+                                    <a href="area-results.html?area=miyagi">宮城県</a> | 
+                                    <a href="area-results.html?area=akita">秋田県</a> | 
+                                    <a href="area-results.html?area=yamagata">山形県</a> | 
+                                    <a href="area-results.html?area=fukushima">福島県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">関東</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">茨城県</a> | 
-                                    <a href="prefecture.html">栃木県</a> | 
-                                    <a href="prefecture.html">群馬県</a> | 
-                                    <a href="prefecture.html">埼玉県</a> | 
-                                    <a href="prefecture.html">千葉県</a> | 
-                                    <a href="prefecture.html">東京都</a> | 
-                                    <a href="prefecture.html">神奈川県</a>
+                                    <a href="area-results.html?area=ibaraki">茨城県</a> | 
+                                    <a href="area-results.html?area=tochigi">栃木県</a> | 
+                                    <a href="area-results.html?area=gunma">群馬県</a> | 
+                                    <a href="area-results.html?area=saitama">埼玉県</a> | 
+                                    <a href="area-results.html?area=chiba">千葉県</a> | 
+                                    <a href="area-results.html?area=tokyo">東京都</a> | 
+                                    <a href="area-results.html?area=kanagawa">神奈川県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">中部</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">新潟県</a> | 
-                                    <a href="prefecture.html">富山県</a> | 
-                                    <a href="prefecture.html">石川県</a> | 
-                                    <a href="prefecture.html">福井県</a> | 
-                                    <a href="prefecture.html">山梨県</a> | 
-                                    <a href="prefecture.html">長野県</a> | 
-                                    <a href="prefecture.html">岐阜県</a> | 
-                                    <a href="prefecture.html">静岡県</a> | 
-                                    <a href="prefecture.html">愛知県</a>
+                                    <a href="area-results.html?area=niigata">新潟県</a> | 
+                                    <a href="area-results.html?area=toyama">富山県</a> | 
+                                    <a href="area-results.html?area=ishikawa">石川県</a> | 
+                                    <a href="area-results.html?area=fukui">福井県</a> | 
+                                    <a href="area-results.html?area=yamanashi">山梨県</a> | 
+                                    <a href="area-results.html?area=nagano">長野県</a> | 
+                                    <a href="area-results.html?area=gifu">岐阜県</a> | 
+                                    <a href="area-results.html?area=shizuoka">静岡県</a> | 
+                                    <a href="area-results.html?area=aichi">愛知県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">近畿</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">三重県</a> | 
-                                    <a href="prefecture.html">滋賀県</a> | 
-                                    <a href="prefecture.html">京都府</a> | 
-                                    <a href="prefecture.html">大阪府</a> | 
-                                    <a href="prefecture.html">兵庫県</a> | 
-                                    <a href="prefecture.html">奈良県</a> | 
-                                    <a href="prefecture.html">和歌山県</a>
+                                    <a href="area-results.html?area=mie">三重県</a> | 
+                                    <a href="area-results.html?area=shiga">滋賀県</a> | 
+                                    <a href="area-results.html?area=kyoto">京都府</a> | 
+                                    <a href="area-results.html?area=osaka">大阪府</a> | 
+                                    <a href="area-results.html?area=hyogo">兵庫県</a> | 
+                                    <a href="area-results.html?area=nara">奈良県</a> | 
+                                    <a href="area-results.html?area=wakayama">和歌山県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">中国</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">鳥取県</a> | 
-                                    <a href="prefecture.html">島根県</a> | 
-                                    <a href="prefecture.html">岡山県</a> | 
-                                    <a href="prefecture.html">広島県</a> | 
-                                    <a href="prefecture.html">山口県</a>
+                                    <a href="area-results.html?area=tottori">鳥取県</a> | 
+                                    <a href="area-results.html?area=shimane">島根県</a> | 
+                                    <a href="area-results.html?area=okayama">岡山県</a> | 
+                                    <a href="area-results.html?area=hiroshima">広島県</a> | 
+                                    <a href="area-results.html?area=yamaguchi">山口県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">四国</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">徳島県</a> | 
-                                    <a href="prefecture.html">香川県</a> | 
-                                    <a href="prefecture.html">愛媛県</a> | 
-                                    <a href="prefecture.html">高知県</a>
+                                    <a href="area-results.html?area=tokushima">徳島県</a> | 
+                                    <a href="area-results.html?area=kagawa">香川県</a> | 
+                                    <a href="area-results.html?area=ehime">愛媛県</a> | 
+                                    <a href="area-results.html?area=kochi">高知県</a>
                                 </div>
                             </div>
                             
                             <div class="region-item">
                                 <h4 class="region-title">九州・沖縄</h4>
                                 <div class="prefecture-links">
-                                    <a href="prefecture.html">福岡県</a> | 
-                                    <a href="prefecture.html">佐賀県</a> | 
-                                    <a href="prefecture.html">長崎県</a> | 
-                                    <a href="prefecture.html">熊本県</a> | 
-                                    <a href="prefecture.html">大分県</a> | 
-                                    <a href="prefecture.html">宮崎県</a> | 
-                                    <a href="prefecture.html">鹿児島県</a> | 
-                                    <a href="prefecture.html">沖縄県</a>
+                                    <a href="area-results.html?area=fukuoka">福岡県</a> | 
+                                    <a href="area-results.html?area=saga">佐賀県</a> | 
+                                    <a href="area-results.html?area=nagasaki">長崎県</a> | 
+                                    <a href="area-results.html?area=kumamoto">熊本県</a> | 
+                                    <a href="area-results.html?area=oita">大分県</a> | 
+                                    <a href="area-results.html?area=miyazaki">宮崎県</a> | 
+                                    <a href="area-results.html?area=kagoshima">鹿児島県</a> | 
+                                    <a href="area-results.html?area=okinawa">沖縄県</a>
                                 </div>
                             </div>
                         </div>
@@ -517,6 +1142,8 @@
                 <li><a href="#">スポーツ</a> | <a href="#">プログラミング</a> | <a href="#">美術</a> | <a href="#">大学進学</a> | <a href="#">eスポーツ</a></li>
             </ul>
         </section>
+
+
     </main>
 
     <footer>
@@ -548,5 +1175,235 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // タブ切り替え機能
+            const tabs = document.querySelectorAll('.search-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 全てのタブとコンテンツから active クラスを削除
+                    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // クリックされたタブに active クラスを追加
+                    this.classList.add('active');
+                    
+                    // 対応するコンテンツを表示
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 学校名検索のサジェスト機能
+            const searchInput = document.getElementById('school-search-input');
+            const suggestionsContainer = document.getElementById('search-suggestions');
+            
+            // 学校名のサンプルデータ
+            const schoolNames = [
+                "早稲田スクール", 
+                "早稲田学院", 
+                "早稲田塾", 
+                "早稲田学習", 
+                "早稲田予備校", 
+                "早稲田アカデミー", 
+                "W早稲田ゼミ", 
+                "早稲田合格塾", 
+                "早稲田会ゼミ", 
+                "JR早稲田",
+                "トライ式高等学院",
+                "N高等学校",
+                "ヒューマンキャンパス高校",
+                "第一学院高等学校",
+                "クラーク記念国際高等学校",
+                "鹿島学園高等学校",
+                "ベネッセ高等学院",
+                "中央高等学院",
+                "NHK学園高等学校",
+                "わせがく高等学校"
+            ];
+            
+            if (searchInput && suggestionsContainer) {
+                // 入力に応じたサジェストの表示
+                searchInput.addEventListener('input', function() {
+                    const query = this.value.trim().toLowerCase();
+                    
+                    if (query.length > 0) {
+                        // フィルタリングされた学校名のリスト
+                        const filtered = schoolNames.filter(name => 
+                            name.toLowerCase().includes(query)
+                        );
+                        
+                        if (filtered.length > 0) {
+                            suggestionsContainer.innerHTML = '';
+                            
+                            filtered.forEach(name => {
+                                const item = document.createElement('div');
+                                item.className = 'suggestion-item';
+                                
+                                const icon = document.createElement('div');
+                                icon.className = 'suggestion-icon';
+                                icon.textContent = name.charAt(0);
+                                
+                                const text = document.createElement('span');
+                                text.textContent = name;
+                                
+                                item.appendChild(icon);
+                                item.appendChild(text);
+                                
+                                // クリックで選択
+                                item.addEventListener('click', function() {
+                                    // 選択した学校名をURLエンコードしてパラメータとして渡す
+                                    const encodedName = encodeURIComponent(name);
+                                    window.location.href = `school_detail.html?school=${encodedName}`;
+                                });
+                                
+                                suggestionsContainer.appendChild(item);
+                            });
+                            
+                            suggestionsContainer.style.display = 'block';
+                        } else {
+                            suggestionsContainer.style.display = 'none';
+                        }
+                    } else {
+                        suggestionsContainer.style.display = 'none';
+                    }
+                });
+                
+                // フォーカスを外したときにサジェストを閉じる（少し遅延させる）
+                searchInput.addEventListener('blur', function() {
+                    setTimeout(() => {
+                        suggestionsContainer.style.display = 'none';
+                    }, 200);
+                });
+                
+                // フォーカスしたときに再表示
+                searchInput.addEventListener('focus', function() {
+                    const query = this.value.trim().toLowerCase();
+                    if (query.length > 0) {
+                        const filtered = schoolNames.filter(name => 
+                            name.toLowerCase().includes(query)
+                        );
+                        
+                        if (filtered.length > 0) {
+                            suggestionsContainer.style.display = 'block';
+                        }
+                    }
+                });
+            }
+            
+            // エリア検索ボタンのイベントリスナー
+            const areaSearchBtn = document.getElementById('area-search-btn');
+            if (areaSearchBtn) {
+                areaSearchBtn.addEventListener('click', function() {
+                    // 選択された値を取得
+                    const area = document.getElementById('area-select').value;
+                    
+                    // 特徴の選択を取得
+                    const featureElements = document.getElementsByName('feature-area');
+                    const features = [];
+                    for (let i = 0; i < featureElements.length; i++) {
+                        if (featureElements[i].checked) {
+                            features.push(featureElements[i].value);
+                        }
+                    }
+                    
+                    // 学びたいことの選択を取得
+                    const learningElements = document.getElementsByName('learning-area');
+                    const learnings = [];
+                    for (let i = 0; i < learningElements.length; i++) {
+                        if (learningElements[i].checked) {
+                            learnings.push(learningElements[i].value);
+                        }
+                    }
+                    
+                    // 通信制高校/通信制サポート校の選択を取得
+                    const schoolTypeElements = document.getElementsByName('school-type');
+                    const schoolTypes = [];
+                    for (let i = 0; i < schoolTypeElements.length; i++) {
+                        if (schoolTypeElements[i].checked) {
+                            schoolTypes.push(schoolTypeElements[i].value);
+                        }
+                    }
+                    
+                    // 検索結果ページにリダイレクト
+                    const baseUrl = 'area-results.html';
+                    const params = new URLSearchParams();
+                    
+                    if (area) params.append('area', area);
+                    if (features.length > 0) params.append('features', features.join(','));
+                    if (learnings.length > 0) params.append('learnings', learnings.join(','));
+                    if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
+                    
+                    const searchUrl = `${baseUrl}?${params.toString()}`;
+                    window.location.href = searchUrl;
+                });
+            }
+            
+            // 通学時間検索ボタンのイベントリスナー
+            const commuteSearchBtn = document.getElementById('commute-search-btn');
+            if (commuteSearchBtn) {
+                commuteSearchBtn.addEventListener('click', function() {
+                    // 追加の検索条件を取得
+                    const homeStation = document.getElementById('home-station').value;
+                    const timeLimit = document.getElementById('time-limit').value;
+                    const transfers = document.getElementById('transfers').value;
+                    const departureTime = document.getElementById('departure-time').value;
+                    
+                    // 別学/共学の選択を取得
+                    const schoolGenderElements = document.getElementsByName('school-gender');
+                    const schoolGenders = [];
+                    for (let i = 0; i < schoolGenderElements.length; i++) {
+                        if (schoolGenderElements[i].checked) {
+                            schoolGenders.push(schoolGenderElements[i].value);
+                        }
+                    }
+                    
+                    // 通信制高校/通信制サポート校の選択を取得
+                    const schoolTypeElements = document.getElementsByName('school-type-commute');
+                    const schoolTypes = [];
+                    for (let i = 0; i < schoolTypeElements.length; i++) {
+                        if (schoolTypeElements[i].checked) {
+                            schoolTypes.push(schoolTypeElements[i].value);
+                        }
+                    }
+                    
+                    // 特徴の選択を取得
+                    const featureElements = document.getElementsByName('feature-commute');
+                    const features = [];
+                    for (let i = 0; i < featureElements.length; i++) {
+                        if (featureElements[i].checked) {
+                            features.push(featureElements[i].value);
+                        }
+                    }
+                    
+                    // 学びたいことの選択を取得
+                    const learningElements = document.getElementsByName('learning-commute');
+                    const learnings = [];
+                    for (let i = 0; i < learningElements.length; i++) {
+                        if (learningElements[i].checked) {
+                            learnings.push(learningElements[i].value);
+                        }
+                    }
+                    
+                    // 検索結果ページにリダイレクト
+                    const baseUrl = 'station-results.html';
+                    const params = new URLSearchParams();
+                    
+                    if (homeStation) params.append('homeStation', homeStation);
+                    if (timeLimit) params.append('timeLimit', timeLimit);
+                    if (transfers) params.append('transfers', transfers);
+                    if (departureTime) params.append('departureTime', departureTime);
+                    if (schoolGenders.length > 0) params.append('schoolGenders', schoolGenders.join(','));
+                    if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
+                    if (features.length > 0) params.append('features', features.join(','));
+                    if (learnings.length > 0) params.append('learnings', learnings.join(','));
+                    
+                    const searchUrl = `${baseUrl}?${params.toString()}`;
+                    window.location.href = searchUrl;
+                });
+            }
+        });
+    </script>
 </body>
 </html> 

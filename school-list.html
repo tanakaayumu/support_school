@@ -6,6 +6,7 @@
     <title>西荻窪から３０分以内の学校一覧 | サービス名</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="modal.css">
     <style>
         .search-condition {
             background-color: #fff;
@@ -300,18 +301,23 @@
         <div class="search-condition">
             <div class="condition-row">
                 <div class="condition-label">駅</div>
-                <div class="condition-value">西荻窪駅</div>
-                <a href="#" class="change-button">変更 ＞</a>
+                <div class="condition-value" data-type="station">西荻窪駅</div>
+                <a href="#" class="change-button" data-modal="station">変更 ＞</a>
             </div>
             <div class="condition-row">
-                <div class="condition-label">学年</div>
-                <div class="condition-value">高2</div>
-                <a href="#" class="change-button">変更 ＞</a>
+                <div class="condition-label">エリア</div>
+                <div class="condition-value" data-type="area">選択してください</div>
+                <a href="#" class="change-button" data-modal="area">変更 ＞</a>
             </div>
             <div class="condition-row">
-                <div class="condition-label">詳細条件</div>
-                <div class="condition-value">選択してください</div>
-                <a href="#" class="change-button">変更 ＞</a>
+                <div class="condition-label">特徴を選ぶ</div>
+                <div class="condition-value" data-type="features">選択してください</div>
+                <a href="#" class="change-button" data-modal="features">変更 ＞</a>
+            </div>
+            <div class="condition-row">
+                <div class="condition-label">学びたいことを選ぶ</div>
+                <div class="condition-value" data-type="learning">選択してください</div>
+                <a href="#" class="change-button" data-modal="learning">変更 ＞</a>
             </div>
         </div>
 
@@ -700,5 +706,345 @@
             <p>© 2025 サービス名 All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- 詳細条件選択モーダル -->
+    <div id="featuresModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>特徴を選ぶ</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <!-- 授業形態から探す -->
+                <div class="condition-section">
+                    <h3 class="condition-section-title">授業形態から探す</h3>
+                    <div class="condition-options">
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>合宿タイプのスクーリングあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>毎日登校可能</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>週1～週3日登校</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>スクーリングがない</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>ネットコースあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>個別指導あり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>すぐに転入・編入できる</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>指定校推薦あり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>制服あり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>行事・イベントあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>クラブ活動あり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>メンタルサポートあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>不登校サポートあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>発達障害のサポートあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>資格取得サポートあり</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>就職サポートあり</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-clear">クリア</button>
+                <button class="btn-apply">条件決定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 駅選択モーダル -->
+    <div id="stationModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>駅を選ぶ</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <div class="condition-section">
+                    <div class="station-search">
+                        <input type="text" placeholder="駅名を入力" class="station-input">
+                        <button class="btn-search">検索</button>
+                    </div>
+                    <div class="station-recent">
+                        <h3>最近の検索</h3>
+                        <div class="station-list">
+                            <div class="station-item"><span>新宿駅</span></div>
+                            <div class="station-item"><span>渋谷駅</span></div>
+                            <div class="station-item"><span>池袋駅</span></div>
+                            <div class="station-item"><span>秋葉原駅</span></div>
+                        </div>
+                    </div>
+                    <div class="station-popular">
+                        <h3>人気の駅</h3>
+                        <div class="station-list">
+                            <div class="station-item"><span>東京駅</span></div>
+                            <div class="station-item"><span>横浜駅</span></div>
+                            <div class="station-item"><span>品川駅</span></div>
+                            <div class="station-item"><span>大宮駅</span></div>
+                            <div class="station-item"><span>北千住駅</span></div>
+                            <div class="station-item"><span>吉祥寺駅</span></div>
+                            <div class="station-item"><span>自由が丘駅</span></div>
+                            <div class="station-item"><span>二子玉川駅</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-apply">選択完了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学びたいこと選択モーダル -->
+    <div id="learningModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>学びたいことを選ぶ</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <div class="condition-section">
+                    <div class="condition-options learning-options">
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>スポーツ・アスリート</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>ペット（トリマー・トレーナー）</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>音楽・ダンス</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>声優・芸能</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>ファッション・美容</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>調理・パティシエ</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>アニメ・マンガ・イラスト</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>ゲーム・eスポーツ</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>英語・語学・海外留学</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>大学進学・大学受験対策</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>高卒認定試験対策</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>美術・芸術</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>保育・福祉・医療系</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="checkbox"> <span>プログラミング・ITスキル</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-clear">クリア</button>
+                <button class="btn-apply">条件決定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // モーダル関連の処理
+        document.addEventListener('DOMContentLoaded', function() {
+            // URLパラメータの処理
+            const params = new URLSearchParams(window.location.search);
+            
+            // パラメータを取得
+            const area = params.get('area');
+            const features = params.get('features') ? params.get('features').split(',') : [];
+            const learnings = params.get('learnings') ? params.get('learnings').split(',') : [];
+            const schoolTypes = params.get('schoolTypes') ? params.get('schoolTypes').split(',') : [];
+            const homeStation = params.get('homeStation');
+            const timeLimit = params.get('timeLimit');
+            const transfers = params.get('transfers');
+            const departureTime = params.get('departureTime');
+            const schoolGenders = params.get('schoolGenders') ? params.get('schoolGenders').split(',') : [];
+            const prefecture = params.get('prefecture');
+            const city = params.get('city');
+            
+            // 検索条件の表示を更新
+            if (area) {
+                const areaValue = document.querySelector('.condition-value[data-type="area"]');
+                if (areaValue) areaValue.textContent = area;
+            }
+            
+            if (homeStation) {
+                const stationValue = document.querySelector('.condition-value[data-type="station"]');
+                if (stationValue) stationValue.textContent = homeStation;
+            }
+            
+            if (features.length > 0) {
+                const featuresValue = document.querySelector('.condition-value[data-type="features"]');
+                if (featuresValue) featuresValue.textContent = `${features.length}件選択中`;
+            }
+            
+            if (learnings.length > 0) {
+                const learningsValue = document.querySelector('.condition-value[data-type="learning"]');
+                if (learningsValue) learningsValue.textContent = `${learnings.length}件選択中`;
+            }
+            
+            // 検索結果のカウントを更新
+            console.log('検索パラメータ:', { 
+                area, features, learnings, schoolTypes, 
+                homeStation, timeLimit, transfers, departureTime, 
+                schoolGenders, prefecture, city 
+            });
+            
+            // 各モーダル要素を取得
+            const featuresModal = document.getElementById('featuresModal');
+            const learningModal = document.getElementById('learningModal');
+            const stationModal = document.getElementById('stationModal');
+            
+            // 変更ボタン
+            const changeButtons = document.querySelectorAll('.change-button');
+            
+            // モーダルの閉じるボタン
+            const closeButtons = document.querySelectorAll('.modal-close-btn');
+            
+            // クリアボタンと適用ボタン
+            const clearButtons = document.querySelectorAll('.btn-clear');
+            const applyButtons = document.querySelectorAll('.btn-apply');
+            
+            // 変更ボタンクリックでモーダルを表示
+            changeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // ボタンのdata-modal属性からどのモーダルを表示するか判断
+                    const modalType = this.getAttribute('data-modal');
+                    
+                    // 対応するモーダルを表示
+                    if (modalType === 'features') {
+                        featuresModal.style.display = 'block';
+                    } else if (modalType === 'learning') {
+                        learningModal.style.display = 'block';
+                    } else if (modalType === 'station') {
+                        stationModal.style.display = 'block';
+                    }
+                    
+                    // bodyのスクロールを無効化
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // 閉じるボタンでモーダルを非表示
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // すべてのモーダルを非表示
+                    featuresModal.style.display = 'none';
+                    learningModal.style.display = 'none';
+                    stationModal.style.display = 'none';
+                    
+                    // bodyのスクロールを有効化
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // クリアボタンの処理
+            clearButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 親モーダルのチェックボックスをすべて解除
+                    const modal = this.closest('.condition-modal');
+                    const checkboxes = modal.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                });
+            });
+            
+            // 条件決定ボタンの処理
+            applyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // すべてのモーダルを非表示
+                    featuresModal.style.display = 'none';
+                    learningModal.style.display = 'none';
+                    stationModal.style.display = 'none';
+                    
+                    // bodyのスクロールを有効化
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // モーダル外クリックで閉じる
+            window.addEventListener('click', function(e) {
+                if (e.target === featuresModal || e.target === learningModal || e.target === stationModal) {
+                    featuresModal.style.display = 'none';
+                    learningModal.style.display = 'none';
+                    stationModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // 駅の検索ボックス
+            const stationInput = document.querySelector('.station-input');
+            const stationItems = document.querySelectorAll('.station-item');
+            
+            if (stationInput) {
+                stationInput.addEventListener('input', function() {
+                    const searchText = this.value.toLowerCase();
+                    
+                    // 駅名のフィルタリング処理
+                    stationItems.forEach(item => {
+                        const stationName = item.textContent.toLowerCase();
+                        if (stationName.includes(searchText)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // 駅アイテムクリックで選択処理
+                            stationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const stationName = this.textContent.trim();
+                    document.querySelector('.condition-value[data-type="station"]').textContent = stationName;
+                    stationModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

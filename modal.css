@@ -27,7 +27,7 @@
     left: 0;
     width: 100%;
     height: calc(100% - 51px); /* ヘッダーの高さ分引く */
-    background-color: white;
+    background-color: #f7f7f7;
     z-index: 2000;
     overflow-y: auto;
     display: none;
@@ -39,6 +39,8 @@
 
 .modal-content {
     padding: 20px 15px;
+    max-width: 780px;
+    margin: 0 auto;
 }
 
 .search-container {
@@ -49,9 +51,10 @@
     position: relative;
     display: flex;
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: #fff;
     border-radius: 8px;
     padding: 12px 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .search-box i {
@@ -70,10 +73,14 @@
 
 /* 2カラムレイアウト */
 .modal-menu-items {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 1px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .modal-menu-item,
@@ -81,22 +88,37 @@
 .footer-menu-item {
     display: flex;
     align-items: center;
-    padding: 12px 10px;
+    padding: 16px;
     color: #333;
-    border-bottom: 1px solid #eee;
     text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #fff;
+    border: none;
 }
 
-.modal-menu-item {
-    border: none;
+.modal-menu-item:after,
+.special-menu-item:after,
+.footer-menu-item:after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .modal-menu-item i:first-child,
 .special-icon {
-    margin-right: 10px;
+    margin-right: 12px;
+    min-width: 24px;
     width: 24px;
     text-align: center;
-    color: #2980b9;
+    color: #1a6bb3;
     font-size: 18px;
 }
 
@@ -105,29 +127,50 @@
 .footer-menu-item span {
     flex: 1;
     font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 25px;
 }
 
 .modal-menu-item i:last-child,
 .special-menu-item i:last-child,
 .footer-menu-item i {
-    color: #aaa;
-    font-size: 12px;
+    display: none;
 }
 
-.special-menu-items,
+.special-menu-items {
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
 .footer-menu-items {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .special-icon {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     overflow: hidden;
+    background-color: #f5f5f5;
+    margin-right: 12px;
 }
 
 .special-icon img {
@@ -168,8 +211,218 @@
 }
 
 /* レスポンシブ対応 */
-@media (max-width: 767px) {
+@media (min-width: 768px) {
     .modal-menu-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 条件選択モーダル */
+.condition-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+    overflow-y: auto;
+}
+
+.condition-modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 50px auto;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.condition-modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    text-align: center;
+}
+
+.condition-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.condition-modal-body {
+    padding: 15px 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.condition-section {
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.condition-section-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+    background-color: #f5f5f5;
+    padding-left: 0;
+    font-weight: bold;
+}
+
+.condition-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 学びたいこと選択モーダル用 */
+.learning-options {
+    gap: 10px;
+}
+
+.learning-options .condition-option {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+}
+
+.learning-options .condition-option:hover {
+    background-color: #f0f7ff;
+    border-color: #b3d7ff;
+}
+
+.learning-options .condition-option input[type="checkbox"]:checked + span {
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.condition-option {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    width: calc(50% - 4px);
+    box-sizing: border-box;
+}
+
+.condition-option input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.condition-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-clear {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-apply {
+    padding: 10px 20px;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .condition-option {
+        width: 100%;
+    }
+    
+    .condition-modal-content {
+        width: 95%;
+        margin: 30px auto;
+    }
+    
+    .condition-modal-body {
+        max-height: 65vh;
+    }
+    
+    .modal-menu-items,
+    .footer-menu-items {
         grid-template-columns: 1fr;
     }
+    
+    .modal-content {
+        padding: 15px 10px;
+    }
+}
+
+/* 駅選択モーダル */
+.station-search {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.station-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-search {
+    padding: 10px 15px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.station-recent, 
+.station-popular {
+    margin-top: 20px;
+}
+
+.station-recent h3, 
+.station-popular h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.station-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.station-item {
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.station-item:hover {
+    background-color: #e0e0e0;
+}
+
+.station-item span {
+    font-weight: 500;
 } 

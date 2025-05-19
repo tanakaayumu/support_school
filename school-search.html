@@ -66,23 +66,29 @@
 
                         <div class="input-row">
                             <input type="text" class="station-input" placeholder="自宅の最寄駅">
-                            <span class="input-label">駅から</span>
-                            <select class="time-select">
-                                <option selected>校門まで</option>
-                            </select>
+                            <span class="input-label">駅から校門まで</span>
+                            
                         </div>
                         
                         <div class="commute-options">
                             <div class="option-row">
                                 <span class="option-label">所要時間</span>
                                 <select class="option-select">
-                                    <option>上限なし</option>
+                                    <option value="no-limit">上限なし</option>
+                                    <option value="15">15分以内</option>
+                                    <option value="30">30分以内</option>
+                                    <option value="45">45分以内</option>
+                                    <option value="60">60分以内</option>
                                 </select>
                             </div>
                             <div class="option-row">
                                 <span class="option-label">乗換回数</span>
                                 <select class="option-select">
-                                    <option>こだわらない</option>
+                                    <option value="no-limit">こだわらない</option>
+                                    <option value="0">0回</option>                                   
+                                    <option value="1">1回以内</option>
+                                    <option value="2">2回以内</option>
+
                                 </select>
                             </div>
                         </div>
