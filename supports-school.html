@@ -29,36 +29,11 @@
                 </div>
             </div>
         </header>
-        <nav class="global-nav">
-            <div class="nav-row">
-                <a href="city-prefecture.html" class="nav-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>市区町村</span>
-                    <span class="from-search">から探す</span>
-                </a>
-                <a href="station-prefecture.html" class="nav-item">
-                    <i class="fa-solid fa-train"></i>
-                    <span>路線・駅</span>
-                    <span class="from-search">から探す</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-map"></i>
-                    <span>地図</span>
-                    <span class="from-search">から探す</span>
-                </a>
-                <a href="school-search.html" class="nav-item">
-                    <i class="fa-solid fa-clock"></i>
-                    <span>通学時間</span>
-                    <span class="from-search">から探す</span>
-                </a>
-            </div>
-        </nav>
     </header>
 
     <main>
         <div class="breadcrumb">
             <a href="index.html">トップ</a> &gt; 
-            <a href="school-search.html">塾を探す</a> &gt; 
             <span>指定校推薦のある通信制高校</span>
         </div>
 
@@ -81,9 +56,7 @@
                 <div id="merit" class="feature-section">
                     <h3 class="section-title"><i class="fas fa-check-circle"></i> 通信制高校からの指定校推薦メリット</h3>
                     <div class="feature-content">
-                        <div class="feature-image">
-                            <img src="images/student-studying.jpg" alt="指定校推薦のメリット">
-                        </div>
+
                         <div class="feature-text">
                             <h4 class="feature-subtitle">一般入試より合格への道が開ける</h4>
                             <p>通信制高校で指定校推薦枠を利用することで、一般入試では入学難易度が高い大学でも、チャンスが広がります。特に、不登校経験や中高時代の成績にあまり自信がない方でも、通信制高校での真面目な学習姿勢と高い出席率によって、新たなスタートが切れます。</p>
@@ -231,7 +204,7 @@
                         <div class="voice-item">
                             <div class="voice-header">
                                 <div class="voice-icon">
-                                    <img src="images/student1.jpg" alt="学生アイコン">
+                                    S
                                 </div>
                                 <div class="voice-profile">
                                     <p class="voice-name">Sさん（19歳・女性）</p>
@@ -246,7 +219,7 @@
                         <div class="voice-item">
                             <div class="voice-header">
                                 <div class="voice-icon">
-                                    <img src="images/student2.jpg" alt="学生アイコン">
+                                    K
                                 </div>
                                 <div class="voice-profile">
                                     <p class="voice-name">Kくん（18歳・男性）</p>
@@ -272,14 +245,7 @@
                     </div>
                 </div>
 
-                <div class="search-link-section">
-                    <h3 class="search-subtitle">他の方法でも探せます</h3>
-                    <ul class="search-link-list">
-                        <li><a href="city-prefecture.html"><i class="fas fa-map-marker-alt"></i> 都道府県・市区町村から探す</a></li>
-                        <li><a href="station-prefecture.html"><i class="fas fa-train"></i> 駅・路線から探す</a></li>
-                        <li><a href="school-list.html"><i class="fas fa-list"></i> すべての塾を見る</a></li>
-                    </ul>
-                </div>
+
             </div>
         </section>
     </main>
@@ -395,17 +361,20 @@
     
     .feature-text {
         flex: 1;
+        text-align: left;
     }
     
     .feature-subtitle {
         font-size: 18px;
         color: #333;
         margin: 15px 0 10px;
+        text-align: left;
     }
     
     .feature-text p {
         margin-bottom: 15px;
         line-height: 1.6;
+        text-align: left;
     }
     
     .condition-list {
@@ -438,21 +407,25 @@
     
     .condition-content {
         flex: 1;
+        text-align: left;
     }
     
     .condition-content h4 {
         font-size: 16px;
         margin: 0 0 8px;
+        text-align: left;
     }
     
     .condition-content p {
         margin: 0;
         line-height: 1.5;
+        text-align: left;
     }
     
     .course-intro {
         margin-bottom: 20px;
         line-height: 1.6;
+        text-align: left;
     }
     
     .course-types {
@@ -476,6 +449,7 @@
     .course-type p {
         margin: 0;
         line-height: 1.5;
+        text-align: left;
     }
     
     .recommend-schools {
@@ -534,11 +508,13 @@
     
     .school-info {
         flex: 1;
+        text-align: left;
     }
     
     .school-info p {
         margin: 0 0 15px;
         line-height: 1.5;
+        text-align: left;
     }
     
     .school-features {
@@ -580,22 +556,36 @@
     .voice-item {
         background: #fff;
         border-radius: 8px;
-        padding: 15px;
+        padding: 20px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
     }
     
     .voice-header {
-        display: flex;
+        flex-direction: row;
         align-items: center;
-        margin-bottom: 15px;
+        min-width: 200px;
+        width: 200px;
+        text-align: left;
+        gap: 15px;
+        flex-shrink: 0;
     }
     
     .voice-icon {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         overflow: hidden;
-        margin-right: 15px;
+        margin-bottom: 10px;
+        background-color: #4285f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
     }
     
     .voice-icon img {
@@ -605,23 +595,38 @@
     }
     
     .voice-profile {
-        flex: 1;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     
     .voice-name {
         font-weight: 600;
         margin: 0 0 5px;
+        font-size: 16px;
+        color: #333;
+        word-wrap: break-word;
     }
     
     .voice-detail {
-        color: #666;
-        font-size: 13px;
+        color: #4285f4;
+        font-size: 14px;
         margin: 0;
+        font-weight: 500;
+        word-wrap: break-word;
+        line-height: 1.3;
+    }
+    
+    .voice-content {
+        flex: 1;
     }
     
     .voice-content p {
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.7;
+        text-align: left;
+        font-size: 15px;
+        color: #555;
     }
     
     .cta-section {
@@ -703,6 +708,32 @@
         
         .cta-button {
             width: 200px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .voice-item {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .voice-header {
+            flex-direction: row;
+            align-items: center;
+            min-width: auto;
+            text-align: left;
+            gap: 15px;
+        }
+        
+        .voice-icon {
+            margin-bottom: 0;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+        }
+        
+        .voice-profile {
+            flex: 1;
         }
     }
     </style>

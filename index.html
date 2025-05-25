@@ -232,7 +232,7 @@
         /* 特徴リストのスタイル */
         .feature-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
         
@@ -375,6 +375,457 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        
+        /* 学校の魅力を紹介セクションのスタイル */
+        .school-intro-list {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            gap: 20px;
+            padding-bottom: 10px;
+        }
+        
+        .school-intro-list::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .school-intro-item {
+            flex: 0 0 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .school-intro-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .school-intro-item a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .school-intro-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .school-intro-item-text {
+            padding: 20px;
+        }
+        
+        .school-intro-item-text h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .school-intro-item-text p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* インタビュー・体験談セクションのスタイル */
+        .interview-section .interview-list {
+            display: flex !important;
+            overflow-x: auto !important;
+            scroll-behavior: smooth !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+            gap: 20px !important;
+            padding-bottom: 10px !important;
+            flex-wrap: nowrap !important;
+            position: relative !important;
+        }
+        
+        .interview-section .interview-list::-webkit-scrollbar {
+            display: none !important;
+        }
+        
+        .interview-section .interview-item {
+            flex: 0 0 300px !important;
+            min-width: 300px !important;
+            background-color: #fff !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            overflow: hidden !important;
+            transition: transform 0.3s ease !important;
+            margin: 0 !important;
+            display: block !important;
+        }
+        
+        .interview-section .interview-item:hover {
+            transform: translateY(-5px) !important;
+        }
+        
+        .interview-section .interview-item a {
+            display: block !important;
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+        
+        .interview-section .interview-item img {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
+        }
+        
+        .interview-section .interview-item-text {
+            padding: 20px !important;
+        }
+        
+        .interview-section .interview-item-text h3 {
+            font-size: 18px !important;
+            font-weight: bold !important;
+            margin-bottom: 10px !important;
+            color: #333 !important;
+        }
+        
+        .interview-section .interview-item-text p {
+            font-size: 14px !important;
+            color: #666 !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .interview-section .interview-item {
+                flex: 0 0 280px !important;
+                min-width: 280px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .interview-section .interview-item {
+                flex: 0 0 250px !important;
+                min-width: 250px !important;
+            }
+        }
+        
+        /* 特集セクションのスタイル */
+        .special-section {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        
+        .special-banner {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .special-banner img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        .banner-text {
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .special-banner.blue-banner {
+            background-color: #e0f7ff;
+        }
+        
+        .special-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .special-banner:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* 学校選びのヒントセクションのスタイル */
+        .special-section {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        
+        .tips-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .tip-item {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tip-item i {
+            margin-right: 10px;
+        }
+        
+        /* 学校人気ランキングセクションのスタイル */
+        .special-section {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        
+        .ranking-accordion {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .accordion-header {
+            background-color: #e8e8e8;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .accordion-header span {
+            font-weight: bold;
+        }
+        
+        .accordion-content {
+            padding: 10px;
+        }
+        
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .popular-prefectures {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .prefecture-button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            flex: 1;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .prefecture-button:hover {
+            transform: translateY(-5px);
+        }
+        
+        .region-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .region-item {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .region-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .prefecture-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .prefecture-links a {
+            color: #333;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .prefecture-links a:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* インジケーターのスタイル */
+        .interview-indicators {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 8px !important;
+            margin-top: 20px !important;
+        }
+        
+        .interview-indicators .indicator {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            background-color: #ccc !important;
+            cursor: pointer !important;
+            transition: background-color 0.3s ease !important;
+        }
+        
+        .interview-indicators .indicator.active {
+            background-color: #007bff !important;
+        }
+        
+        /* 学校の魅力を紹介セクション用インジケーター */
+        .school-intro-indicators {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 8px !important;
+            margin-top: 20px !important;
+        }
+        
+        .school-intro-indicators .indicator {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            background-color: #ccc !important;
+            cursor: pointer !important;
+            transition: background-color 0.3s ease !important;
+        }
+        
+        .school-intro-indicators .indicator.active {
+            background-color: #007bff !important;
+        }
+        
+        /* 学校種別ごとのランキング専用スタイル */
+        .school-type-ranking-list {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .school-type-ranking-item {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 15px 20px !important;
+            background-color: #f8f9fa !important;
+            border-bottom: 1px solid #e9ecef !important;
+            transition: background-color 0.3s ease !important;
+        }
+        
+        .school-type-ranking-item:last-child {
+            border-bottom: none !important;
+        }
+        
+        .school-type-ranking-item:hover {
+            background-color: #e9ecef !important;
+            cursor: pointer !important;
+        }
+        
+        .school-type-ranking-item span {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-weight: 500 !important;
+        }
+        
+        .ranking-number {
+            width: 24px !important;
+            height: 24px !important;
+            background-color: #007bff !important;
+            color: white !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 14px !important;
+            font-weight: bold !important;
+        }
+        
+        .ranking-arrow {
+            color: #007bff !important;
+            font-size: 16px !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        .school-type-ranking-item:hover .ranking-arrow {
+            transform: translateX(3px) !important;
+        }
+        
+        /* support-linksの横並びスタイル */
+        .support-links {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 15px !important;
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .support-links li {
+            margin: 0 !important;
+        }
+        
+        .support-links li a {
+            display: inline-block !important;
+            padding: 8px 16px !important;
+            background-color: #f8f9fa !important;
+            color: #007bff !important;
+            text-decoration: none !important;
+            border-radius: 20px !important;
+            border: 1px solid #e9ecef !important;
+            font-size: 14px !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+        }
+        
+        .support-links li a:hover {
+            background-color: #007bff !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .support-links {
+                gap: 10px !important;
+            }
+            
+            .support-links li a {
+                padding: 6px 12px !important;
+                font-size: 13px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -478,22 +929,52 @@
                             <div class="category-header">特徴</div>
                             <div class="category-options">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-area" value="online"> オンライン授業あり
+                                    <input type="checkbox" name="feature-area" value="camp-schooling"> 合宿タイプのスクーリングあり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-area" value="dormitory"> 寮あり
+                                    <input type="checkbox" name="feature-area" value="daily-attendance"> 毎日登校可能
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="weekly-attendance"> 週1〜週3日登校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="less-schooling"> スクーリングが少ない
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="online-course"> ネットコースあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="individual-guidance"> 個別指導あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="transfer-ready"> すぐに転入・編入できる
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="feature-area" value="recommendation"> 指定校推薦あり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-area" value="no-schooling"> スクーリングなし
+                                    <input type="checkbox" name="feature-area" value="uniform"> 制服あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="events"> 行事・イベントあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="club"> クラブ活動あり
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="feature-area" value="mental-support"> メンタルサポートあり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-area" value="club"> 部活動あり
+                                    <input type="checkbox" name="feature-area" value="truancy-support"> 不登校サポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="developmental-support"> 発達障害のサポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="qualification-support"> 資格取得サポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-area" value="job-support"> 就職サポートあり
                                 </label>
                             </div>
                         </div>
@@ -503,22 +984,46 @@
                             <div class="category-header">学びたいこと</div>
                             <div class="category-options">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="sports"> スポーツ
+                                    <input type="checkbox" name="learning-area" value="sports-athlete"> スポーツ・アスリート
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="programming"> プログラミング
+                                    <input type="checkbox" name="learning-area" value="pet-trimmer-trainer"> ペット（トリマー・トレーナー）
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="art"> 美術・芸術
+                                    <input type="checkbox" name="learning-area" value="music-dance"> 音楽・ダンス
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="music"> 音楽・ダンス
+                                    <input type="checkbox" name="learning-area" value="voice-actor-entertainment"> 声優・芸能
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="language"> 英語・語学
+                                    <input type="checkbox" name="learning-area" value="fashion-beauty"> ファッション・美容
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-area" value="university"> 大学進学
+                                    <input type="checkbox" name="learning-area" value="cooking-patissier"> 調理・パティシエ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="anime-manga-illustration"> アニメ・マンガ・イラスト
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="game-esports"> ゲーム・eスポーツ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="english-language-study-abroad"> 英語・語学・海外留学
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="university-entrance-exam"> 大学進学・大学受験対策
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="high-school-equivalency"> 高卒認定試験対策
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="art-fine-arts"> 美術・芸術
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="childcare-welfare-medical"> 保育・福祉・医療系
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-area" value="programming-it-skills"> プログラミング・ITスキル
                                 </label>
                             </div>
                         </div>
@@ -532,6 +1037,31 @@
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="school-type" value="support"> 通信制サポート校
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 通学回数セクション -->
+                        <div class="category-section">
+                            <div class="category-header">通学回数</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="fully-online"> 完全オンライン
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="once-per-week"> 週1回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="twice-per-week"> 週2回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="three-times-per-week"> 週3回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="four-times-per-week"> 週4回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-area" value="five-or-more-per-week"> 週5回以上
                                 </label>
                             </div>
                         </div>
@@ -595,16 +1125,13 @@
                         
                         <!-- 別学/共学 セクション -->
                         <div class="category-section">
-                            <div class="category-header">別学/共学</div>
+                            <div class="category-header">公立/私立</div>
                             <div class="category-options">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="school-gender" value="boys"> 男子校
+                                    <input type="checkbox" name="school-type" value="public"> 公立
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="school-gender" value="girls"> 女子校
-                                </label>
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="school-gender" value="coed"> 共学
+                                    <input type="checkbox" name="school-type" value="private"> 私立
                                 </label>
                             </div>
                         </div>
@@ -627,22 +1154,52 @@
                             <div class="category-header">特徴</div>
                             <div class="category-options">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-commute" value="online"> オンライン授業あり
+                                    <input type="checkbox" name="feature-commute" value="camp-schooling"> 合宿タイプのスクーリングあり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-commute" value="dormitory"> 寮あり
+                                    <input type="checkbox" name="feature-commute" value="daily-attendance"> 毎日登校可能
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="weekly-attendance"> 週1〜週3日登校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="less-schooling"> スクーリングが少ない
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="online-course"> ネットコースあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="individual-guidance"> 個別指導あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="transfer-ready"> すぐに転入・編入できる
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="feature-commute" value="recommendation"> 指定校推薦あり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-commute" value="no-schooling"> スクーリングなし
+                                    <input type="checkbox" name="feature-commute" value="uniform"> 制服あり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="events"> 行事・イベントあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="club"> クラブ活動あり
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="feature-commute" value="mental-support"> メンタルサポートあり
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="feature-commute" value="club"> 部活動あり
+                                    <input type="checkbox" name="feature-commute" value="truancy-support"> 不登校サポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="developmental-support"> 発達障害のサポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="qualification-support"> 資格取得サポートあり
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="feature-commute" value="job-support"> 就職サポートあり
                                 </label>
                             </div>
                         </div>
@@ -652,22 +1209,71 @@
                             <div class="category-header">学びたいこと</div>
                             <div class="category-options">
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="sports"> スポーツ
+                                    <input type="checkbox" name="learning-commute" value="sports-athlete"> スポーツ・アスリート
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="programming"> プログラミング
+                                    <input type="checkbox" name="learning-commute" value="pet-trimmer-trainer"> ペット（トリマー・トレーナー）
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="art"> 美術・芸術
+                                    <input type="checkbox" name="learning-commute" value="music-dance"> 音楽・ダンス
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="music"> 音楽・ダンス
+                                    <input type="checkbox" name="learning-commute" value="voice-actor-entertainment"> 声優・芸能
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="language"> 英語・語学
+                                    <input type="checkbox" name="learning-commute" value="fashion-beauty"> ファッション・美容
                                 </label>
                                 <label class="checkbox-option">
-                                    <input type="checkbox" name="learning-commute" value="university"> 大学進学
+                                    <input type="checkbox" name="learning-commute" value="cooking-patissier"> 調理・パティシエ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="anime-manga-illustration"> アニメ・マンガ・イラスト
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="game-esports"> ゲーム・eスポーツ
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="english-language-study-abroad"> 英語・語学・海外留学
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="university-entrance-exam"> 大学進学・大学受験対策
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="high-school-equivalency"> 高卒認定試験対策
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="art-fine-arts"> 美術・芸術
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="childcare-welfare-medical"> 保育・福祉・医療系
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="learning-commute" value="programming-it-skills"> プログラミング・ITスキル
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 通学回数セクション -->
+                        <div class="category-section">
+                            <div class="category-header">通学回数</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="fully-online"> 完全オンライン
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="once-per-week"> 週1回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="twice-per-week"> 週2回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="three-times-per-week"> 週3回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="four-times-per-week"> 週4回以下
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="radio" name="attendance-frequency-commute" value="five-or-more-per-week"> 週5回以上
                                 </label>
                             </div>
                         </div>
@@ -865,21 +1471,60 @@
                 <i class="fa-solid fa-user-graduate"></i>
                 <span>学校の魅力を紹介</span>
             </h2>
-            <div class="school-intro-content">
-                <a href="school-news.html" class="school-item">
-                    <img src="https://placehold.jp/300x200.png" alt="トライ式高等学院">
-                    <div class="school-item-text">
-                        <h3>トライ式高等学院</h3>
-                        <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
-                    </div>
-                </a>
-                <a href="school-news.html" class="school-item">
-                    <img src="https://placehold.jp/300x200.png" alt="学生インタビュー">
-                    <div class="school-item-text">
-                        <h3>ベネッセ高等学院</h3>
-                        <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
-                    </div>
-                </a>
+            <div class="school-intro-list">
+                <div class="school-intro-item">
+                    <a href="school-news.html">
+                        <img src="https://placehold.jp/300x200.png" alt="トライ式高等学院">
+                        <div class="school-intro-item-text">
+                            <h3>トライ式高等学院</h3>
+                            <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="school-intro-item">
+                    <a href="school-news.html">
+                        <img src="https://placehold.jp/300x200.png" alt="ベネッセ高等学院">
+                        <div class="school-intro-item-text">
+                            <h3>ベネッセ高等学院</h3>
+                            <p>おかたからでも、大学受験は間に合う。先生が全力フォロー！</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="school-intro-item">
+                    <a href="school-news.html">
+                        <img src="https://placehold.jp/300x200.png" alt="クラーク記念国際高等学校">
+                        <div class="school-intro-item-text">
+                            <h3>クラーク記念国際高等学校</h3>
+                            <p>全日制と同じ学校生活を送りながら確実に卒業資格を取得</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="school-intro-item">
+                    <a href="school-news.html">
+                        <img src="https://placehold.jp/300x200.png" alt="N高等学校">
+                        <div class="school-intro-item-text">
+                            <h3>N高等学校</h3>
+                            <p>ネットとリアルを融合した最新の学習環境で未来を創る</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="school-intro-item">
+                    <a href="school-news.html">
+                        <img src="https://placehold.jp/300x200.png" alt="第一学院高等学校">
+                        <div class="school-intro-item-text">
+                            <h3>第一学院高等学校</h3>
+                            <p>一人ひとりの個性を大切にしたサポートで自分らしく成長</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- インジケーター -->
+            <div class="school-intro-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
             </div>
         </section>
 
@@ -891,7 +1536,7 @@
             <div class="interview-list">
                 <div class="interview-item">
                     <a href="interview.html">
-                        <img src="https://placehold.jp/150x150.png" alt="インタビュー1">
+                        <img src="https://placehold.jp/300x200.png" alt="インタビュー1">
                         <div class="interview-item-text">
                             <h3>不登校から大学合格を勝ち取った体験談</h3>
                             <p>トライ式高等学院卒業生 山田さん</p>
@@ -900,7 +1545,7 @@
                 </div>
                 <div class="interview-item">
                     <a href="interview.html">
-                        <img src="https://placehold.jp/150x150.png" alt="インタビュー2">
+                        <img src="https://placehold.jp/300x200.png" alt="インタビュー2">
                         <div class="interview-item-text">
                             <h3>海外大学への進学を実現した方法</h3>
                             <p>N高等学校卒業生 佐藤さん</p>
@@ -909,13 +1554,39 @@
                 </div>
                 <div class="interview-item">
                     <a href="interview.html">
-                        <img src="https://placehold.jp/150x150.png" alt="インタビュー3">
+                        <img src="https://placehold.jp/300x200.png" alt="インタビュー3">
                         <div class="interview-item-text">
                             <h3>プログラミングで未来を切り開く</h3>
                             <p>ヒューマンキャンパス高校 鈴木さん</p>
                         </div>
                     </a>
                 </div>
+                <div class="interview-item">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/300x200.png" alt="インタビュー4">
+                        <div class="interview-item-text">
+                            <h3>芸能活動と学業を両立させた秘訣</h3>
+                            <p>クラーク記念国際高等学校卒業生 田中さん</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="interview-item">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/300x200.png" alt="インタビュー5">
+                        <div class="interview-item-text">
+                            <h3>eスポーツプロから教師への転身物語</h3>
+                            <p>第一学院高等学校卒業生 鈴木さん</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- インジケーター -->
+            <div class="interview-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
             </div>
         </section>
 
@@ -963,15 +1634,15 @@
                     <span>通信制高校を知る</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="supports-school.html" class="tip-item">
+                <a href="tsuushinsei-navi.html" class="tip-item">
                     <span>サポート校を知る</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="supports-school.html" class="tip-item">
+                <a href="tsuushinsei-navi.html" class="tip-item">
                     <span>不登校を知る</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a href="supports-school.html" class="tip-item">
+                <a href="tsuushinsei-navi.html" class="tip-item">
                     <span>助成金を知る</span>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
@@ -1099,47 +1770,54 @@
                 <!-- 他のアコーディオン項目 -->
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <span>学年別学校のランキングを見る</span>
+                        <span>学校種別ごとのランキングを見る</span>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="accordion-content">
-                        <!-- 内容は非表示状態 -->
+                        <div class="school-type-ranking-list">
+                            <div class="school-type-ranking-item" onclick="window.location.href='ranking.html?type=tsuushin'">
+                                <span>通信制高校</span>
+                                <i class="fa-solid fa-chevron-right ranking-arrow"></i>
+                            </div>
+                            <div class="school-type-ranking-item" onclick="window.location.href='ranking.html?type=support'">
+                                <span>通信制サポート校</span>
+                                <i class="fa-solid fa-chevron-right ranking-arrow"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>授業形式別の学校ランキングを見る</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <!-- 内容は非表示状態 -->
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>目的別の学校ランキングを見る</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <!-- 内容は非表示状態 -->
-                    </div>
-                </div>
             </div>
         </section>
 
         <section class="support-section">
-            <h3 class="support-title">特別特集から通信制高校・サポート校を探す</h3>
+            <h3 class="support-title">特徴から通信制高校・サポート校を探す</h3>
             <ul class="support-links">
-                <li><a href="#">不登校でも大丈夫！スクーリングなし！通信制高校まとめ</a></li>
-                <li><a href="#">高卒認定コースあり！スクーリングなし！</a></li>
-                <li><a href="#">ネット授業が充実！出席不要対応！</a></li>
-                <li><a href="#">イベント行事多数！</a></li>
+                <li><a href="feature-results.html?feature=futoukou">不登校支援</a></li>
+                <li><a href="feature-results.html?feature=online">オンライン授業</a></li>
+                <li><a href="feature-results.html?feature=shingaku">大学進学サポート</a></li>
+                <li><a href="feature-results.html?feature=sports">スポーツコース</a></li>
+                <li><a href="feature-results.html?feature=programming">プログラミング</a></li>
+                <li><a href="feature-results.html?feature=art">美術・芸術</a></li>
+                <li><a href="feature-results.html?feature=esports">eスポーツ</a></li>
+                <li><a href="feature-results.html?feature=music">音楽</a></li>
+                <li><a href="feature-results.html?feature=fashion">ファッション・美容</a></li>
+                <li><a href="feature-results.html?feature=cooking">調理・製菓</a></li>
+                <li><a href="feature-results.html?feature=nursing">看護・医療</a></li>
+                <li><a href="feature-results.html?feature=business">ビジネス・経営</a></li>
             </ul>
             <h3 class="support-title">学びたいことから通信制高校・サポート校を探す</h3>
             <ul class="support-links">
-                <li><a href="#">スポーツ</a> | <a href="#">プログラミング</a> | <a href="#">美術</a> | <a href="#">大学進学</a> | <a href="#">eスポーツ</a></li>
+                <li><a href="feature-results.html?feature=sports">スポーツ</a></li>
+                <li><a href="feature-results.html?feature=programming">プログラミング</a></li>
+                <li><a href="feature-results.html?feature=art">美術・芸術</a></li>
+                <li><a href="feature-results.html?feature=shingaku">大学進学サポート</a></li>
+                <li><a href="feature-results.html?feature=esports">eスポーツ</a></li>
+                <li><a href="feature-results.html?feature=music">音楽</a></li>
+                <li><a href="feature-results.html?feature=fashion">ファッション・美容</a></li>
+                <li><a href="feature-results.html?feature=cooking">調理・製菓</a></li>
+                <li><a href="feature-results.html?feature=nursing">看護・医療</a></li>
+                <li><a href="feature-results.html?feature=business">ビジネス・経営</a></li>
             </ul>
         </section>
 
@@ -1326,6 +2004,16 @@
                         }
                     }
                     
+                    // 通学回数の選択を取得
+                    const attendanceFrequencyElements = document.getElementsByName('attendance-frequency-area');
+                    let attendanceFrequency = '';
+                    for (let i = 0; i < attendanceFrequencyElements.length; i++) {
+                        if (attendanceFrequencyElements[i].checked) {
+                            attendanceFrequency = attendanceFrequencyElements[i].value;
+                            break;
+                        }
+                    }
+                    
                     // 検索結果ページにリダイレクト
                     const baseUrl = 'area-results.html';
                     const params = new URLSearchParams();
@@ -1334,6 +2022,7 @@
                     if (features.length > 0) params.append('features', features.join(','));
                     if (learnings.length > 0) params.append('learnings', learnings.join(','));
                     if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
+                    if (attendanceFrequency) params.append('attendanceFrequency', attendanceFrequency);
                     
                     const searchUrl = `${baseUrl}?${params.toString()}`;
                     window.location.href = searchUrl;
@@ -1386,6 +2075,16 @@
                         }
                     }
                     
+                    // 通学回数の選択を取得
+                    const attendanceFrequencyElements = document.getElementsByName('attendance-frequency-commute');
+                    let attendanceFrequency = '';
+                    for (let i = 0; i < attendanceFrequencyElements.length; i++) {
+                        if (attendanceFrequencyElements[i].checked) {
+                            attendanceFrequency = attendanceFrequencyElements[i].value;
+                            break;
+                        }
+                    }
+                    
                     // 検索結果ページにリダイレクト
                     const baseUrl = 'station-results.html';
                     const params = new URLSearchParams();
@@ -1398,9 +2097,172 @@
                     if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
                     if (features.length > 0) params.append('features', features.join(','));
                     if (learnings.length > 0) params.append('learnings', learnings.join(','));
+                    if (attendanceFrequency) params.append('attendanceFrequency', attendanceFrequency);
                     
                     const searchUrl = `${baseUrl}?${params.toString()}`;
                     window.location.href = searchUrl;
+                });
+            }
+            
+            // インタビューセクションの横スワイプ機能を強化
+            const interviewList = document.querySelector('.interview-section .interview-list');
+            if (interviewList) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                
+                // インジケーター要素を取得
+                const indicators = document.querySelectorAll('.interview-indicators .indicator');
+                
+                // スクロール位置に応じてインジケーターを更新
+                function updateIndicators() {
+                    const scrollLeft = interviewList.scrollLeft;
+                    const itemWidth = 320; // item width (300px) + gap (20px)
+                    const activeIndex = Math.round(scrollLeft / itemWidth);
+                    
+                    indicators.forEach((indicator, index) => {
+                        if (index === activeIndex) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // スクロールイベントでインジケーター更新
+                interviewList.addEventListener('scroll', updateIndicators);
+                
+                // インジケーターをクリックして該当のアイテムにスクロール
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        const itemWidth = 320;
+                        interviewList.scrollTo({
+                            left: index * itemWidth,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+                
+                interviewList.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    interviewList.classList.add('active');
+                    startX = e.pageX - interviewList.offsetLeft;
+                    scrollLeft = interviewList.scrollLeft;
+                });
+                
+                interviewList.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    interviewList.classList.remove('active');
+                });
+                
+                interviewList.addEventListener('mouseup', () => {
+                    isDown = false;
+                    interviewList.classList.remove('active');
+                });
+                
+                interviewList.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - interviewList.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    interviewList.scrollLeft = scrollLeft - walk;
+                });
+                
+                // タッチイベントでスマートフォン対応
+                let touchStartX = 0;
+                let touchStartScrollLeft = 0;
+                
+                interviewList.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartScrollLeft = interviewList.scrollLeft;
+                });
+                
+                interviewList.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    const touchX = e.touches[0].clientX;
+                    const diff = touchStartX - touchX;
+                    interviewList.scrollLeft = touchStartScrollLeft + diff;
+                });
+            }
+            
+            // 学校の魅力を紹介セクションの横スワイプ機能を強化
+            const schoolIntroList = document.querySelector('.school-intro-list');
+            if (schoolIntroList) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                
+                // インジケーター要素を取得
+                const schoolIndicators = document.querySelectorAll('.school-intro-indicators .indicator');
+                
+                // スクロール位置に応じてインジケーターを更新
+                function updateSchoolIndicators() {
+                    const scrollLeft = schoolIntroList.scrollLeft;
+                    const itemWidth = 320; // item width (300px) + gap (20px)
+                    const activeIndex = Math.round(scrollLeft / itemWidth);
+                    
+                    schoolIndicators.forEach((indicator, index) => {
+                        if (index === activeIndex) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // スクロールイベントでインジケーター更新
+                schoolIntroList.addEventListener('scroll', updateSchoolIndicators);
+                
+                // インジケーターをクリックして該当のアイテムにスクロール
+                schoolIndicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        const itemWidth = 320;
+                        schoolIntroList.scrollTo({
+                            left: index * itemWidth,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+                
+                schoolIntroList.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    schoolIntroList.classList.add('active');
+                    startX = e.pageX - schoolIntroList.offsetLeft;
+                    scrollLeft = schoolIntroList.scrollLeft;
+                });
+                
+                schoolIntroList.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    schoolIntroList.classList.remove('active');
+                });
+                
+                schoolIntroList.addEventListener('mouseup', () => {
+                    isDown = false;
+                    schoolIntroList.classList.remove('active');
+                });
+                
+                schoolIntroList.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - schoolIntroList.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    schoolIntroList.scrollLeft = scrollLeft - walk;
+                });
+                
+                // タッチイベントでスマートフォン対応
+                let touchStartX = 0;
+                let touchStartScrollLeft = 0;
+                
+                schoolIntroList.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartScrollLeft = schoolIntroList.scrollLeft;
+                });
+                
+                schoolIntroList.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    const touchX = e.touches[0].clientX;
+                    const diff = touchStartX - touchX;
+                    schoolIntroList.scrollLeft = touchStartScrollLeft + diff;
                 });
             }
         });

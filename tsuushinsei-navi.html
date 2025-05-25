@@ -3,506 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>通信制高校ナビ - 全国の通信制高校・サポート校を探す</title>
+    <title>通信制高校とは？ | 通信制高校・サポート校検索サイト</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .feature-section {
-            padding: 20px;
-            background-color: #fff;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .schools-count {
-            font-size: 14px;
-            color: #666;
-            margin-left: 10px;
-        }
-        
-        .search-button {
-            background-color: #ff6b6b;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
-            margin: 20px 0;
-            font-size: 18px;
-        }
-        
-        .search-button i {
-            margin-right: 10px;
-        }
-        
-        .search-button:hover {
-            background-color: #ff5252;
-        }
-        
-        .all-schools-link {
-            text-align: center;
-            margin: 15px 0;
-        }
-        
-        .all-schools-link a {
-            color: #1976d2;
-            font-weight: bold;
-            font-size: 16px;
-            text-decoration: underline;
-        }
-        
-        .breadcrumb {
-            background-color: #f5f5f5;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        
-        .breadcrumb a {
-            color: #1976d2;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .line-cta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #06C755;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 20px 0;
-            width: fit-content;
-        }
-        
-        .line-cta i {
-            margin-right: 10px;
-            font-size: 20px;
-        }
-        
-        .line-cta:hover {
-            background-color: #05a846;
-        }
-        
-        .info-card {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 5px solid #1976d2;
-        }
-        
-        .info-card h3 {
-            margin-top: 0;
-            color: #1976d2;
-            font-size: 18px;
-        }
-        
-        .info-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .info-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .info-list li:last-child {
-            border-bottom: none;
-        }
-    </style>
 </head>
-<body>
+<body class="school-search-page">
     <header>
         <header class="site-header">
             <div class="header-inner">
                 <div class="site-logo">
                     <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
-                  </div>
-        
-              <div class="header-actions">
-                <div class="user-nav">
-                    <a href="favorites.html" class="user-nav-item">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>お気に入り</span>
-                    </a>
-                    <a href="#" class="user-nav-item">
-                        <i class="fa-solid fa-bars"></i>
-                        <span>メニュー</span>
-                    </a>
                 </div>
-              </div>
+        
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="favorites.html" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-     
-          </header>
-            </div>
-        </div>
- 
+        </header>
     </header>
 
     <main>
         <div class="breadcrumb">
-            <a href="index.html">Home</a> &gt; 
+            <a href="index.html">トップ</a> &gt; 
             <a href="#">通信制高校を知る</a> &gt; 
             <a href="#">通信制高校のしくみ</a> &gt; 
-            通信制高校とは
+            <span>通信制高校とは</span>
         </div>
 
-        <section class="school-search-page">
-            <div class="search-container">
-                <h2 class="search-title">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>通信制高校とは？</span>
-                </h2>
-                <div class="search-form-section">
-                    <div class="container">
-                        <p>高校には、通信制・全日制・定時制と3つの教育課程があります。</p>
-                        <p><strong>通信制高校は、"通信による教育を行う"ため、登校回数などが全日制・定時制と異なりますが、卒業の際に得られる高校卒業資格はおなじものとなります</strong>。そのため、通信制高校の卒業後に進学しなかった場合の最終学歴は、"高校卒業"となります。</p>
-                        <p>なお、<strong>高校を卒業するためには、全課程共に3年以上の在籍期間を満たしている必要がある</strong>と、学校教育法により定められています。</p>
-                        
-                        <div class="info-card">
-                            <h3>通信制高校の特徴</h3>
-                            <ul class="info-list">
-                                <li>登校回数が少ない（週1回〜月数回程度）</li>
-                                <li>自分のペースで学習を進められる</li>
-                                <li>「レポート（添削課題）」の提出と「スクーリング（面接指導）」の出席、「テスト」の合格により単位を取得</li>
-                                <li>全日制・定時制と同じ高校卒業資格が得られる</li>
-                                <li>公立・私立・サポート校など様々な選択肢がある</li>
-                            </ul>
+        <section class="support-section">
+            <div class="container">
+                <h2 class="search-title">通信制高校とは？</h2>
+                <div class="intro-content">
+                    <p>高校には、通信制・全日制・定時制と3つの教育課程があります。</p>
+                    <p><strong>通信制高校は、"通信による教育を行う"ため、登校回数などが全日制・定時制と異なりますが、卒業の際に得られる高校卒業資格はおなじものとなります</strong>。そのため、通信制高校の卒業後に進学しなかった場合の最終学歴は、"高校卒業"となります。</p>
+                    <p>なお、<strong>高校を卒業するためには、全課程共に3年以上の在籍期間を満たしている必要がある</strong>と、学校教育法により定められています。</p>
+                </div>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> 通信制高校の特徴</h3>
+                    <div class="feature-content">
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="feature-number">01</div>
+                                <div class="feature-text">
+                                    <h4>登校回数が少ない</h4>
+                                    <p>週1回〜月数回程度の登校で学習を進められます</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-number">02</div>
+                                <div class="feature-text">
+                                    <h4>自分のペースで学習</h4>
+                                    <p>個人の進度に合わせて学習計画を立てられます</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-number">03</div>
+                                <div class="feature-text">
+                                    <h4>レポート・スクーリング・テスト</h4>
+                                    <p>「レポート（添削課題）」の提出と「スクーリング（面接指導）」の出席、「テスト」の合格により単位を取得</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-number">04</div>
+                                <div class="feature-text">
+                                    <h4>同じ高校卒業資格</h4>
+                                    <p>全日制・定時制と同じ高校卒業資格が得られます</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-number">05</div>
+                                <div class="feature-text">
+                                    <h4>多様な選択肢</h4>
+                                    <p>公立・私立・サポート校など様々な選択肢があります</p>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <h3>通信制高校の学習スタイル</h3>
-                        <p>通信制高校では、主に次の3つの方法で学習を進めます：</p>
-                        <ol>
-                            <li><strong>レポート提出</strong>：教科書や学習書を使って自宅で学習し、定期的にレポートを提出します。</li>
-                            <li><strong>スクーリング（面接指導）</strong>：決められた日に登校して、教員から直接指導を受けます。回数は学校によって異なります。</li>
-                            <li><strong>試験</strong>：レポートとスクーリングの両方が完了した科目について、試験を受けることができます。</li>
-                        </ol>
-                        
-                        <h3>通信制高校の種類</h3>
-                        <p>通信制高校には大きく分けて以下のタイプがあります：</p>
-                        <ul>
-                            <li><strong>公立通信制高校</strong>：学費が安く、自学自習が基本。サポート体制は比較的少なめです。</li>
-                            <li><strong>私立通信制高校</strong>：学費は公立より高いが、サポート体制が充実していることが多いです。</li>
-                            <li><strong>通信制高校＋サポート校</strong>：通信制高校に籍を置きながら、サポート校で日常的な学習指導を受けるスタイルです。</li>
-                        </ul>
-                        
-                        <h3>通信制高校を選ぶメリット</h3>
-                        <ul>
-                            <li>自分のペースで学習を進められる</li>
-                            <li>不登校や高校中退からの学び直しが可能</li>
-                            <li>特技や習い事、アルバイトなどと両立しやすい</li>
-                            <li>全日制高校と同じ高校卒業資格が得られる</li>
-                            <li>専門分野や興味のある分野を深く学べる学校も多い</li>
-                        </ul>
-                        
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-book-open"></i> 通信制高校の学習スタイル</h3>
+                    <div class="learning-content">
+                        <p class="learning-intro">通信制高校では、主に次の3つの方法で学習を進めます：</p>
+                        <div class="learning-steps">
+                            <div class="learning-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>レポート提出</h4>
+                                    <p>教科書や学習書を使って自宅で学習し、定期的にレポートを提出します。</p>
+                                </div>
+                            </div>
+                            <div class="learning-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>スクーリング（面接指導）</h4>
+                                    <p>決められた日に登校して、教員から直接指導を受けます。回数は学校によって異なります。</p>
+                                </div>
+                            </div>
+                            <div class="learning-step">
+                                <div class="step-icon">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <div class="step-content">
+                                    <h4>試験</h4>
+                                    <p>レポートとスクーリングの両方が完了した科目について、試験を受けることができます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-school"></i> 通信制高校の種類</h3>
+                    <div class="school-types">
+                        <div class="school-type-item">
+                            <div class="type-header">
+                                <h4>公立通信制高校</h4>
+                                <span class="type-badge">費用重視</span>
+                            </div>
+                            <p>学費が安く、自学自習が基本。サポート体制は比較的少なめです。</p>
+                        </div>
+                        <div class="school-type-item">
+                            <div class="type-header">
+                                <h4>私立通信制高校</h4>
+                                <span class="type-badge">サポート充実</span>
+                            </div>
+                            <p>学費は公立より高いが、サポート体制が充実していることが多いです。</p>
+                        </div>
+                        <div class="school-type-item">
+                            <div class="type-header">
+                                <h4>通信制高校＋サポート校</h4>
+                                <span class="type-badge">個別指導</span>
+                            </div>
+                            <p>通信制高校に籍を置きながら、サポート校で日常的な学習指導を受けるスタイルです。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> 通信制高校を選ぶメリット</h3>
+                    <div class="merit-grid">
+                        <div class="merit-item">
+                            <div class="merit-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>自分のペースで学習</h4>
+                            <p>個人の学習スピードに合わせて進められます</p>
+                        </div>
+                        <div class="merit-item">
+                            <div class="merit-icon">
+                                <i class="fas fa-redo-alt"></i>
+                            </div>
+                            <h4>学び直しが可能</h4>
+                            <p>不登校や高校中退からの学び直しが可能です</p>
+                        </div>
+                        <div class="merit-item">
+                            <div class="merit-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4>両立しやすい</h4>
+                            <p>特技や習い事、アルバイトなどと両立しやすいです</p>
+                        </div>
+                        <div class="merit-item">
+                            <div class="merit-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4>同じ卒業資格</h4>
+                            <p>全日制高校と同じ高校卒業資格が得られます</p>
+                        </div>
+                        <div class="merit-item">
+                            <div class="merit-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>専門分野を深く学習</h4>
+                            <p>興味のある分野を深く学べる学校も多いです</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <div class="summary-content">
                         <p>通信制高校やサポート校は、様々な理由で全日制・定時制の高校に通えない、または通いたくない生徒さんの学びの場として、また、それぞれの興味・関心に合わせて専門的に学びたい生徒さんの選択肢として、年々注目度が高まっています。</p>
                     </div>
                 </div>
-            </div>
-        </section>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-search"></i> 特徴から通信制高校・サポート校を探す</h3>
+                    <div class="support-links">
+                        <a href="#" class="support-link">合宿タイプのスクーリングあり</a>
+                        <a href="#" class="support-link">毎日登校可能</a>
+                        <a href="#" class="support-link">週1～週3日登校</a>
+                        <a href="#" class="support-link">スクーリングが少ない</a>
+                        <a href="#" class="support-link">ネットコースあり</a>
+                        <a href="#" class="support-link">個別指導あり</a>
+                        <a href="#" class="support-link">すぐに転入・編入できる</a>
+                        <a href="#" class="support-link">指定校推薦あり</a>
+                        <a href="#" class="support-link">制服あり</a>
+                        <a href="#" class="support-link">行事・イベントあり</a>
+                        <a href="#" class="support-link">クラブ活動あり</a>
+                        <a href="#" class="support-link">メンタルサポートあり</a>
+                        <a href="#" class="support-link">不登校サポートあり</a>
+                        <a href="#" class="support-link">発達障害のサポートあり</a>
+                        <a href="#" class="support-link">資格取得サポートあり</a>
+                        <a href="#" class="support-link">就職サポートあり</a>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h3 class="section-title"><i class="fas fa-book"></i> 学びたいことから通信制高校・サポート校を探す</h3>
+                    <div class="support-links">
+                        <a href="#" class="support-link">スポーツ・アスリート</a>
+                        <a href="#" class="support-link">ペット（トリマー・トレーナー）</a>
+                        <a href="#" class="support-link">音楽・ダンス</a>
+                        <a href="#" class="support-link">声優・芸能</a>
+                        <a href="#" class="support-link">ファッション・美容</a>
+                        <a href="#" class="support-link">調理・パティシエ</a>
+                        <a href="#" class="support-link">アニメ・マンガ・イラスト</a>
+                        <a href="#" class="support-link">ゲーム・eスポーツ</a>
+                        <a href="#" class="support-link">英語・語学・海外留学</a>
+                        <a href="#" class="support-link">大学進学・大学受験対策</a>
+                        <a href="#" class="support-link">高卒認定試験対策</a>
+                        <a href="#" class="support-link">美術・芸術</a>
+                        <a href="#" class="support-link">保育・福祉・医療系</a>
+                        <a href="#" class="support-link">プログラミング・ITスキル</a>
+                    </div>
+                </div>
+
+ 
+                <div class="cta-section">
+                    <h3 class="section-title">通信制高校・サポート校を探してみませんか？</h3>
+                    <div class="cta-buttons">
+                        <a href="#" class="cta-button primary">
+                            <i class="fas fa-file-circle-plus"></i> 資料請求する（無料）
+                        </a>
+                        <a href="#" class="cta-button secondary">
+                            <i class="fas fa-list"></i> 全国の学校一覧を見る
+                        </a>
+                    </div>
+                    <p class="schools-count">掲載学校数：698校</p>
+                </div>
 
 
-        <section class="feature-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-star"></i>
-                <span>特徴から通信制高校・サポート校を探す</span>
-            </h2>
-            <div class="feature-grid">
-                <a href="#" class="tip-item">
-                    <span>合宿タイプのスクーリングあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>毎日登校可能</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>週1～週3日登校</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>スクーリングが少ない</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>ネットコースあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>個別指導あり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>すぐに転入・編入できる</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>指定校推薦あり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>制服あり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>行事・イベントあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>クラブ活動あり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>メンタルサポートあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>不登校サポートあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>発達障害のサポートあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>資格取得サポートあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>就職サポートあり</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </div>
-        </section>
-
-        <section class="feature-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-book"></i>
-                <span>学びたいことから通信制高校・サポート校を探す</span>
-            </h2>
-            <div class="feature-grid">
-                <a href="#" class="tip-item">
-                    <span>スポーツ・アスリート</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>ペット（トリマー・トレーナー）</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>音楽・ダンス</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>声優・芸能</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>ファッション・美容</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>調理・パティシエ</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>アニメ・マンガ・イラスト</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>ゲーム・eスポーツ</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>英語・語学・海外留学</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>大学進学・大学受験対策</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>高卒認定試験対策</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>美術・芸術</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>保育・福祉・医療系</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>プログラミング・ITスキル</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-            </div>
-        </section>
-
-        <section class="area-search-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <span>地方から通信制高校・サポート校を探す</span>
-            </h2>
-            <div class="area-container">
-                <div class="area-block">
-                    <h3 class="area-title">北海道・東北</h3>
-                    <ul class="area-list">
-                        <li><a href="#">北海道</a></li>
-                        <li><a href="#">青森県</a></li>
-                        <li><a href="#">岩手県</a></li>
-                        <li><a href="#">宮城県</a></li>
-                        <li><a href="#">秋田県</a></li>
-                        <li><a href="#">山形県</a></li>
-                        <li><a href="#">福島県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">関東</h3>
-                    <ul class="area-list">
-                        <li><a href="#">茨城県</a></li>
-                        <li><a href="#">栃木県</a></li>
-                        <li><a href="#">群馬県</a></li>
-                        <li><a href="#">埼玉県</a></li>
-                        <li><a href="#">千葉県</a></li>
-                        <li><a href="#">東京都</a></li>
-                        <li><a href="#">神奈川県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">北陸・甲信越</h3>
-                    <ul class="area-list">
-                        <li><a href="#">新潟県</a></li>
-                        <li><a href="#">富山県</a></li>
-                        <li><a href="#">石川県</a></li>
-                        <li><a href="#">福井県</a></li>
-                        <li><a href="#">山梨県</a></li>
-                        <li><a href="#">長野県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">東海</h3>
-                    <ul class="area-list">
-                        <li><a href="#">岐阜県</a></li>
-                        <li><a href="#">静岡県</a></li>
-                        <li><a href="#">愛知県</a></li>
-                        <li><a href="#">三重県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">近畿（関西）</h3>
-                    <ul class="area-list">
-                        <li><a href="#">滋賀県</a></li>
-                        <li><a href="#">京都府</a></li>
-                        <li><a href="#">大阪府</a></li>
-                        <li><a href="#">兵庫県</a></li>
-                        <li><a href="#">奈良県</a></li>
-                        <li><a href="#">和歌山県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">中国</h3>
-                    <ul class="area-list">
-                        <li><a href="#">鳥取県</a></li>
-                        <li><a href="#">島根県</a></li>
-                        <li><a href="#">岡山県</a></li>
-                        <li><a href="#">広島県</a></li>
-                        <li><a href="#">山口県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">四国</h3>
-                    <ul class="area-list">
-                        <li><a href="#">徳島県</a></li>
-                        <li><a href="#">香川県</a></li>
-                        <li><a href="#">愛媛県</a></li>
-                        <li><a href="#">高知県</a></li>
-                    </ul>
-                </div>
-                <div class="area-block">
-                    <h3 class="area-title">九州・沖縄</h3>
-                    <ul class="area-list">
-                        <li><a href="#">福岡県</a></li>
-                        <li><a href="#">佐賀県</a></li>
-                        <li><a href="#">長崎県</a></li>
-                        <li><a href="#">熊本県</a></li>
-                        <li><a href="#">大分県</a></li>
-                        <li><a href="#">宮崎県</a></li>
-                        <li><a href="#">鹿児島県</a></li>
-                        <li><a href="#">沖縄県</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="search-form-section">
-            <div class="container">
-                <div class="search-button-container">
-                    <a href="#" class="search-button">
-                        <i class="fa-solid fa-file-circle-plus"></i>
-                        資料請求する（無料）
-                    </a>
-                </div>
-                <div class="all-schools-link">
-                    <a href="#">全国の通信制高校・サポート校一覧 <span class="schools-count">掲載学校数：698校</span></a>
-                </div>
-            </div>
-        </section>
-        
-        <section class="feature-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>通信制高校についてさらに詳しく知る</span>
-            </h2>
-            <div class="feature-grid">
-                <a href="#" class="tip-item">
-                    <span>通信制高校とサポート校の違いとは</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>学校選びの比較ポイント</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>通信制高校に通うメリット・デメリット</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>通信制高校の学費・授業料</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>通信制高校関連でよく使われる用語集</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>通信制高校に関するＱ&Ａ</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
-                <a href="#" class="tip-item">
-                    <span>高校中退...その後の進路・就職への影響は？</span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </a>
             </div>
         </section>
     </main>
@@ -534,6 +289,452 @@
             <p>© 2025 サービス名 All Rights Reserved.</p>
         </div>
     </footer>
+
+    <style>
+    /* 追加スタイル */
+    .support-section {
+        padding: 20px 0 40px;
+    }
+    
+    .intro-content {
+        margin-bottom: 30px;
+        line-height: 1.7;
+        display: block !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .intro-content p {
+        margin-bottom: 15px;
+        text-align: left;
+        display: block !important;
+        width: 100% !important;
+        flex: none !important;
+        float: none !important;
+    }
+    
+    .feature-section {
+        margin-bottom: 40px;
+        padding-top: 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #4285f4;
+        text-align: left;
+    }
+    
+    .section-title i {
+        color: #4285f4;
+        margin-right: 8px;
+    }
+    
+    .feature-content {
+        margin-top: 20px;
+    }
+    
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .feature-item {
+        display: flex;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .feature-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: #4285f4;
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+    
+    .feature-text {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .feature-text h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        color: #333;
+        text-align: left;
+    }
+    
+    .feature-text p {
+        margin: 0;
+        line-height: 1.5;
+        color: #666;
+        text-align: left;
+    }
+    
+    .learning-content {
+        margin-top: 20px;
+    }
+    
+    .learning-intro {
+        margin-bottom: 25px;
+        line-height: 1.6;
+        text-align: left;
+    }
+    
+    .learning-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .learning-step {
+        display: flex;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .step-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: #f5f9ff;
+        color: #4285f4;
+        border-radius: 50%;
+        font-size: 24px;
+        flex-shrink: 0;
+    }
+    
+    .step-content {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .step-content h4 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        color: #333;
+        text-align: left;
+    }
+    
+    .step-content p {
+        margin: 0;
+        line-height: 1.6;
+        color: #666;
+        text-align: left;
+    }
+    
+    .school-types {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .school-type-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .type-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .type-header h4 {
+        margin: 0;
+        color: #333;
+        font-size: 16px;
+    }
+    
+    .type-badge {
+        background: #4285f4;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    
+    .school-type-item p {
+        margin: 0;
+        line-height: 1.5;
+        color: #666;
+        text-align: left;
+    }
+    
+    .merit-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .merit-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .merit-icon {
+        width: 60px;
+        height: 60px;
+        background: #f5f9ff;
+        color: #4285f4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto 15px;
+    }
+    
+    .merit-item h4 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .merit-item p {
+        margin: 0;
+        line-height: 1.5;
+        color: #666;
+        font-size: 14px;
+    }
+    
+    .summary-section {
+        background: #f5f9ff;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 30px 0;
+    }
+    
+    .summary-content p {
+        margin: 0;
+        line-height: 1.7;
+        color: #333;
+        text-align: left;
+    }
+    
+    .support-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .support-link {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        padding: 12px 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    
+    .support-link:hover {
+        background: #4285f4;
+        color: white;
+        border-color: #4285f4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+    }
+    
+    .area-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .area-block {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .area-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 15px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #4285f4;
+        text-align: left;
+    }
+    
+    .area-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .area-links a {
+        display: inline-block;
+        background: #f5f9ff;
+        color: #4285f4;
+        padding: 6px 12px;
+        border-radius: 15px;
+        text-decoration: none;
+        font-size: 13px;
+        transition: all 0.3s ease;
+    }
+    
+    .area-links a:hover {
+        background: #4285f4;
+        color: white;
+        transform: translateY(-1px);
+    }
+    
+    .cta-section {
+        background: #f5f9ff;
+        padding: 30px 20px;
+        border-radius: 8px;
+        margin: 40px 0;
+        text-align: center;
+    }
+    
+    .cta-section .section-title {
+        border-bottom: none;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto 15px;
+    }
+    
+    .cta-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 25px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .cta-button i {
+        margin-right: 8px;
+        font-size: 18px;
+    }
+    
+    .cta-button.primary {
+        background-color: #4285f4;
+        color: white;
+    }
+    
+    .cta-button.primary:hover {
+        background-color: #3367d6;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    }
+    
+    .cta-button.secondary {
+        background-color: white;
+        color: #4285f4;
+        border: 2px solid #4285f4;
+    }
+    
+    .cta-button.secondary:hover {
+        background-color: #4285f4;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    }
+    
+    .schools-count {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+    }
+    
+    @media (min-width: 768px) {
+        .learning-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .learning-step {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .step-content {
+            text-align: center;
+        }
+        
+        .step-content h4,
+        .step-content p {
+            text-align: center;
+        }
+        
+        .school-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .cta-buttons {
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .cta-button {
+            flex: 0 0 auto;
+            min-width: 180px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .merit-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .area-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
 
     <script src="script.js"></script>
 </body>

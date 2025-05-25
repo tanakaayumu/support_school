@@ -89,6 +89,13 @@
             color: #1976d2;
             margin-bottom: 10px;
         }
+        .school-title a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        .school-title a:hover {
+            text-decoration: underline;
+        }
         .rating-area {
             display: flex;
             align-items: center;
@@ -112,17 +119,6 @@
             top: 15px;
             color: #ddd;
             font-size: 24px;
-        }
-        .school-access {
-            display: flex;
-            align-items: center;
-            font-size: 12px;
-            margin-bottom: 5px;
-        }
-        .map-link {
-            margin-left: 10px;
-            color: #1976d2;
-            font-size: 12px;
         }
         .school-info {
             padding: 15px;
@@ -261,6 +257,122 @@
         .info-value {
             flex: 1;
         }
+        
+        /* 近くの教室セクション */
+        .nearby-schools-section {
+            border-top: 1px solid #eee;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+        
+        .nearby-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 15px 0;
+            border-left: 4px solid #ff6600;
+            padding-left: 8px;
+        }
+        
+        .nearby-school-item {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .nearby-school-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1976d2;
+            margin: 0 0 8px 0;
+        }
+        
+        .nearby-school-name a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .nearby-school-name a:hover {
+            text-decoration: underline;
+        }
+        
+        .nearby-school-access {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nearby-label {
+            font-weight: bold;
+            color: #555;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .nearby-map-link {
+            margin-left: auto;
+            color: #1976d2;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        
+        .nearby-map-link:hover {
+            text-decoration: underline;
+        }
+        
+        .nearby-action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nearby-btn {
+            flex: 1;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .nearby-btn-detail {
+            background-color: #1976d2;
+            color: white;
+        }
+        
+        .nearby-btn-detail:hover {
+            background-color: #1565c0;
+        }
+        
+        .nearby-btn-price {
+            background-color: #ff6600;
+            color: white;
+        }
+        
+        .nearby-btn-price:hover {
+            background-color: #e65100;
+        }
+        
+        .nearby-all-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .nearby-all-link a {
+            color: #1976d2;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nearby-all-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -321,6 +433,11 @@
                 <div class="condition-value" data-type="learning">選択してください</div>
                 <a href="#" class="change-button" data-modal="learning">変更 ＞</a>
             </div>
+            <div class="condition-row">
+                <div class="condition-label">通学回数</div>
+                <div class="condition-value" data-type="attendanceFrequency">選択してください</div>
+                <a href="#" class="change-button" data-modal="attendanceFrequency">変更 ＞</a>
+            </div>
         </div>
 
         <div class="result-count">
@@ -334,7 +451,9 @@
         <div class="school-card">
             <div class="recommend-badge">サービス名オススメ</div>
             <div class="school-header" style="position: relative;">
-                <h2 class="school-title">トライ式高等学院 大崎校</h2>
+                <h2 class="school-title">
+                    <a href="school_detail.html">トライ式高等学院</a>
+                </h2>
                 <div class="rating-area">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -349,13 +468,6 @@
                 <a href="#" class="favorite-button">
                     <i class="far fa-heart"></i>
                 </a>
-                <div class="school-access">
-                    <span>西荻窪から校門まで所要30分、乗換0回</span>
-                    <a href="#" class="map-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        地図を見る
-                    </a>
-                </div>
             </div>
 
             <div class="school-info">
@@ -413,8 +525,32 @@
             </div>
 
             <div class="action-buttons">
-                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
 
+            </div>
+
+            <!-- 近くの教室セクション -->
+            <div class="nearby-schools-section">
+                <h3 class="nearby-title">神奈川県の教室</h3>
+                <div class="nearby-school-item">
+                    <h4 class="nearby-school-name">
+                        <a href="school_detail_okurayama.html">横浜駅前本校</a>
+                    </h4>
+                    <div class="nearby-school-access">
+                        <span class="nearby-label">最寄駅</span>
+                        <span>JR東海道本線横浜駅から徒歩5分</span>
+                        <a href="#" class="nearby-map-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            地図を見る
+                        </a>
+                    </div>
+                    <div class="nearby-action-buttons">
+                        <a href="#" class="nearby-btn nearby-btn-detail">詳細を見る</a>
+                        <a href="#" class="nearby-btn nearby-btn-price">料金を知りたい</a>
+                    </div>
+                </div>
+                <div class="nearby-all-link">
+                    <a href="school_detail.html#locations">すべての教室を見る →</a>
+                </div>
             </div>
         </div>
 
@@ -422,7 +558,9 @@
         <div class="school-card">
             <div class="recommend-badge">サービス名オススメ</div>
             <div class="school-header" style="position: relative;">
-                <h2 class="school-title">東京通信制高校</h2>
+                <h2 class="school-title">
+                    <a href="school_detail.html">東京通信制高校</a>
+                </h2>
                 <div class="rating-area">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -437,13 +575,6 @@
                 <a href="#" class="favorite-button">
                     <i class="far fa-heart"></i>
                 </a>
-                <div class="school-access">
-                    <span>東京駅から校門まで所要30分、乗換1回</span>
-                    <a href="#" class="map-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        地図を見る
-                    </a>
-                </div>
             </div>
 
             <div class="school-info">
@@ -501,15 +632,41 @@
             </div>
 
             <div class="action-buttons">
-                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
                
+            </div>
+
+            <!-- 近くの教室セクション -->
+            <div class="nearby-schools-section">
+                <h3 class="nearby-title">神奈川県の教室</h3>
+                <div class="nearby-school-item">
+                    <h4 class="nearby-school-name">
+                        <a href="school_detail_okurayama.html">川崎駅前本校</a>
+                    </h4>
+                    <div class="nearby-school-access">
+                        <span class="nearby-label">最寄駅</span>
+                        <span>JR東海道本線川崎駅から徒歩3分</span>
+                        <a href="#" class="nearby-map-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            地図を見る
+                        </a>
+                    </div>
+                    <div class="nearby-action-buttons">
+                        <a href="#" class="nearby-btn nearby-btn-detail">詳細を見る</a>
+                        <a href="#" class="nearby-btn nearby-btn-price">料金を知りたい</a>
+                    </div>
+                </div>
+                <div class="nearby-all-link">
+                    <a href="school_detail.html#locations">すべての教室を見る →</a>
+                </div>
             </div>
         </div>
         <!-- 通信制高校カード 2 -->
         <div class="school-card">
             <div class="recommend-badge">サービス名オススメ</div>
             <div class="school-header" style="position: relative;">
-                <h2 class="school-title">日本通信制高校</h2>
+                <h2 class="school-title">
+                    <a href="school_detail.html">日本通信制高校</a>
+                </h2>
                 <div class="rating-area">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -524,13 +681,6 @@
                 <a href="#" class="favorite-button">
                     <i class="far fa-heart"></i>
                 </a>
-                <div class="school-access">
-                    <span>日本橋から校門まで所要45分、乗換2回</span>
-                    <a href="#" class="map-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        地図を見る
-                    </a>
-                </div>
             </div>
 
             <div class="school-info">
@@ -588,15 +738,41 @@
             </div>
 
             <div class="action-buttons">
-                <a href="school_detail_okurayama.html" class="action-button details-button">詳細を見る</a>
                
+            </div>
+
+            <!-- 近くの教室セクション -->
+            <div class="nearby-schools-section">
+                <h3 class="nearby-title">神奈川県の教室</h3>
+                <div class="nearby-school-item">
+                    <h4 class="nearby-school-name">
+                        <a href="school_detail_okurayama.html">藤沢駅前本校</a>
+                    </h4>
+                    <div class="nearby-school-access">
+                        <span class="nearby-label">最寄駅</span>
+                        <span>JR東海道本線藤沢駅から徒歩4分</span>
+                        <a href="#" class="nearby-map-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            地図を見る
+                        </a>
+                    </div>
+                    <div class="nearby-action-buttons">
+                        <a href="#" class="nearby-btn nearby-btn-detail">詳細を見る</a>
+                        <a href="#" class="nearby-btn nearby-btn-price">料金を知りたい</a>
+                    </div>
+                </div>
+                <div class="nearby-all-link">
+                    <a href="school_detail.html#locations">すべての教室を見る →</a>
+                </div>
             </div>
         </div>
         <!-- 通信制高校カード 3 -->
         <div class="school-card">
             <div class="recommend-badge">サービス名オススメ</div>
             <div class="school-header" style="position: relative;">
-                <h2 class="school-title">未来通信制高校</h2>
+                <h2 class="school-title">
+                    <a href="school_detail.html">未来通信制高校</a>
+                </h2>
                 <div class="rating-area">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -611,13 +787,6 @@
                 <a href="#" class="favorite-button">
                     <i class="far fa-heart"></i>
                 </a>
-                <div class="school-access">
-                    <span>秋葉原から校門まで所要25分、乗換0回</span>
-                    <a href="#" class="map-link">
-                        <i class="fas fa-map-marker-alt"></i>
-                        地図を見る
-                    </a>
-                </div>
             </div>
 
             <div class="school-info">
@@ -675,8 +844,32 @@
             </div>
 
             <div class="action-buttons">
-                <a href="#" class="action-button details-button">詳細を見る</a>
               
+            </div>
+
+            <!-- 近くの教室セクション -->
+            <div class="nearby-schools-section">
+                <h3 class="nearby-title">神奈川県の教室</h3>
+                <div class="nearby-school-item">
+                    <h4 class="nearby-school-name">
+                        <a href="school_detail_okurayama.html">厚木駅前本校</a>
+                    </h4>
+                    <div class="nearby-school-access">
+                        <span class="nearby-label">最寄駅</span>
+                        <span>小田急線本厚木駅から徒歩6分</span>
+                        <a href="#" class="nearby-map-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            地図を見る
+                        </a>
+                    </div>
+                    <div class="nearby-action-buttons">
+                        <a href="#" class="nearby-btn nearby-btn-detail">詳細を見る</a>
+                        <a href="#" class="nearby-btn nearby-btn-price">料金を知りたい</a>
+                    </div>
+                </div>
+                <div class="nearby-all-link">
+                    <a href="school_detail.html#locations">すべての教室を見る →</a>
+                </div>
             </div>
         </div>
     </main>
@@ -731,7 +924,7 @@
                             <input type="checkbox"> <span>週1～週3日登校</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>スクーリングがない</span>
+                            <input type="checkbox"> <span>スクーリングが少ない</span>
                         </label>
                         <label class="condition-option">
                             <input type="checkbox"> <span>ネットコースあり</span>
@@ -953,6 +1146,44 @@
         </div>
     </div>
 
+    <!-- 通学回数選択モーダル -->
+    <div id="attendanceFrequencyModal" class="condition-modal">
+        <div class="condition-modal-content">
+            <div class="condition-modal-header">
+                <h2>通学回数を選択</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="condition-modal-body">
+                <div class="condition-section">
+                    <div class="condition-options">
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="fully-online"> <span>完全オンライン</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="once-per-week"> <span>週1回以下</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="twice-per-week"> <span>週2回以下</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="three-times-per-week"> <span>週3回以下</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="four-times-per-week"> <span>週4回以下</span>
+                        </label>
+                        <label class="condition-option">
+                            <input type="radio" name="attendance-frequency" value="five-or-more-per-week"> <span>週5回以上</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="condition-modal-footer">
+                <button class="btn-clear">クリア</button>
+                <button class="btn-apply">条件決定</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
         // モーダル関連の処理
@@ -965,6 +1196,7 @@
             const features = params.get('features') ? params.get('features').split(',') : [];
             const learnings = params.get('learnings') ? params.get('learnings').split(',') : [];
             const schoolTypes = params.get('schoolTypes') ? params.get('schoolTypes').split(',') : [];
+            const attendanceFrequency = params.get('attendanceFrequency');
             const prefecture = params.get('prefecture');
             const city = params.get('city');
             
@@ -975,6 +1207,7 @@
                 features,
                 learnings,
                 schoolTypes,
+                attendanceFrequency,
                 prefecture,
                 city
             });
@@ -1032,21 +1265,48 @@
             
             // 選択項目のマッピング
             const featureLabels = {
-                'online': 'オンライン授業あり',
-                'dormitory': '寮あり',
+                'camp-schooling': '合宿タイプのスクーリングあり',
+                'daily-attendance': '毎日登校可能',
+                'weekly-attendance': '週1〜週3日登校',
+                'less-schooling': 'スクーリングが少ない',
+                'online-course': 'ネットコースあり',
+                'individual-guidance': '個別指導あり',
+                'transfer-ready': 'すぐに転入・編入できる',
                 'recommendation': '指定校推薦あり',
-                'no-schooling': 'スクーリングなし',
+                'uniform': '制服あり',
+                'events': '行事・イベントあり',
+                'club': 'クラブ活動あり',
                 'mental-support': 'メンタルサポートあり',
-                'club': '部活動あり'
+                'truancy-support': '不登校サポートあり',
+                'developmental-support': '発達障害のサポートあり',
+                'qualification-support': '資格取得サポートあり',
+                'job-support': '就職サポートあり'
             };
             
             const learningLabels = {
-                'sports': 'スポーツ',
-                'programming': 'プログラミング',
-                'art': '美術・芸術',
-                'music': '音楽・ダンス',
-                'language': '英語・語学',
-                'university': '大学進学'
+                'sports-athlete': 'スポーツ・アスリート',
+                'pet-trimmer-trainer': 'ペット（トリマー・トレーナー）',
+                'music-dance': '音楽・ダンス',
+                'voice-actor-entertainment': '声優・芸能',
+                'fashion-beauty': 'ファッション・美容',
+                'cooking-patissier': '調理・パティシエ',
+                'anime-manga-illustration': 'アニメ・マンガ・イラスト',
+                'game-esports': 'ゲーム・eスポーツ',
+                'english-language-study-abroad': '英語・語学・海外留学',
+                'university-entrance-exam': '大学進学・大学受験対策',
+                'high-school-equivalency': '高卒認定試験対策',
+                'art-fine-arts': '美術・芸術',
+                'childcare-welfare-medical': '保育・福祉・医療系',
+                'programming-it-skills': 'プログラミング・ITスキル'
+            };
+            
+            const attendanceFrequencyLabels = {
+                'fully-online': '完全オンライン',
+                'once-per-week': '週1回以下',
+                'twice-per-week': '週2回以下',
+                'three-times-per-week': '週3回以下',
+                'four-times-per-week': '週4回以下',
+                'five-or-more-per-week': '週5回以上'
             };
             
             const schoolTypeLabels = {
@@ -1056,6 +1316,17 @@
                 'sapport': 'サポート校',
                 'flexible': 'フレックス高校',
                 'regular': '全日制高校'
+            };
+            
+            // 近くの教室セクションのタイトルを更新
+            const updateNearbySchoolTitles = (areaCode) => {
+                if (areaCode && prefectureLabels[areaCode]) {
+                    const nearbyTitles = document.querySelectorAll('.nearby-title');
+                    const prefectureName = prefectureLabels[areaCode];
+                    nearbyTitles.forEach(title => {
+                        title.textContent = `${prefectureName}の教室`;
+                    });
+                }
             };
             
             // 検索条件の表示を更新
@@ -1068,6 +1339,9 @@
                 // タイトルも更新
                 const pageHeading = document.querySelector('.page-heading');
                 if (pageHeading) pageHeading.textContent = `${displayArea}の通信制高校・サポート校一覧`;
+                
+                // 近くの教室セクションのタイトルを更新
+                updateNearbySchoolTitles(area);
             } else if (prefecture) {
                 const areaValue = document.querySelector('.condition-value[data-type="area"]');
                 let locationText = prefectureLabels[prefecture] || prefecture;
@@ -1078,6 +1352,9 @@
                 // タイトルも更新
                 const pageHeading = document.querySelector('.page-heading');
                 if (pageHeading) pageHeading.textContent = `${locationText}の通信制高校・サポート校一覧`;
+                
+                // 近くの教室セクションのタイトルを更新
+                updateNearbySchoolTitles(prefecture);
             }
             
             // 特徴の選択を表示
@@ -1116,9 +1393,21 @@
                 }
             }
             
+            // 通学回数の選択を表示
+            const attendanceFrequencyValue = document.querySelector('.condition-value[data-type="attendanceFrequency"]');
+            if (attendanceFrequencyValue) {
+                if (attendanceFrequency) {
+                    const attendanceText = attendanceFrequencyLabels[attendanceFrequency] || attendanceFrequency;
+                    console.log('通学回数のテキスト変換:', attendanceText);
+                    attendanceFrequencyValue.textContent = attendanceText;
+                } else {
+                    attendanceFrequencyValue.textContent = '選択してください';
+                }
+            }
+            
             // 検索結果のカウントを更新
             console.log('エリア検索パラメータ:', { 
-                area, features, learnings, schoolTypes, prefecture, city
+                area, features, learnings, schoolTypes, attendanceFrequency, prefecture, city
             });
             
             // 各モーダル要素を取得
@@ -1126,6 +1415,7 @@
             const learningModal = document.getElementById('learningModal');
             const areaModal = document.getElementById('areaModal');
             const schoolTypesModal = document.getElementById('schoolTypesModal');
+            const attendanceFrequencyModal = document.getElementById('attendanceFrequencyModal');
             
             // 変更ボタン
             const changeButtons = document.querySelectorAll('.change-button');
@@ -1154,6 +1444,8 @@
                         areaModal.style.display = 'block';
                     } else if (modalType === 'schoolTypes') {
                         schoolTypesModal.style.display = 'block';
+                    } else if (modalType === 'attendanceFrequency') {
+                        attendanceFrequencyModal.style.display = 'block';
                     }
                     
                     // bodyのスクロールを無効化
@@ -1169,6 +1461,7 @@
                     learningModal.style.display = 'none';
                     areaModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
+                    attendanceFrequencyModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -1195,6 +1488,7 @@
                     learningModal.style.display = 'none';
                     areaModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
+                    attendanceFrequencyModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -1203,11 +1497,12 @@
             
             // モーダル外クリックで閉じる
             window.addEventListener('click', function(e) {
-                if (e.target === featuresModal || e.target === learningModal || e.target === areaModal || e.target === schoolTypesModal) {
+                if (e.target === featuresModal || e.target === learningModal || e.target === areaModal || e.target === schoolTypesModal || e.target === attendanceFrequencyModal) {
                     featuresModal.style.display = 'none';
                     learningModal.style.display = 'none';
                     areaModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
+                    attendanceFrequencyModal.style.display = 'none';
                     document.body.style.overflow = '';
                 }
             });
