@@ -378,60 +378,68 @@
         
         /* 学校の魅力を紹介セクションのスタイル */
         .school-intro-list {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            gap: 20px;
-            padding-bottom: 10px;
+            display: flex !important;
+            overflow-x: auto !important;
+            scroll-behavior: smooth !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+            gap: 20px !important;
+            padding-bottom: 10px !important;
+            flex-wrap: nowrap !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
         
         .school-intro-list::-webkit-scrollbar {
-            display: none;
+            display: none !important;
         }
         
         .school-intro-item {
-            flex: 0 0 300px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
+            flex: 0 0 300px !important;
+            min-width: 300px !important;
+            background-color: #fff !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            overflow: hidden !important;
+            transition: transform 0.3s ease !important;
+            margin: 0 !important;
+            display: block !important;
         }
         
         .school-intro-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) !important;
         }
         
         .school-intro-item a {
-            display: block;
-            text-decoration: none;
-            color: inherit;
+            display: block !important;
+            text-decoration: none !important;
+            color: inherit !important;
         }
         
         .school-intro-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
         }
         
         .school-intro-item-text {
-            padding: 20px;
+            padding: 20px !important;
         }
         
         .school-intro-item-text h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
+            font-size: 18px !important;
+            font-weight: bold !important;
+            margin-bottom: 10px !important;
+            color: #333 !important;
         }
         
         .school-intro-item-text p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
+            font-size: 14px !important;
+            color: #666 !important;
+            line-height: 1.5 !important;
         }
         
         /* インタビュー・体験談セクションのスタイル */
@@ -517,7 +525,7 @@
             background-color: #f5f5f5;
             border-radius: 5px;
             margin-bottom: 20px;
-            padding: 20px;
+            padding: 20px 0;
         }
         
         .special-banner {
@@ -529,6 +537,8 @@
             justify-content: center;
             padding: 10px;
             margin-bottom: 10px;
+            margin-left: 0;
+            margin-right: 0;
         }
         
         .special-banner img {
@@ -550,6 +560,8 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0;
+            padding: 0 20px;
         }
         
         .special-banner:hover {
@@ -557,17 +569,12 @@
         }
         
         /* 学校選びのヒントセクションのスタイル */
-        .special-section {
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-        
         .tips-container {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0;
+            padding: 0 20px;
         }
         
         .tip-item {
@@ -576,6 +583,8 @@
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 10px;
+            margin-left: 0;
+            margin-right: 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -591,16 +600,10 @@
         }
         
         /* 学校人気ランキングセクションのスタイル */
-        .special-section {
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-        
         .ranking-accordion {
             border-radius: 5px;
             overflow: hidden;
+            margin: 0 20px;
         }
         
         .accordion-item {
@@ -632,6 +635,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0;
         }
         
         .prefecture-button {
@@ -640,6 +644,8 @@
             border-radius: 5px;
             padding: 10px 20px;
             margin-bottom: 10px;
+            margin-left: 0;
+            margin-right: 0;
             flex: 1;
             text-align: center;
             transition: transform 0.3s ease;
@@ -653,6 +659,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0;
         }
         
         .region-item {
@@ -661,6 +668,8 @@
             border-radius: 5px;
             padding: 10px;
             margin-bottom: 10px;
+            margin-left: 0;
+            margin-right: 0;
         }
         
         .region-title {
@@ -783,13 +792,25 @@
         }
         
         /* support-linksの横並びスタイル */
+        .support-section {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .support-title {
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
         .support-links {
             display: flex !important;
             flex-wrap: wrap !important;
             gap: 15px !important;
             list-style: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
+            padding: 0 20px !important;
+            margin: 0 0 30px 0 !important;
         }
         
         .support-links li {
@@ -817,8 +838,13 @@
         
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
+            .support-section {
+                padding: 15px;
+            }
+            
             .support-links {
                 gap: 10px !important;
+                padding: 0 15px !important;
             }
             
             .support-links li a {
@@ -924,6 +950,32 @@
                             </select>
                         </div>
                         
+                        <!-- 公立/私立セクション -->
+                        <div class="category-section">
+                            <div class="category-header">公立/私立</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type-area" value="public"> 公立
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type-area" value="private"> 私立
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- 通信制高校/通信制サポート校セクション -->
+                        <div class="category-section">
+                            <div class="category-header">通信制高校/通信制サポート校</div>
+                            <div class="category-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type" value="tsuushin"> 通信制高校
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="school-type" value="support"> 通信制サポート校
+                                </label>
+                            </div>
+                        </div>
+                        
                         <!-- 特徴セクション -->
                         <div class="category-section">
                             <div class="category-header">特徴</div>
@@ -1024,19 +1076,6 @@
                                 </label>
                                 <label class="checkbox-option">
                                     <input type="checkbox" name="learning-area" value="programming-it-skills"> プログラミング・ITスキル
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <!-- 通信制高校/通信制サポート校セクション -->
-                        <div class="category-section">
-                            <div class="category-header">通信制高校/通信制サポート校</div>
-                            <div class="category-options">
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="school-type" value="tsuushin"> 通信制高校
-                                </label>
-                                <label class="checkbox-option">
-                                    <input type="checkbox" name="school-type" value="support"> 通信制サポート校
                                 </label>
                             </div>
                         </div>
@@ -1977,6 +2016,24 @@
                     // 選択された値を取得
                     const area = document.getElementById('area-select').value;
                     
+                    // 公立/私立の選択を取得
+                    const schoolTypeAreaElements = document.getElementsByName('school-type-area');
+                    const schoolTypeAreas = [];
+                    for (let i = 0; i < schoolTypeAreaElements.length; i++) {
+                        if (schoolTypeAreaElements[i].checked) {
+                            schoolTypeAreas.push(schoolTypeAreaElements[i].value);
+                        }
+                    }
+                    
+                    // 通信制高校/通信制サポート校の選択を取得
+                    const schoolTypeElements = document.getElementsByName('school-type');
+                    const schoolTypes = [];
+                    for (let i = 0; i < schoolTypeElements.length; i++) {
+                        if (schoolTypeElements[i].checked) {
+                            schoolTypes.push(schoolTypeElements[i].value);
+                        }
+                    }
+                    
                     // 特徴の選択を取得
                     const featureElements = document.getElementsByName('feature-area');
                     const features = [];
@@ -1995,15 +2052,6 @@
                         }
                     }
                     
-                    // 通信制高校/通信制サポート校の選択を取得
-                    const schoolTypeElements = document.getElementsByName('school-type');
-                    const schoolTypes = [];
-                    for (let i = 0; i < schoolTypeElements.length; i++) {
-                        if (schoolTypeElements[i].checked) {
-                            schoolTypes.push(schoolTypeElements[i].value);
-                        }
-                    }
-                    
                     // 通学回数の選択を取得
                     const attendanceFrequencyElements = document.getElementsByName('attendance-frequency-area');
                     let attendanceFrequency = '';
@@ -2019,9 +2067,10 @@
                     const params = new URLSearchParams();
                     
                     if (area) params.append('area', area);
+                    if (schoolTypeAreas.length > 0) params.append('schoolTypeAreas', schoolTypeAreas.join(','));
+                    if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
                     if (features.length > 0) params.append('features', features.join(','));
                     if (learnings.length > 0) params.append('learnings', learnings.join(','));
-                    if (schoolTypes.length > 0) params.append('schoolTypes', schoolTypes.join(','));
                     if (attendanceFrequency) params.append('attendanceFrequency', attendanceFrequency);
                     
                     const searchUrl = `${baseUrl}?${params.toString()}`;

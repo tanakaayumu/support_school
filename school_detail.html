@@ -19,15 +19,37 @@
       width: 100%;
       height: 250px; /* 固定高さを設定 */
       overflow: hidden;
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .photo-slider::before {
+      content: "トライ高等学院 授業風景";
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      z-index: 2;
     }
     
     .photo-slider img {
-      position: absolute; /* 画像を絶対配置 */
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    
+    .photo-slider img.loaded {
+      opacity: 1;
     }
     
     .slider-nav {
@@ -949,24 +971,23 @@
         <div class="header-inner">
             <div class="site-logo">
                 <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
-              </div>
-    
-          <div class="header-actions">
-            <div class="user-nav">
-                <a href="favorites.html" class="user-nav-item">
-                    <i class="fa-solid fa-heart"></i>
-                    <span>お気に入り</span>
-                </a>
-                <a href="#" class="user-nav-item">
-                    <i class="fa-solid fa-bars"></i>
-                    <span>メニュー</span>
-                </a>
             </div>
-          </div>
+    
+            <div class="header-actions">
+                <div class="user-nav">
+                    <a href="#" class="user-nav-item">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>お気に入り</span>
+                    </a>
+                    <a href="#" class="user-nav-item menu-trigger">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>メニュー</span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </header>
-        </div>
-    </div>
+    </header>
+    
     <nav class="global-nav" id="globalNav">
       <ul>
         <li><a href="#">塾トップ</a></li>
@@ -987,7 +1008,7 @@
 
     <!-- ================= 写真スライダー ================= -->
     <section class="photo-slider">
-      <img src="https://placehold.jp/800x300.png?text=画像" alt="画像" id="sliderImage">
+      <img src="https://via.placeholder.com/800x300/4a90e2/ffffff?text=授業風景" alt="トライ高等学院 授業風景" id="sliderImage" style="display: block;">
       <div class="slider-nav slider-prev"><i class="fas fa-chevron-left"></i></div>
       <div class="slider-nav slider-next"><i class="fas fa-chevron-right"></i></div>
     </section>
@@ -2519,27 +2540,67 @@
     
     // 写真スライダー機能
     const sliderImages = [
-      'https://via.placeholder.com/800x300?text=授業風景1',
-      'https://via.placeholder.com/800x300?text=授業風景2',
-      'https://via.placeholder.com/800x300?text=校舎外観'
+      'https://via.placeholder.com/800x300/4a90e2/ffffff?text=授業風景',
+      'https://via.placeholder.com/800x300/27ae60/ffffff?text=教室風景',
+      'https://via.placeholder.com/800x300/e74c3c/ffffff?text=校舎外観'
     ];
     let currentImage = 0;
     const sliderImg = document.getElementById('sliderImage');
     
+    // 画像読み込み処理の改善
+    function loadSliderImage(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+        img.src = src;
+      });
+    }
+    
+    // 初期画像の読み込み
+    if (sliderImg) {
+      loadSliderImage(sliderImages[currentImage])
+        .then(() => {
+          sliderImg.src = sliderImages[currentImage];
+          sliderImg.classList.add('loaded');
+          console.log('初期画像が正常に読み込まれました');
+        })
+        .catch((error) => {
+          console.log('初期画像の読み込みに失敗しました。フォールバック表示を使用します。');
+          // 画像読み込み失敗時は背景グラデーションとテキストを表示
+        });
+    }
+    
+    function changeSliderImage(newIndex) {
+      if (!sliderImg) return;
+      
+      loadSliderImage(sliderImages[newIndex])
+        .then(() => {
+          sliderImg.classList.remove('loaded');
+          setTimeout(() => {
+            sliderImg.src = sliderImages[newIndex];
+            sliderImg.classList.add('loaded');
+          }, 250);
+        })
+        .catch((error) => {
+          console.log('画像の読み込みに失敗しました。フォールバック表示を継続します。');
+        });
+    }
+    
     document.querySelector('.slider-next')?.addEventListener('click', () => {
       currentImage = (currentImage + 1) % sliderImages.length;
-      sliderImg.src = sliderImages[currentImage];
+      changeSliderImage(currentImage);
     });
     
     document.querySelector('.slider-prev')?.addEventListener('click', () => {
       currentImage = (currentImage - 1 + sliderImages.length) % sliderImages.length;
-      sliderImg.src = sliderImages[currentImage];
+      changeSliderImage(currentImage);
     });
     
     // 自動スライド
     setInterval(() => {
       currentImage = (currentImage + 1) % sliderImages.length;
-      sliderImg.src = sliderImages[currentImage];
+      changeSliderImage(currentImage);
     }, 8000);
 
     // FAQのトグル機能
