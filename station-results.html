@@ -486,10 +486,7 @@
                         <i class="fa-solid fa-heart"></i>
                         <span>お気に入り</span>
                     </a>
-                    <a href="#" class="user-nav-item menu-trigger">
-                        <i class="fa-solid fa-bars"></i>
-                        <span>メニュー</span>
-                    </a>
+
                 </div>
               </div>
             </div>
@@ -529,11 +526,7 @@
                 <div class="condition-value" data-type="schoolTypes">選択してください</div>
                 <a href="#" class="change-button" data-modal="schoolTypes">変更 ＞</a>
             </div>
-            <div class="condition-row">
-                <div class="condition-label">共学/別学</div>
-                <div class="condition-value" data-type="schoolGenders">選択してください</div>
-                <a href="#" class="change-button" data-modal="schoolGenders">変更 ＞</a>
-            </div>
+
             <div class="condition-row">
                 <div class="condition-label">特徴を選ぶ</div>
                 <div class="condition-value" data-type="features">選択してください</div>
@@ -623,10 +616,6 @@
 
             <!-- 体験記・口コミリンクセクション -->
             <div class="experience-links-section">
-                <div class="experience-link-item">
-                    <i class="fas fa-users" style="color: #1976d2;"></i>
-                    <a href="#" class="experience-link">合格体験記</a>
-                </div>
                 <div class="experience-link-item">
                     <i class="fas fa-comments" style="color: #1976d2;"></i>
                     <a href="#" class="experience-link">学校の口コミ(3311)</a>
@@ -735,10 +724,6 @@
 
             <!-- 体験記・口コミリンクセクション -->
             <div class="experience-links-section">
-                <div class="experience-link-item">
-                    <i class="fas fa-users" style="color: #1976d2;"></i>
-                    <a href="#" class="experience-link">合格体験記</a>
-                </div>
                 <div class="experience-link-item">
                     <i class="fas fa-comments" style="color: #1976d2;"></i>
                     <a href="#" class="experience-link">学校の口コミ(2156)</a>
@@ -849,10 +834,6 @@
             <!-- 体験記・口コミリンクセクション -->
             <div class="experience-links-section">
                 <div class="experience-link-item">
-                    <i class="fas fa-users" style="color: #1976d2;"></i>
-                    <a href="#" class="experience-link">合格体験記</a>
-                </div>
-                <div class="experience-link-item">
                     <i class="fas fa-comments" style="color: #1976d2;"></i>
                     <a href="#" class="experience-link">学校の口コミ(1892)</a>
                 </div>
@@ -962,10 +943,6 @@
             <!-- 体験記・口コミリンクセクション -->
             <div class="experience-links-section">
                 <div class="experience-link-item">
-                    <i class="fas fa-users" style="color: #1976d2;"></i>
-                    <a href="#" class="experience-link">合格体験記</a>
-                </div>
-                <div class="experience-link-item">
                     <i class="fas fa-comments" style="color: #1976d2;"></i>
                     <a href="#" class="experience-link">学校の口コミ(2743)</a>
                 </div>
@@ -1040,57 +1017,57 @@
                 <button class="modal-close-btn">&times;</button>
             </div>
             <div class="condition-modal-body">
-                <!-- 授業形態から探す -->
+                <!-- 特徴から探す -->
                 <div class="condition-section">
-                    <h3 class="condition-section-title">授業形態から探す</h3>
+                    <h3 class="condition-section-title">特徴から探す</h3>
                     <div class="condition-options">
                         <label class="condition-option">
-                            <input type="checkbox"> <span>合宿タイプのスクーリングあり</span>
+                            <input type="checkbox" value="camp-schooling"> <span>合宿タイプのスクーリングあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>毎日登校可能</span>
+                            <input type="checkbox" value="daily-attendance"> <span>毎日登校可能</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>週1～週3日登校</span>
+                            <input type="checkbox" value="weekly-attendance"> <span>週1〜週3日登校</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>スクーリングがない</span>
+                            <input type="checkbox" value="less-schooling"> <span>スクーリングが少ない</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>ネットコースあり</span>
+                            <input type="checkbox" value="online-course"> <span>ネットコースあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>個別指導あり</span>
+                            <input type="checkbox" value="individual-guidance"> <span>個別指導あり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>すぐに転入・編入できる</span>
+                            <input type="checkbox" value="transfer-ready"> <span>すぐに転入・編入できる</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>指定校推薦あり</span>
+                            <input type="checkbox" value="recommendation"> <span>指定校推薦あり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>制服あり</span>
+                            <input type="checkbox" value="uniform"> <span>制服あり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>行事・イベントあり</span>
+                            <input type="checkbox" value="events"> <span>行事・イベントあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>クラブ活動あり</span>
+                            <input type="checkbox" value="club"> <span>クラブ活動あり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>メンタルサポートあり</span>
+                            <input type="checkbox" value="mental-support"> <span>メンタルサポートあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>不登校サポートあり</span>
+                            <input type="checkbox" value="truancy-support"> <span>不登校サポートあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>発達障害のサポートあり</span>
+                            <input type="checkbox" value="developmental-support"> <span>発達障害のサポートあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>資格取得サポートあり</span>
+                            <input type="checkbox" value="qualification-support"> <span>資格取得サポートあり</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>就職サポートあり</span>
+                            <input type="checkbox" value="job-support"> <span>就職サポートあり</span>
                         </label>
                     </div>
                 </div>
@@ -1156,46 +1133,46 @@
                 <div class="condition-section">
                     <div class="condition-options learning-options">
                         <label class="condition-option">
-                            <input type="checkbox"> <span>スポーツ・アスリート</span>
+                            <input type="checkbox" value="sports-athlete"> <span>スポーツ・アスリート</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>ペット（トリマー・トレーナー）</span>
+                            <input type="checkbox" value="pet-trimmer-trainer"> <span>ペット（トリマー・トレーナー）</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>音楽・ダンス</span>
+                            <input type="checkbox" value="music-dance"> <span>音楽・ダンス</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>声優・芸能</span>
+                            <input type="checkbox" value="voice-actor-entertainment"> <span>声優・芸能</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>ファッション・美容</span>
+                            <input type="checkbox" value="fashion-beauty"> <span>ファッション・美容</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>調理・パティシエ</span>
+                            <input type="checkbox" value="cooking-patissier"> <span>調理・パティシエ</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>アニメ・マンガ・イラスト</span>
+                            <input type="checkbox" value="anime-manga-illustration"> <span>アニメ・マンガ・イラスト</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>ゲーム・eスポーツ</span>
+                            <input type="checkbox" value="game-esports"> <span>ゲーム・eスポーツ</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>英語・語学・海外留学</span>
+                            <input type="checkbox" value="english-language-study-abroad"> <span>英語・語学・海外留学</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>大学進学・大学受験対策</span>
+                            <input type="checkbox" value="university-entrance-exam"> <span>大学進学・大学受験対策</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>高卒認定試験対策</span>
+                            <input type="checkbox" value="high-school-equivalency"> <span>高卒認定試験対策</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>美術・芸術</span>
+                            <input type="checkbox" value="art-fine-arts"> <span>美術・芸術</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>保育・福祉・医療系</span>
+                            <input type="checkbox" value="childcare-welfare-medical"> <span>保育・福祉・医療系</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox"> <span>プログラミング・ITスキル</span>
+                            <input type="checkbox" value="programming-it-skills"> <span>プログラミング・ITスキル</span>
                         </label>
                     </div>
                 </div>
@@ -1272,34 +1249,7 @@
         </div>
     </div>
     
-    <!-- 共学/別学選択モーダル -->
-    <div id="schoolGendersModal" class="condition-modal">
-        <div class="condition-modal-content">
-            <div class="condition-modal-header">
-                <h2>共学/別学を選択</h2>
-                <button class="modal-close-btn">&times;</button>
-            </div>
-            <div class="condition-modal-body">
-                <div class="condition-section">
-                    <div class="condition-options">
-                        <label class="condition-option">
-                            <input type="checkbox" value="coed"> <span>共学</span>
-                        </label>
-                        <label class="condition-option">
-                            <input type="checkbox" value="boys"> <span>男子校</span>
-                        </label>
-                        <label class="condition-option">
-                            <input type="checkbox" value="girls"> <span>女子校</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="condition-modal-footer">
-                <button class="btn-clear">クリア</button>
-                <button class="btn-apply">条件決定</button>
-            </div>
-        </div>
-    </div>
+
     
     <!-- 学校タイプ選択モーダル -->
     <div id="schoolTypesModal" class="condition-modal">
@@ -1312,16 +1262,10 @@
                 <div class="condition-section">
                     <div class="condition-options">
                         <label class="condition-option">
-                            <input type="checkbox" value="tsuushinsei"> <span>通信制高校</span>
+                            <input type="checkbox" value="tsuushin"> <span>通信制高校</span>
                         </label>
                         <label class="condition-option">
-                            <input type="checkbox" value="sapport"> <span>サポート校</span>
-                        </label>
-                        <label class="condition-option">
-                            <input type="checkbox" value="flexible"> <span>フレックス高校</span>
-                        </label>
-                        <label class="condition-option">
-                            <input type="checkbox" value="regular"> <span>全日制高校</span>
+                            <input type="checkbox" value="support"> <span>通信制サポート校</span>
                         </label>
                     </div>
                 </div>
@@ -1345,7 +1289,6 @@
             const timeLimit = params.get('timeLimit');
             const transfers = params.get('transfers');
             const departureTime = params.get('departureTime');
-            const schoolGenders = params.get('schoolGenders') ? params.get('schoolGenders').split(',') : [];
             const schoolTypes = params.get('schoolTypes') ? params.get('schoolTypes').split(',') : [];
             const features = params.get('features') ? params.get('features').split(',') : [];
             const learnings = params.get('learnings') ? params.get('learnings').split(',') : [];
@@ -1357,7 +1300,6 @@
                 timeLimit,
                 transfers,
                 departureTime,
-                schoolGenders,
                 schoolTypes,
                 features,
                 learnings
@@ -1365,36 +1307,44 @@
             
             // 選択項目のマッピング
             const featureLabels = {
-                'online': 'オンライン授業あり',
-                'dormitory': '寮あり',
+                'camp-schooling': '合宿タイプのスクーリングあり',
+                'daily-attendance': '毎日登校可能',
+                'weekly-attendance': '週1〜週3日登校',
+                'less-schooling': 'スクーリングが少ない',
+                'online-course': 'ネットコースあり',
+                'individual-guidance': '個別指導あり',
+                'transfer-ready': 'すぐに転入・編入できる',
                 'recommendation': '指定校推薦あり',
-                'no-schooling': 'スクーリングなし',
+                'uniform': '制服あり',
+                'events': '行事・イベントあり',
+                'club': 'クラブ活動あり',
                 'mental-support': 'メンタルサポートあり',
-                'club': '部活動あり'
+                'truancy-support': '不登校サポートあり',
+                'developmental-support': '発達障害のサポートあり',
+                'qualification-support': '資格取得サポートあり',
+                'job-support': '就職サポートあり'
             };
             
             const learningLabels = {
-                'sports': 'スポーツ',
-                'programming': 'プログラミング',
-                'art': '美術・芸術',
-                'music': '音楽・ダンス',
-                'language': '英語・語学',
-                'university': '大学進学'
+                'sports-athlete': 'スポーツ・アスリート',
+                'pet-trimmer-trainer': 'ペット（トリマー・トレーナー）',
+                'music-dance': '音楽・ダンス',
+                'voice-actor-entertainment': '声優・芸能',
+                'fashion-beauty': 'ファッション・美容',
+                'cooking-patissier': '調理・パティシエ',
+                'anime-manga-illustration': 'アニメ・マンガ・イラスト',
+                'game-esports': 'ゲーム・eスポーツ',
+                'english-language-study-abroad': '英語・語学・海外留学',
+                'university-entrance-exam': '大学進学・大学受験対策',
+                'high-school-equivalency': '高卒認定試験対策',
+                'art-fine-arts': '美術・芸術',
+                'childcare-welfare-medical': '保育・福祉・医療系',
+                'programming-it-skills': 'プログラミング・ITスキル'
             };
             
             const schoolTypeLabels = {
                 'tsuushin': '通信制高校',
-                'support': '通信制サポート校',
-                'tsuushinsei': '通信制高校',
-                'sapport': 'サポート校',
-                'flexible': 'フレックス高校',
-                'regular': '全日制高校'
-            };
-            
-            const schoolGenderLabels = {
-                'boys': '男子校',
-                'girls': '女子校',
-                'coed': '共学'
+                'support': '通信制サポート校'
             };
             
             // 検索条件の表示を更新
@@ -1463,22 +1413,12 @@
                 }
             }
             
-            // 共学/別学の選択を表示
-            const schoolGendersValue = document.querySelector('.condition-value[data-type="schoolGenders"]');
-            if (schoolGendersValue) {
-                if (schoolGenders && schoolGenders.length > 0) {
-                    const schoolGenderTexts = schoolGenders.map(gender => schoolGenderLabels[gender] || gender);
-                    console.log('共学/別学のテキスト変換:', schoolGenderTexts);
-                    schoolGendersValue.textContent = schoolGenderTexts.join('、');
-                } else {
-                    schoolGendersValue.textContent = '選択してください';
-                }
-            }
+
             
             // 検索結果のカウントを更新
             console.log('駅距離検索パラメータ:', { 
                 homeStation, timeLimit, transfers, departureTime, 
-                schoolGenders, schoolTypes, features, learnings
+                schoolTypes, features, learnings
             });
             
             // 各モーダル要素を取得
@@ -1488,7 +1428,6 @@
             const timeLimitModal = document.getElementById('timeLimitModal');
             const transfersModal = document.getElementById('transfersModal');
             const schoolTypesModal = document.getElementById('schoolTypesModal');
-            const schoolGendersModal = document.getElementById('schoolGendersModal');
             
             // 変更ボタン
             const changeButtons = document.querySelectorAll('.change-button');
@@ -1521,8 +1460,6 @@
                         transfersModal.style.display = 'block';
                     } else if (modalType === 'schoolTypes') {
                         schoolTypesModal.style.display = 'block';
-                    } else if (modalType === 'schoolGenders') {
-                        schoolGendersModal.style.display = 'block';
                     }
                     
                     // bodyのスクロールを無効化
@@ -1540,7 +1477,6 @@
                     timeLimitModal.style.display = 'none';
                     transfersModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
-                    schoolGendersModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -1569,7 +1505,6 @@
                     timeLimitModal.style.display = 'none';
                     transfersModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
-                    schoolGendersModal.style.display = 'none';
                     
                     // bodyのスクロールを有効化
                     document.body.style.overflow = '';
@@ -1578,14 +1513,13 @@
             
             // モーダル外クリックで閉じる
             window.addEventListener('click', function(e) {
-                if (e.target === featuresModal || e.target === learningModal || e.target === stationModal || e.target === timeLimitModal || e.target === transfersModal || e.target === schoolTypesModal || e.target === schoolGendersModal) {
+                if (e.target === featuresModal || e.target === learningModal || e.target === stationModal || e.target === timeLimitModal || e.target === transfersModal || e.target === schoolTypesModal) {
                     featuresModal.style.display = 'none';
                     learningModal.style.display = 'none';
                     stationModal.style.display = 'none';
                     timeLimitModal.style.display = 'none';
                     transfersModal.style.display = 'none';
                     schoolTypesModal.style.display = 'none';
-                    schoolGendersModal.style.display = 'none';
                     document.body.style.overflow = '';
                 }
             });
