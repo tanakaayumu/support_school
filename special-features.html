@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特集 | サービス名</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="modal.css">
+    <style>
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .page-title i {
+            margin-right: 10px;
+            color: #0075a9;
+        }
+        
+        .page-description {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .featured-special {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-special::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 60,40 90,40 70,60 80,90 50,70 20,90 30,60 10,40 40,40" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 15s infinite linear;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-50px) translateY(-50px) rotate(360deg); }
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .featured-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .featured-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .featured-btn {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .featured-btn:hover {
+            background-color: white;
+            color: #ff6b6b;
+        }
+        
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .special-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .special-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .special-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .special-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .special-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .special-card-content {
+            padding: 25px;
+        }
+        
+        .special-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .special-summary {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .special-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .special-tag {
+            background-color: #f0f8ff;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .special-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .filter-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-option:hover,
+        .filter-option.active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1976d2;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #1565c0;
+        }
+        
+        .urgent-special {
+            border: 2px solid #ff6b6b;
+        }
+        
+        .urgent-special .special-badge {
+            background-color: #ff4757;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .popular-special {
+            border: 2px solid #ffa502;
+        }
+        
+        .popular-special .special-badge {
+            background-color: #ff9f43;
+        }
+        
+        @media (max-width: 768px) {
+            .special-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                gap: 8px;
+            }
+            
+            .filter-option {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .featured-special {
+                padding: 25px;
+            }
+            
+            .featured-title {
+                font-size: 22px;
+            }
+            
+            .featured-description {
+                font-size: 16px;
+            }
+            
+            .special-card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item menu-trigger">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">サービス名</a>
+                <span class="separator">＞</span>
+                <span>特集</span>
+            </div>
+
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fa-solid fa-star"></i>
+                    特集
+                </h1>
+                <p class="page-description">
+                    通信制高校・サポート校選びに役立つ特集記事をお届け。入学時期、学費、サポート体制など、気になるテーマを詳しく解説します。
+                </p>
+            </div>
+
+            <div class="featured-special">
+                <div class="featured-content">
+                    <h2 class="featured-title">🌸 4月入学特集 🌸</h2>
+                    <p class="featured-description">
+                        まだ間に合う！4月入学可能な通信制高校・サポート校を一挙紹介
+                    </p>
+                    <a href="supports-school.html" class="featured-btn">詳しく見る</a>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h2 class="filter-title">カテゴリーで絞り込み</h2>
+                <div class="filter-options">
+                    <div class="filter-option active" data-filter="all">すべて</div>
+                    <div class="filter-option" data-filter="admission">入学・転入</div>
+                    <div class="filter-option" data-filter="support">サポート体制</div>
+                    <div class="filter-option" data-filter="career">進路・就職</div>
+                    <div class="filter-option" data-filter="cost">学費・費用</div>
+                    <div class="filter-option" data-filter="lifestyle">学校生活</div>
+                </div>
+            </div>
+
+            <div class="special-grid">
+                <div class="special-card urgent-special" data-category="admission">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="4月入学特集">
+                            <div class="special-badge">緊急</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>4月入学が間に合う通信制高校まとめ</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">4月入学</span>
+                                <span class="special-tag">転入</span>
+                                <span class="special-tag">編入</span>
+                            </div>
+                            <p class="special-summary">
+                                新学期からの転入・編入を検討している方必見！4月入学に間に合う通信制高校とサポート校を詳しくご紹介。手続きの流れや必要書類も解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月20日</span>
+                                <span>読了時間: 10分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card popular-special" data-category="support">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="指定校推薦特集">
+                            <div class="special-badge">人気</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>指定校推薦のある通信制高校</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">指定校推薦</span>
+                                <span class="special-tag">大学進学</span>
+                                <span class="special-tag">進路サポート</span>
+                            </div>
+                            <p class="special-summary">
+                                大学進学を目指す方におすすめ！指定校推薦制度が充実している通信制高校を厳選してご紹介。推薦枠のある大学や合格実績も詳しく解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月18日</span>
+                                <span>読了時間: 12分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="lifestyle">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="寮がある通信制高校">
+                            <div class="special-badge">注目</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>寮がある通信制高校まとめ</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">寮生活</span>
+                                <span class="special-tag">一人暮らし</span>
+                                <span class="special-tag">生活サポート</span>
+                            </div>
+                            <p class="special-summary">
+                                親元を離れて自立したい方におすすめ！寮を完備している通信制高校の特徴や寮生活の様子、費用について詳しくご紹介します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月15日</span>
+                                <span>読了時間: 8分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="support">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="不登校サポート特集">
+                            <div class="special-badge">特集</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>不登校サポートが充実している学校特集</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">不登校</span>
+                                <span class="special-tag">メンタルサポート</span>
+                                <span class="special-tag">カウンセリング</span>
+                            </div>
+                            <p class="special-summary">
+                                不登校経験者も安心して通える環境が整った学校をご紹介。専門カウンセラーの配置や段階的な登校支援など、充実したサポート体制を解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月12日</span>
+                                <span>読了時間: 9分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="career">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="専門コース特集">
+                            <div class="special-badge">新着</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>専門コースで夢を叶える！職業体験特集</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">専門コース</span>
+                                <span class="special-tag">職業体験</span>
+                                <span class="special-tag">キャリア教育</span>
+                            </div>
+                            <p class="special-summary">
+                                声優、ゲーム、美容、プログラミングなど、多彩な専門コースを設置している通信制高校をご紹介。実際の授業内容や就職実績も詳しく解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月10日</span>
+                                <span>読了時間: 11分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="cost">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="学費比較特集">
+                            <div class="special-badge">比較</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>通信制高校の学費を徹底比較！</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">学費</span>
+                                <span class="special-tag">費用比較</span>
+                                <span class="special-tag">就学支援金</span>
+                            </div>
+                            <p class="special-summary">
+                                気になる学費を詳しく比較！公立・私立の違いや就学支援金の活用方法、追加費用についても分かりやすく解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月8日</span>
+                                <span>読了時間: 7分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="lifestyle">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="オンライン学習特集">
+                            <div class="special-badge">トレンド</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>オンライン学習で自分のペースで学ぶ</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">オンライン</span>
+                                <span class="special-tag">自宅学習</span>
+                                <span class="special-tag">ICT教育</span>
+                            </div>
+                            <p class="special-summary">
+                                最新のICT技術を活用したオンライン学習システムを導入している学校をご紹介。自宅にいながら質の高い教育を受けられる環境を詳しく解説します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月5日</span>
+                                <span>読了時間: 6分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="admission">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="転入編入ガイド">
+                            <div class="special-badge">ガイド</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>転入・編入の手続き完全ガイド</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">転入</span>
+                                <span class="special-tag">編入</span>
+                                <span class="special-tag">手続き</span>
+                            </div>
+                            <p class="special-summary">
+                                転入・編入を検討している方必見！必要な書類や手続きの流れ、タイミングについて分かりやすく解説。失敗しないためのポイントもご紹介します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月3日</span>
+                                <span>読了時間: 8分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="special-card" data-category="career">
+                    <a href="supports-school.html">
+                        <div class="special-card-image">
+                            <img src="https://placehold.jp/350x200.png" alt="就職サポート特集">
+                            <div class="special-badge">サポート</div>
+                        </div>
+                        <div class="special-card-content">
+                            <h3>就職サポートが手厚い通信制高校</h3>
+                            <div class="special-tags">
+                                <span class="special-tag">就職サポート</span>
+                                <span class="special-tag">キャリア支援</span>
+                                <span class="special-tag">企業連携</span>
+                            </div>
+                            <p class="special-summary">
+                                高校卒業後の就職を目指す方におすすめ！企業との連携が強く、就職サポートが充実している通信制高校をご紹介します。
+                            </p>
+                            <div class="special-meta">
+                                <span>2024年1月1日</span>
+                                <span>読了時間: 9分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn">さらに読み込む</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // フィルター機能
+            const filterOptions = document.querySelectorAll('.filter-option');
+            const specialCards = document.querySelectorAll('.special-card');
+
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // カードの表示/非表示
+                    specialCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // さらに読み込むボタン
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            loadMoreBtn.addEventListener('click', function() {
+                // 実際の実装では、ここでAjaxリクエストを送信して追加のコンテンツを読み込む
+                alert('さらにコンテンツを読み込みます（実装予定）');
+            });
+        });
+    </script>
+</body>
+</html> 

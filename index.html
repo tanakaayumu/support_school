@@ -520,6 +520,55 @@
             }
         }
         
+        /* セクションヘッダーのスタイル調整 */
+        .special-section .recent-header,
+        .interview-section .recent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 15px 0 20px 0;
+            padding: 8px 20px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border-bottom: 2px solid #2980b9;
+        }
+        
+        .special-section .section-title,
+        .interview-section .section-title {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: none;
+            padding: 0;
+            background-color: transparent;
+        }
+        
+        .special-section .section-title i,
+        .interview-section .section-title i {
+            margin-right: 10px;
+            color: #2980b9;
+        }
+        
+        .special-section .view-all-link,
+        .interview-section .view-all-link {
+            color: #0066cc;
+            font-size: 14px;
+            text-decoration: none;
+            background-color: #e1ebfb;
+            padding: 4px 12px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        
+        .special-section .view-all-link:hover,
+        .interview-section .view-all-link:hover {
+            background-color: #d0e1f9;
+        }
+        
         /* 特集セクションのスタイル */
         .special-section {
             background-color: #f5f5f5;
@@ -1395,22 +1444,22 @@
             </div>
 
             <div class="footer-menu-items">
-                <a href="#" class="footer-menu-item">
+                <a href="writers.html" class="footer-menu-item">
                     <span>執筆者一覧</span>
                 </a>
-                <a href="#" class="footer-menu-item">
+                <a href="faq.html" class="footer-menu-item">
                     <span>よくある質問</span>
                 </a>
-                <a href="#" class="footer-menu-item">
+                <a href="contact.html" class="footer-menu-item">
                     <span>ご意見・ご質問</span>
                 </a>
-                <a href="#" class="footer-menu-item">
+                <a href="review-submit.html" class="footer-menu-item">
                     <span>口コミ投稿</span>
                 </a>
-                <a href="#" class="footer-menu-item">
+                <a href="experience-submit.html" class="footer-menu-item">
                     <span>受験体験記投稿</span>
                 </a>
-                <a href="#" class="footer-menu-item">
+                <a href="policy.html" class="footer-menu-item">
                     <span>運営ポリシー</span>
                 </a>
             </div>
@@ -1506,10 +1555,13 @@
         </div>
 
         <section class="special-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-user-graduate"></i>
-                <span>学校の魅力を紹介</span>
-            </h2>
+            <div class="recent-header">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <span>学校の魅力を紹介</span>
+                </h2>
+                <a href="school-introduction.html" class="view-all-link">すべて見る</a>
+            </div>
             <div class="school-intro-list">
                 <div class="school-intro-item">
                     <a href="school-news.html">
@@ -1568,10 +1620,13 @@
         </section>
 
         <section class="interview-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-comment"></i>
-                <span>インタビュー・体験談</span>
-            </h2>
+            <div class="recent-header">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-comment"></i>
+                    <span>インタビュー・体験談</span>
+                </h2>
+                <a href="interview-list.html" class="view-all-link">すべて見る</a>
+            </div>
             <div class="interview-list">
                 <div class="interview-item">
                     <a href="interview.html">
@@ -1630,10 +1685,13 @@
         </section>
 
         <section class="special-section">
-            <h2 class="section-title">
-                <i class="fa-solid fa-star"></i>
-                <span>特集</span>
-            </h2>
+            <div class="recent-header">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-star"></i>
+                    <span>特集</span>
+                </h2>
+                <a href="special-features.html" class="view-all-link">すべて見る</a>
+            </div>
             <div class="special-content">
                 <a href="supports-school.html">
                     <div class="special-banner">
@@ -1814,11 +1872,11 @@
                     </div>
                     <div class="accordion-content">
                         <div class="school-type-ranking-list">
-                            <div class="school-type-ranking-item" onclick="window.location.href='ranking.html?type=tsuushin'">
+                            <div class="school-type-ranking-item" onclick="window.location.href='area-results.html?schoolTypes=tsuushin'">
                                 <span>通信制高校</span>
                                 <i class="fa-solid fa-chevron-right ranking-arrow"></i>
                             </div>
-                            <div class="school-type-ranking-item" onclick="window.location.href='ranking.html?type=support'">
+                            <div class="school-type-ranking-item" onclick="window.location.href='area-results.html?schoolTypes=support'">
                                 <span>通信制サポート校</span>
                                 <i class="fa-solid fa-chevron-right ranking-arrow"></i>
                             </div>
@@ -1832,31 +1890,39 @@
         <section class="support-section">
             <h3 class="support-title">特徴から通信制高校・サポート校を探す</h3>
             <ul class="support-links">
-                <li><a href="feature-results.html?feature=futoukou">不登校支援</a></li>
-                <li><a href="feature-results.html?feature=online">オンライン授業</a></li>
-                <li><a href="feature-results.html?feature=shingaku">大学進学サポート</a></li>
-                <li><a href="feature-results.html?feature=sports">スポーツコース</a></li>
-                <li><a href="feature-results.html?feature=programming">プログラミング</a></li>
-                <li><a href="feature-results.html?feature=art">美術・芸術</a></li>
-                <li><a href="feature-results.html?feature=esports">eスポーツ</a></li>
-                <li><a href="feature-results.html?feature=music">音楽</a></li>
-                <li><a href="feature-results.html?feature=fashion">ファッション・美容</a></li>
-                <li><a href="feature-results.html?feature=cooking">調理・製菓</a></li>
-                <li><a href="feature-results.html?feature=nursing">看護・医療</a></li>
-                <li><a href="feature-results.html?feature=business">ビジネス・経営</a></li>
+                <li><a href="area-results.html?features=camp-schooling">合宿タイプのスクーリングあり</a></li>
+                <li><a href="area-results.html?features=daily-attendance">毎日登校可能</a></li>
+                <li><a href="area-results.html?features=weekly-attendance">週1〜週3日登校</a></li>
+                <li><a href="area-results.html?features=less-schooling">スクーリングが少ない</a></li>
+                <li><a href="area-results.html?features=online-course">ネットコースあり</a></li>
+                <li><a href="area-results.html?features=individual-guidance">個別指導あり</a></li>
+                <li><a href="area-results.html?features=transfer-ready">すぐに転入・編入できる</a></li>
+                <li><a href="area-results.html?features=recommendation">指定校推薦あり</a></li>
+                <li><a href="area-results.html?features=uniform">制服あり</a></li>
+                <li><a href="area-results.html?features=events">行事・イベントあり</a></li>
+                <li><a href="area-results.html?features=club">クラブ活動あり</a></li>
+                <li><a href="area-results.html?features=mental-support">メンタルサポートあり</a></li>
+                <li><a href="area-results.html?features=truancy-support">不登校サポートあり</a></li>
+                <li><a href="area-results.html?features=developmental-support">発達障害のサポートあり</a></li>
+                <li><a href="area-results.html?features=qualification-support">資格取得サポートあり</a></li>
+                <li><a href="area-results.html?features=job-support">就職サポートあり</a></li>
             </ul>
             <h3 class="support-title">学びたいことから通信制高校・サポート校を探す</h3>
             <ul class="support-links">
-                <li><a href="feature-results.html?feature=sports">スポーツ</a></li>
-                <li><a href="feature-results.html?feature=programming">プログラミング</a></li>
-                <li><a href="feature-results.html?feature=art">美術・芸術</a></li>
-                <li><a href="feature-results.html?feature=shingaku">大学進学サポート</a></li>
-                <li><a href="feature-results.html?feature=esports">eスポーツ</a></li>
-                <li><a href="feature-results.html?feature=music">音楽</a></li>
-                <li><a href="feature-results.html?feature=fashion">ファッション・美容</a></li>
-                <li><a href="feature-results.html?feature=cooking">調理・製菓</a></li>
-                <li><a href="feature-results.html?feature=nursing">看護・医療</a></li>
-                <li><a href="feature-results.html?feature=business">ビジネス・経営</a></li>
+                <li><a href="area-results.html?learnings=sports-athlete">スポーツ・アスリート</a></li>
+                <li><a href="area-results.html?learnings=pet-trimmer-trainer">ペット（トリマー・トレーナー）</a></li>
+                <li><a href="area-results.html?learnings=music-dance">音楽・ダンス</a></li>
+                <li><a href="area-results.html?learnings=voice-actor-entertainment">声優・芸能</a></li>
+                <li><a href="area-results.html?learnings=fashion-beauty">ファッション・美容</a></li>
+                <li><a href="area-results.html?learnings=cooking-patissier">調理・パティシエ</a></li>
+                <li><a href="area-results.html?learnings=anime-manga-illustration">アニメ・マンガ・イラスト</a></li>
+                <li><a href="area-results.html?learnings=game-esports">ゲーム・eスポーツ</a></li>
+                <li><a href="area-results.html?learnings=english-language-study-abroad">英語・語学・海外留学</a></li>
+                <li><a href="area-results.html?learnings=university-entrance-exam">大学進学・大学受験対策</a></li>
+                <li><a href="area-results.html?learnings=high-school-equivalency">高卒認定試験対策</a></li>
+                <li><a href="area-results.html?learnings=art-fine-arts">美術・芸術</a></li>
+                <li><a href="area-results.html?learnings=childcare-welfare-medical">保育・福祉・医療系</a></li>
+                <li><a href="area-results.html?learnings=programming-it-skills">プログラミング・ITスキル</a></li>
             </ul>
         </section>
 

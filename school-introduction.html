@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学校の魅力を紹介 | サービス名</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="modal.css">
+    <style>
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .page-title i {
+            margin-right: 10px;
+            color: #0075a9;
+        }
+        
+        .page-description {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .school-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .school-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .school-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .school-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .school-card-content {
+            padding: 20px;
+        }
+        
+        .school-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .school-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+        
+        .school-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .school-tag {
+            background-color: #e1ebfb;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .school-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .filter-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-option:hover,
+        .filter-option.active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1976d2;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #1565c0;
+        }
+        
+        @media (max-width: 768px) {
+            .school-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                gap: 8px;
+            }
+            
+            .filter-option {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item menu-trigger">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">サービス名</a>
+                <span class="separator">＞</span>
+                <span>学校の魅力を紹介</span>
+            </div>
+
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    学校の魅力を紹介
+                </h1>
+                <p class="page-description">
+                    通信制高校・サポート校の特色や魅力を詳しくご紹介。各学校の独自の取り組みや教育方針、卒業生の声などをお届けします。
+                </p>
+            </div>
+
+            <div class="filter-section">
+                <h2 class="filter-title">学校タイプで絞り込み</h2>
+                <div class="filter-options">
+                    <div class="filter-option active" data-filter="all">すべて</div>
+                    <div class="filter-option" data-filter="tsuushin">通信制高校</div>
+                    <div class="filter-option" data-filter="support">サポート校</div>
+                    <div class="filter-option" data-filter="online">オンライン特化</div>
+                    <div class="filter-option" data-filter="specialized">専門コース</div>
+                </div>
+            </div>
+
+            <div class="school-grid">
+                <div class="school-card" data-category="support">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="トライ式高等学院">
+                        <div class="school-card-content">
+                            <h3>トライ式高等学院</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">個別指導</span>
+                                <span class="school-tag">大学受験</span>
+                                <span class="school-tag">不登校サポート</span>
+                            </div>
+                            <p>完全マンツーマン指導で一人ひとりに最適な学習プラン。いつでも利用可能な自習専用自習室で、学習習慣が身につきます。</p>
+                            <div class="school-meta">
+                                <span>2024年1月15日</span>
+                                <span>サポート校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="support">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="ベネッセ高等学院">
+                        <div class="school-card-content">
+                            <h3>ベネッセ高等学院</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">進路指導</span>
+                                <span class="school-tag">キャリア教育</span>
+                                <span class="school-tag">大学受験</span>
+                            </div>
+                            <p>ベネッセグループの教育ノウハウを活かした質の高い教育。一人ひとりの将来を見据えた進路指導を行います。</p>
+                            <div class="school-meta">
+                                <span>2024年1月10日</span>
+                                <span>サポート校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="tsuushin">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="クラーク記念国際高等学校">
+                        <div class="school-card-content">
+                            <h3>クラーク記念国際高等学校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">国際教育</span>
+                                <span class="school-tag">全日制同等</span>
+                                <span class="school-tag">部活動</span>
+                            </div>
+                            <p>全日制と同じ学校生活を送りながら確実に卒業資格を取得。国際的な視野を育む教育プログラムが充実しています。</p>
+                            <div class="school-meta">
+                                <span>2024年1月8日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="online">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="N高等学校">
+                        <div class="school-card-content">
+                            <h3>N高等学校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">IT教育</span>
+                                <span class="school-tag">オンライン</span>
+                                <span class="school-tag">プログラミング</span>
+                            </div>
+                            <p>ネットとリアルを融合した最新の学習環境で未来を創る。IT技術を活用した革新的な教育システムが特徴です。</p>
+                            <div class="school-meta">
+                                <span>2024年1月5日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="tsuushin">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="第一学院高等学校">
+                        <div class="school-card-content">
+                            <h3>第一学院高等学校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">個性重視</span>
+                                <span class="school-tag">メンタルサポート</span>
+                                <span class="school-tag">多様な学習</span>
+                            </div>
+                            <p>一人ひとりの個性を大切にしたサポートで自分らしく成長。多様な学習スタイルに対応した柔軟な教育システムです。</p>
+                            <div class="school-meta">
+                                <span>2024年1月3日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="specialized">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="ヒューマンキャンパス高校">
+                        <div class="school-card-content">
+                            <h3>ヒューマンキャンパス高校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">専門分野</span>
+                                <span class="school-tag">声優・芸能</span>
+                                <span class="school-tag">ゲーム・IT</span>
+                            </div>
+                            <p>40以上の専門分野から選択可能。声優、ゲーム、美容など、好きなことを学びながら高校卒業資格を取得できます。</p>
+                            <div class="school-meta">
+                                <span>2024年1月1日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="tsuushin">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="鹿島学園高等学校">
+                        <div class="school-card-content">
+                            <h3>鹿島学園高等学校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">自由度高い</span>
+                                <span class="school-tag">スクーリング少</span>
+                                <span class="school-tag">働きながら</span>
+                            </div>
+                            <p>自分のペースで学習できる柔軟なシステム。働きながらでも無理なく高校卒業資格を取得することができます。</p>
+                            <div class="school-meta">
+                                <span>2023年12月28日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="school-card" data-category="online">
+                    <a href="school_detail.html">
+                        <img src="https://placehold.jp/300x200.png" alt="NHK学園高等学校">
+                        <div class="school-card-content">
+                            <h3>NHK学園高等学校</h3>
+                            <div class="school-tags">
+                                <span class="school-tag">歴史ある</span>
+                                <span class="school-tag">NHK教材</span>
+                                <span class="school-tag">質の高い教育</span>
+                            </div>
+                            <p>日本初の通信制高校として長い歴史と実績。NHKの豊富な教育コンテンツを活用した質の高い学習が可能です。</p>
+                            <div class="school-meta">
+                                <span>2023年12月25日</span>
+                                <span>通信制高校</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn">さらに読み込む</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // フィルター機能
+            const filterOptions = document.querySelectorAll('.filter-option');
+            const schoolCards = document.querySelectorAll('.school-card');
+
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // カードの表示/非表示
+                    schoolCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // さらに読み込むボタン
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            loadMoreBtn.addEventListener('click', function() {
+                // 実際の実装では、ここでAjaxリクエストを送信して追加のコンテンツを読み込む
+                alert('さらにコンテンツを読み込みます（実装予定）');
+            });
+        });
+    </script>
+</body>
+</html> 

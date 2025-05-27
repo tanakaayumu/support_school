@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インタビュー・体験談 | サービス名</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="modal.css">
+    <style>
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .page-title i {
+            margin-right: 10px;
+            color: #0075a9;
+        }
+        
+        .page-description {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .interview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .interview-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .interview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .interview-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .interview-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .interview-card-content {
+            padding: 20px;
+        }
+        
+        .interview-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .interview-person {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .person-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .person-info {
+            flex: 1;
+        }
+        
+        .person-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .person-school {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .interview-summary {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .interview-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .interview-tag {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .interview-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .filter-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-option:hover,
+        .filter-option.active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1976d2;
+        }
+        
+        .featured-interview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-interview::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .featured-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .featured-description {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .featured-btn {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .featured-btn:hover {
+            background-color: white;
+            color: #667eea;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #1565c0;
+        }
+        
+        @media (max-width: 768px) {
+            .interview-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                gap: 8px;
+            }
+            
+            .filter-option {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .featured-interview {
+                padding: 20px;
+            }
+            
+            .featured-title {
+                font-size: 18px;
+            }
+            
+            .featured-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="site-logo">
+                    <a href="index.html"><img src="https://placehold.jp/120x40.png?text=サービス名" alt="サービス名ロゴ"></a>
+                </div>
+                <div class="header-actions">
+                    <div class="user-nav">
+                        <a href="#" class="user-nav-item">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>お気に入り</span>
+                        </a>
+                        <a href="#" class="user-nav-item menu-trigger">
+                            <i class="fa-solid fa-bars"></i>
+                            <span>メニュー</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">サービス名</a>
+                <span class="separator">＞</span>
+                <span>インタビュー・体験談</span>
+            </div>
+
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fa-solid fa-comment"></i>
+                    インタビュー・体験談
+                </h1>
+                <p class="page-description">
+                    通信制高校・サポート校の卒業生や在校生の生の声をお届け。進路選択の参考になる体験談やインタビューを多数掲載しています。
+                </p>
+            </div>
+
+            <div class="featured-interview">
+                <div class="featured-content">
+                    <h2 class="featured-title">注目のインタビュー</h2>
+                    <p class="featured-description">
+                        不登校から難関大学合格を果たした卒業生の感動ストーリー
+                    </p>
+                    <a href="interview.html" class="featured-btn">詳しく読む</a>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h2 class="filter-title">カテゴリーで絞り込み</h2>
+                <div class="filter-options">
+                    <div class="filter-option active" data-filter="all">すべて</div>
+                    <div class="filter-option" data-filter="success">進学成功</div>
+                    <div class="filter-option" data-filter="career">就職・キャリア</div>
+                    <div class="filter-option" data-filter="support">不登校サポート</div>
+                    <div class="filter-option" data-filter="creative">クリエイティブ</div>
+                    <div class="filter-option" data-filter="sports">スポーツ</div>
+                </div>
+            </div>
+
+            <div class="interview-grid">
+                <div class="interview-card" data-category="success">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="山田さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>不登校から大学合格を勝ち取った体験談</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">山</div>
+                                <div class="person-info">
+                                    <div class="person-name">山田 太郎さん</div>
+                                    <div class="person-school">トライ式高等学院 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">不登校</span>
+                                <span class="interview-tag">大学受験</span>
+                                <span class="interview-tag">個別指導</span>
+                            </div>
+                            <p class="interview-summary">
+                                中学時代から不登校だった私が、トライ式高等学院で学び直し、念願の大学合格を果たすまでの道のりをお話しします。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月15日</span>
+                                <span>読了時間: 5分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="career">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="佐藤さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>海外大学への進学を実現した方法</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">佐</div>
+                                <div class="person-info">
+                                    <div class="person-name">佐藤 花子さん</div>
+                                    <div class="person-school">N高等学校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">海外進学</span>
+                                <span class="interview-tag">英語学習</span>
+                                <span class="interview-tag">オンライン</span>
+                            </div>
+                            <p class="interview-summary">
+                                N高等学校のオンライン環境を活用して英語力を向上させ、アメリカの大学への進学を実現した体験談をご紹介します。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月12日</span>
+                                <span>読了時間: 7分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="creative">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="鈴木さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>プログラミングで未来を切り開く</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">鈴</div>
+                                <div class="person-info">
+                                    <div class="person-name">鈴木 一郎さん</div>
+                                    <div class="person-school">ヒューマンキャンパス高校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">プログラミング</span>
+                                <span class="interview-tag">IT業界</span>
+                                <span class="interview-tag">専門コース</span>
+                            </div>
+                            <p class="interview-summary">
+                                高校時代からプログラミングを学び、現在はIT企業でエンジニアとして活躍する鈴木さんの成長ストーリーです。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月10日</span>
+                                <span>読了時間: 6分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="creative">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="田中さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>芸能活動と学業を両立させた秘訣</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">田</div>
+                                <div class="person-info">
+                                    <div class="person-name">田中 美咲さん</div>
+                                    <div class="person-school">クラーク記念国際高等学校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">芸能活動</span>
+                                <span class="interview-tag">両立</span>
+                                <span class="interview-tag">時間管理</span>
+                            </div>
+                            <p class="interview-summary">
+                                アイドル活動をしながら高校卒業を目指した田中さん。忙しいスケジュールの中での学習方法をお聞きしました。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月8日</span>
+                                <span>読了時間: 5分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="sports">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="高橋さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>eスポーツプロから教師への転身物語</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">高</div>
+                                <div class="person-info">
+                                    <div class="person-name">高橋 健太さん</div>
+                                    <div class="person-school">第一学院高等学校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">eスポーツ</span>
+                                <span class="interview-tag">教師</span>
+                                <span class="interview-tag">キャリアチェンジ</span>
+                            </div>
+                            <p class="interview-summary">
+                                プロゲーマーとして活動していた高橋さんが、教師を目指すきっかけと現在の活動についてお話しいただきました。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月5日</span>
+                                <span>読了時間: 8分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="support">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="中村さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>発達障害と向き合いながらの高校生活</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">中</div>
+                                <div class="person-info">
+                                    <div class="person-name">中村 翔太さん</div>
+                                    <div class="person-school">鹿島学園高等学校 在学中</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">発達障害</span>
+                                <span class="interview-tag">サポート</span>
+                                <span class="interview-tag">自分らしさ</span>
+                            </div>
+                            <p class="interview-summary">
+                                発達障害の特性を理解してくれる環境で、自分らしく学校生活を送る中村さんの体験談をお聞きしました。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月3日</span>
+                                <span>読了時間: 6分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="success">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="小林さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>働きながら高校卒業を実現した体験談</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">小</div>
+                                <div class="person-info">
+                                    <div class="person-name">小林 真由美さん</div>
+                                    <div class="person-school">NHK学園高等学校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">働きながら</span>
+                                <span class="interview-tag">時間管理</span>
+                                <span class="interview-tag">継続力</span>
+                            </div>
+                            <p class="interview-summary">
+                                家計を支えながら高校卒業を目指した小林さん。仕事と学習の両立方法について詳しくお聞きしました。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2024年1月1日</span>
+                                <span>読了時間: 7分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="interview-card" data-category="career">
+                    <a href="interview.html">
+                        <img src="https://placehold.jp/350x200.png" alt="渡辺さんインタビュー">
+                        <div class="interview-card-content">
+                            <h3>美容師への夢を叶えた専門コース体験談</h3>
+                            <div class="interview-person">
+                                <div class="person-avatar">渡</div>
+                                <div class="person-info">
+                                    <div class="person-name">渡辺 あゆみさん</div>
+                                    <div class="person-school">ヒューマンキャンパス高校 卒業</div>
+                                </div>
+                            </div>
+                            <div class="interview-tags">
+                                <span class="interview-tag">美容</span>
+                                <span class="interview-tag">専門技術</span>
+                                <span class="interview-tag">夢実現</span>
+                            </div>
+                            <p class="interview-summary">
+                                高校時代から美容の専門技術を学び、現在は美容師として活躍する渡辺さんの成功ストーリーです。
+                            </p>
+                            <div class="interview-meta">
+                                <span>2023年12月28日</span>
+                                <span>読了時間: 5分</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn">さらに読み込む</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://placehold.jp/200x60.png" alt="サービス名ロゴ">
+            </div>
+            <div class="footer-info">
+                <h3>サービス名が選ばれる3つの理由</h3>
+                <ul>
+                    <li>
+                        <span class="footer-number">掲載キャンパス数</span>
+                        <span class="footer-value">39,310</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">生徒・ご家族口コミ</span>
+                        <span class="footer-value">10,000件以上</span>
+                    </li>
+                    <li>
+                        <span class="footer-number">掲載情報</span>
+                        <span class="footer-value">健全な教材</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 サービス名 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // フィルター機能
+            const filterOptions = document.querySelectorAll('.filter-option');
+            const interviewCards = document.querySelectorAll('.interview-card');
+
+            filterOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // アクティブクラスの切り替え
+                    filterOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    // カードの表示/非表示
+                    interviewCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // さらに読み込むボタン
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            loadMoreBtn.addEventListener('click', function() {
+                // 実際の実装では、ここでAjaxリクエストを送信して追加のコンテンツを読み込む
+                alert('さらにコンテンツを読み込みます（実装予定）');
+            });
+        });
+    </script>
+</body>
+</html> 

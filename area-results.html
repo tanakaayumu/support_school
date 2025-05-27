@@ -1448,6 +1448,33 @@
                 
                 // 近くの教室セクションのタイトルを更新
                 updateNearbySchoolTitles(prefecture);
+            } else if (schoolTypes && schoolTypes.length > 0) {
+                // 学校タイプのみが指定されている場合のヘッドライン更新
+                const pageHeading = document.querySelector('.page-heading');
+                if (pageHeading) {
+                    const schoolTypeTexts = schoolTypes.map(type => schoolTypeLabels[type] || type);
+                    pageHeading.textContent = `${schoolTypeTexts.join('・')}一覧`;
+                }
+                
+                // エリアは未選択のままにする（「選択してください」のまま）
+            } else if (features && features.length > 0) {
+                // 特徴のみが指定されている場合のヘッドライン更新
+                const pageHeading = document.querySelector('.page-heading');
+                if (pageHeading) {
+                    const featureTexts = features.map(feature => featureLabels[feature] || feature);
+                    pageHeading.textContent = `${featureTexts.join('・')}の通信制高校・サポート校一覧`;
+                }
+                
+                // エリアは未選択のままにする（「選択してください」のまま）
+            } else if (learnings && learnings.length > 0) {
+                // 学びたいことのみが指定されている場合のヘッドライン更新
+                const pageHeading = document.querySelector('.page-heading');
+                if (pageHeading) {
+                    const learningTexts = learnings.map(learning => learningLabels[learning] || learning);
+                    pageHeading.textContent = `${learningTexts.join('・')}の通信制高校・サポート校一覧`;
+                }
+                
+                // エリアは未選択のままにする（「選択してください」のまま）
             }
             
             // 特徴の選択を表示

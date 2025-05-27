@@ -384,6 +384,92 @@
         .nearby-all-link a:hover {
             text-decoration: underline;
         }
+        
+        /* おすすめポイントセクション */
+        .recommend-points-section {
+            background-color: #fff9e6;
+            border: 1px solid #ffe0b3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+        }
+        
+        .recommend-points-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 8px;
+        }
+        
+        .recommend-points-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .recommend-points-subtitle {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .recommend-points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .recommend-point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .recommend-point-item i {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        /* 体験記・口コミリンクセクション */
+        .experience-links-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .experience-link-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .experience-link {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .experience-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .experience-links-section {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .recommend-points-section {
+                margin: 10px;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -512,38 +598,42 @@
                 完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
             </div>
 
-            <div class="photo-gallery">
-                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            <!-- おすすめポイントセクション -->
+            <div class="recommend-points-section">
+                <div class="recommend-points-header">
+                    <i class="fas fa-star" style="color: #ff6600;"></i>
+                    <span class="recommend-points-title">トライ式高等学院</span>
+                    <span class="recommend-points-subtitle">おすすめポイント</span>
+                </div>
+                <div class="recommend-points-list">
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>完全マンツーマン指導で一人ひとりに最適な学習プラン</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>いつでも利用可能な自習専用自習室で、学習習慣が身につく</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>オリジナル教材や専用授業で、万全の定期テスト対策</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="review-box">
-                <div class="review-header">
-                    <div class="review-icon">
-                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
-                    </div>
-                    <div>
-                        <div class="review-rating">
-                            総合評価：
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            4
-                        </div>
-                    </div>
+            <!-- 体験記・口コミリンクセクション -->
+            <div class="experience-links-section">
+                <div class="experience-link-item">
+                    <i class="fas fa-users" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">合格体験記</a>
                 </div>
-                <div class="review-text">
-                    うちの場合は個別指導がとても合っていました。ただ、他と比べられることがないので競争心がなくなるので少しのんびりしていたなと思います。クラス分けなどある塾だともう少し危機感がはたと思いますが、そういうのはなかったです。ただ個別なので質問などしやすかったようです
-                </div>
-                <div class="read-more">
-                    <a href="#">続きを読む ＞</a>
+                <div class="experience-link-item">
+                    <i class="fas fa-comments" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">学校の口コミ(3311)</a>
                 </div>
             </div>
+
+
 
             <div class="action-buttons">
 
@@ -620,38 +710,44 @@
                 完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
             </div>
 
-            <div class="photo-gallery">
-                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            <!-- おすすめポイントセクション -->
+            <div class="recommend-points-section">
+                <div class="recommend-points-header">
+                    <i class="fas fa-star" style="color: #ff6600;"></i>
+                    <span class="recommend-points-title">東京通信制高校</span>
+                    <span class="recommend-points-subtitle">おすすめポイント</span>
+                </div>
+                <div class="recommend-points-list">
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>充実したオンライン授業で自分のペースで学習可能</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>個別サポート体制で一人ひとりの進路をしっかりサポート</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>多様な専門コースで将来の目標に向けた学習</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="review-box">
-                <div class="review-header">
-                    <div class="review-icon">
-                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
-                    </div>
-                    <div>
-                        <div class="review-rating">
-                            総合評価：
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            4
-                        </div>
-                    </div>
+            <!-- 体験記・口コミリンクセクション -->
+            <div class="experience-links-section">
+                <div class="experience-link-item">
+                    <i class="fas fa-users" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">合格体験記</a>
                 </div>
-                <div class="review-text">
-                    充実したオンライン授業と個別サポートで学習効率を高めます。
-                </div>
-                <div class="read-more">
-                    <a href="#">続きを読む ＞</a>
+                <div class="experience-link-item">
+                    <i class="fas fa-comments" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">学校の口コミ(2156)</a>
                 </div>
             </div>
+
+
+
+ 
 
             <div class="action-buttons">
                
@@ -727,38 +823,44 @@
                 完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
             </div>
 
-            <div class="photo-gallery">
-                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            <!-- おすすめポイントセクション -->
+            <div class="recommend-points-section">
+                <div class="recommend-points-header">
+                    <i class="fas fa-star" style="color: #ff6600;"></i>
+                    <span class="recommend-points-title">日本通信制高校</span>
+                    <span class="recommend-points-subtitle">おすすめポイント</span>
+                </div>
+                <div class="recommend-points-list">
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>柔軟な学習スケジュールで働きながらでも学習継続</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>経験豊富な教師陣による質の高い指導とサポート</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>進路指導から就職支援まで充実したキャリアサポート</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="review-box">
-                <div class="review-header">
-                    <div class="review-icon">
-                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
-                    </div>
-                    <div>
-                        <div class="review-rating">
-                            総合評価：
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            4
-                        </div>
-                    </div>
+            <!-- 体験記・口コミリンクセクション -->
+            <div class="experience-links-section">
+                <div class="experience-link-item">
+                    <i class="fas fa-users" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">合格体験記</a>
                 </div>
-                <div class="review-text">
-                    充実したオンライン授業と個別サポートで学習効率を高めます。
-                </div>
-                <div class="read-more">
-                    <a href="#">続きを読む ＞</a>
+                <div class="experience-link-item">
+                    <i class="fas fa-comments" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">学校の口コミ(1892)</a>
                 </div>
             </div>
+
+
+
+
 
             <div class="action-buttons">
                
@@ -834,38 +936,42 @@
                 完全1対1の個別指導が手厚い進学塾。難関校への合格者も多数輩出！
             </div>
 
-            <div class="photo-gallery">
-                <img src="https://placehold.jp/200x150.png" alt="教室の様子" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="授業風景" class="gallery-image">
-                <img src="https://placehold.jp/200x150.png" alt="施設" class="gallery-image">
+            <!-- おすすめポイントセクション -->
+            <div class="recommend-points-section">
+                <div class="recommend-points-header">
+                    <i class="fas fa-star" style="color: #ff6600;"></i>
+                    <span class="recommend-points-title">未来通信制高校</span>
+                    <span class="recommend-points-subtitle">おすすめポイント</span>
+                </div>
+                <div class="recommend-points-list">
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>最新のICT技術を活用した革新的な学習環境</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>プログラミングやデザインなど未来志向の専門科目</span>
+                    </div>
+                    <div class="recommend-point-item">
+                        <i class="fas fa-check-circle" style="color: #ff6600;"></i>
+                        <span>国際的な視野を育む海外研修プログラム</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="review-box">
-                <div class="review-header">
-                    <div class="review-icon">
-                        <img src="https://placehold.jp/50x50.png" alt="ユーザーアイコン">
-                    </div>
-                    <div>
-                        <div class="review-rating">
-                            総合評価：
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            4
-                        </div>
-                    </div>
+            <!-- 体験記・口コミリンクセクション -->
+            <div class="experience-links-section">
+                <div class="experience-link-item">
+                    <i class="fas fa-users" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">合格体験記</a>
                 </div>
-                <div class="review-text">
-                    充実したオンライン授業と個別サポートで学習効率を高めます。
-                </div>
-                <div class="read-more">
-                    <a href="#">続きを読む ＞</a>
+                <div class="experience-link-item">
+                    <i class="fas fa-comments" style="color: #1976d2;"></i>
+                    <a href="#" class="experience-link">学校の口コミ(2743)</a>
                 </div>
             </div>
+
+ 
 
             <div class="action-buttons">
               
