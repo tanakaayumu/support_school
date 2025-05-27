@@ -1195,19 +1195,19 @@
                 <div class="condition-section">
                     <div class="time-options">
                         <label class="time-option">
-                            <input type="radio" name="time-limit" value="15分以内"> <span>15分以内</span>
-                        </label>
-                        <label class="time-option">
                             <input type="radio" name="time-limit" value="30分以内" checked> <span>30分以内</span>
                         </label>
                         <label class="time-option">
                             <input type="radio" name="time-limit" value="45分以内"> <span>45分以内</span>
                         </label>
                         <label class="time-option">
-                            <input type="radio" name="time-limit" value="60分以内"> <span>60分以内</span>
+                            <input type="radio" name="time-limit" value="1時間以内"> <span>1時間以内</span>
                         </label>
                         <label class="time-option">
-                            <input type="radio" name="time-limit" value="90分以内"> <span>90分以内</span>
+                            <input type="radio" name="time-limit" value="1時間30分以内"> <span>1時間30分以内</span>
+                        </label>
+                        <label class="time-option">
+                            <input type="radio" name="time-limit" value="2時間以内"> <span>2時間以内</span>
                         </label>
                     </div>
                 </div>
@@ -1356,7 +1356,20 @@
                     // タイトルも更新
                     let title = `${homeStation}駅`;
                     if (timeLimit) {
-                        title += `から${timeLimit}`;
+                        // 数値を適切な文字列に変換
+                        let timeLimitText = timeLimit;
+                        if (timeLimit === '30') {
+                            timeLimitText = '30分以内';
+                        } else if (timeLimit === '45') {
+                            timeLimitText = '45分以内';
+                        } else if (timeLimit === '60') {
+                            timeLimitText = '1時間以内';
+                        } else if (timeLimit === '90') {
+                            timeLimitText = '1時間30分以内';
+                        } else if (timeLimit === '120') {
+                            timeLimitText = '2時間以内';
+                        }
+                        title += `から${timeLimitText}`;
                     } else {
                         title += 'から30分以内';
                     }
@@ -1369,7 +1382,22 @@
             
             if (timeLimit) {
                 const timeLimitValue = document.querySelector('.condition-value[data-type="timeLimit"]');
-                if (timeLimitValue) timeLimitValue.textContent = timeLimit;
+                if (timeLimitValue) {
+                    // 数値を適切な文字列に変換
+                    let timeLimitText = timeLimit;
+                    if (timeLimit === '30') {
+                        timeLimitText = '30分以内';
+                    } else if (timeLimit === '45') {
+                        timeLimitText = '45分以内';
+                    } else if (timeLimit === '60') {
+                        timeLimitText = '1時間以内';
+                    } else if (timeLimit === '90') {
+                        timeLimitText = '1時間30分以内';
+                    } else if (timeLimit === '120') {
+                        timeLimitText = '2時間以内';
+                    }
+                    timeLimitValue.textContent = timeLimitText;
+                }
             }
             
             if (transfers) {
