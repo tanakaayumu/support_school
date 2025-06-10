@@ -724,6 +724,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // 開閉
             trigger.addEventListener('click', e => {
                 e.stopPropagation();
+                // 他の開いているドロップダウンを閉じる
+                document
+                    .querySelectorAll('.custom-select-wrapper.open')
+                    .forEach(w => {
+                        if (w !== wrapper) {
+                            w.classList.remove('open');
+                        }
+                    });
+
                 wrapper.classList.toggle('open');
             });
             // 選択
