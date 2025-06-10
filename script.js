@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // アクティブなクラスの切り替え
             accordionItem.classList.toggle('active');
             
-            // 他のアコーディオンを閉じる（一つだけ開く場合）
+            // 他のアコーディオンを閉じるロジック（任意で有効化。現在は無効化）
             /*
             const activeItems = document.querySelectorAll('.accordion-item.active');
             activeItems.forEach(item => {
