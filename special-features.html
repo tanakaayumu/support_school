@@ -7,7 +7,326 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="modal.css">
-    
+    <style>
+        .page-header {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .page-title i {
+            margin-right: 10px;
+            color: #0075a9;
+        }
+        
+        .page-description {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .featured-special {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-special::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 60,40 90,40 70,60 80,90 50,70 20,90 30,60 10,40 40,40" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 15s infinite linear;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-50px) translateY(-50px) rotate(360deg); }
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .featured-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .featured-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .featured-btn {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .featured-btn:hover {
+            background-color: white;
+            color: #ff6b6b;
+        }
+        
+        .special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .special-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .special-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .special-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .special-card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .special-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .special-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .special-card-content {
+            padding: 25px;
+        }
+        
+        .special-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .special-summary {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .special-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .special-tag {
+            background-color: #f0f8ff;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .special-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        
+        .breadcrumb a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .filter-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-option:hover,
+        .filter-option.active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1976d2;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #1565c0;
+        }
+        
+        .urgent-special {
+            border: 2px solid #ff6b6b;
+        }
+        
+        .urgent-special .special-badge {
+            background-color: #ff4757;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .popular-special {
+            border: 2px solid #ffa502;
+        }
+        
+        .popular-special .special-badge {
+            background-color: #ff9f43;
+        }
+        
+        @media (max-width: 768px) {
+            .special-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                gap: 8px;
+            }
+            
+            .filter-option {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .featured-special {
+                padding: 25px;
+            }
+            
+            .featured-title {
+                font-size: 22px;
+            }
+            
+            .featured-description {
+                font-size: 16px;
+            }
+            
+            .special-card-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
