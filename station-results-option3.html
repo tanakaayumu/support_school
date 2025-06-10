@@ -7,7 +7,476 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="modal.css">
-    
+    <style>
+        .search-condition {
+            background-color: #fff;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .condition-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .condition-row:last-child {
+            border-bottom: none;
+        }
+        .condition-label {
+            width: 80px;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .condition-value {
+            flex: 1;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+        .change-button {
+            color: #1976d2;
+            font-size: 12px;
+            padding: 5px 15px;
+        }
+        .result-count {
+            padding: 10px 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-count {
+            color: #ff6600;
+            font-weight: bold;
+        }
+        .filter-button {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+        .filter-button i {
+            margin-right: 5px;
+        }
+        .school-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .recommend-badge {
+            background-color: #ff6600;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0 0 5px 0;
+        }
+        .school-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .school-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .school-title a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        .school-title a:hover {
+            text-decoration: underline;
+        }
+        .rating-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .stars {
+            color: #ff9800;
+            margin-right: 5px;
+        }
+        .rating-score {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .review-count {
+            color: #666;
+            font-size: 12px;
+        }
+        .favorite-button {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #ddd;
+            font-size: 24px;
+        }
+        .school-access {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .map-link {
+            margin-left: 10px;
+            color: #1976d2;
+            font-size: 12px;
+        }
+        .school-info {
+            padding: 15px;
+            font-size: 12px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .tag {
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            padding: 2px 5px;
+            white-space: nowrap;
+        }
+        .school-description {
+            padding: 0 15px 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .photo-gallery {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        .gallery-image {
+            width: 200px;
+            height: 150px;
+            flex-shrink: 0;
+            object-fit: cover;
+            margin-right: 2px;
+        }
+        .review-box {
+            background-color: #fff9e3;
+            padding: 15px;
+            position: relative;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .review-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #f5f5f5;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        .review-rating {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .review-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .read-more {
+            text-align: right;
+            font-size: 12px;
+            color: #1976d2;
+        }
+        .action-buttons {
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        .action-button {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            color: white;
+        }
+        .details-button {
+            background-color: #1976d2;
+        }
+        .price-button {
+            background-color: #ff6600;
+        }
+        .page-heading {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .breadcrumb {
+            display: flex;
+            font-size: 12px;
+            margin: 10px 0;
+            align-items: center;
+        }
+        .breadcrumb a {
+            color: #1976d2;
+        }
+        .breadcrumb .separator {
+            margin: 0 5px;
+            color: #999;
+        }
+        .info-table {
+            margin-bottom: 15px;
+        }
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-value {
+            flex: 1;
+        }
+        
+        /* 近くの教室セクション */
+        .nearby-schools-section {
+            border-top: 1px solid #eee;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+        
+        .nearby-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 15px 0;
+            border-left: 4px solid #ff6600;
+            padding-left: 8px;
+        }
+        
+        .nearby-school-item {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 10px;
+            transition: box-shadow 0.3s;
+            cursor: pointer; /* entire item clickable */
+        }
+
+        .nearby-school-item:hover {
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        .nearby-school-name {
+            font-size: 18px; /* emphasize more than school-title */
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+
+        .nearby-school-name a {
+            color: #1976d2;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nearby-school-name a:hover {
+            text-decoration: underline;
+        }
+        
+        .nearby-school-access {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nearby-label {
+            font-weight: bold;
+            color: #555;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .nearby-map-link {
+            margin-left: auto;
+            color: #1976d2;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        
+        .nearby-map-link:hover {
+            text-decoration: underline;
+        }
+        
+        .nearby-action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nearby-btn {
+            flex: 1;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .nearby-btn-detail {
+            background-color: #1976d2;
+            color: white;
+        }
+        
+        .nearby-btn-detail:hover {
+            background-color: #1565c0;
+        }
+        
+        .nearby-btn-price {
+            background-color: #ff6600;
+            color: white;
+        }
+        
+        .nearby-btn-price:hover {
+            background-color: #e65100;
+        }
+        
+        .nearby-all-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .nearby-all-link a {
+            color: #1976d2;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nearby-all-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* おすすめポイントセクション */
+        .recommend-points-section {
+            background-color: #fff9e6;
+            border: 1px solid #ffe0b3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+        }
+        
+        .recommend-points-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 8px;
+        }
+        
+        .recommend-points-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .recommend-points-subtitle {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .recommend-points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .recommend-point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .recommend-point-item i {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        /* 体験記・口コミリンクセクション */
+        .experience-links-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .experience-link-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .experience-link {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .experience-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .experience-links-section {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .recommend-points-section {
+                margin: 10px;
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
