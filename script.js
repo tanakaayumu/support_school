@@ -991,4 +991,9 @@ function showToast(message) {
             toast.remove();
         }, 300);
     }, 3000);
-} 
+}
+
+// Export functions for testing in Node.js environment
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports.generateStarRating = generateStarRating;
+}
